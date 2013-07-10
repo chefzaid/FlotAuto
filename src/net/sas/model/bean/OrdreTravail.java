@@ -14,7 +14,7 @@ public class OrdreTravail {
 	private Employe employeCharge;
 	private String description;
 	private EtatOrdreTravail etat;
-	private Integer odometre;
+	private Odometre odometre;
 	private String reference;
 	private String notes;
 	
@@ -66,10 +66,10 @@ public class OrdreTravail {
 	public void setEtat(EtatOrdreTravail etat) {
 		this.etat = etat;
 	}
-	public Integer getOdometre() {
+	public Odometre getOdometre() {
 		return odometre;
 	}
-	public void setOdometre(Integer odometre) {
+	public void setOdometre(Odometre odometre) {
 		this.odometre = odometre;
 	}
 	public String getReference() {

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="net.sas.model.bean">
+	<class name="OrdreTravail">
+		<id name="id" type="long">
+			<generator class="native" />
+		</id>
+		<property name="dateCreation" type="date" />
+		<property name="dateRequis" type="date" />
+		<many-to-one name="employeDemandant" class="Employe"
+			cascade="save-update, delete, delete-orphan" />
+		<many-to-one name="employeCharge" class="Employe"
+			cascade="save-update, delete, delete-orphan" />
+		<property name="description" type="string" />
+		<property name="etat">
+			<type name="org.hibernate.type.EnumType">
+				<param name="enumClass">net.sas.model.enums.EtatOrdreTravail</param>
+			</type>
+		</property>
+		<many-to-one name="odometre" class="Odometre" unique="true"
+			cascade="save-update, delete, delete-orphan" />
+		<property name="reference" type="string" />
+		<property name="notes" type="string" />
+	</class>
+</hibernate-mapping>

@@ -1,7 +1,6 @@
 package net.sas.model.bean;
 
-import java.io.File;
-import java.util.List;
+import java.util.Set;
 
 import net.sas.model.enums.Couleur;
 import net.sas.model.enums.TypeVehicule;
@@ -11,7 +10,7 @@ public class Vehicule {
 	private Long id;
 	private String matricule;
 	private String numChassis;
-	private File photo;
+	private byte[] photo;
 	private String marque;
 	private String modele;
 	private Integer annee;
@@ -21,9 +20,9 @@ public class Vehicule {
 	private Fournisseur fournisseur;
 	private Garantie garantie;
 	private Vignette vignette;
-	private List<Assurance> assurances;
-	private List<VisiteTechnique> visitesTechniques;
-	private List<Employe> conducteurs;
+	private Set<Assurance> assurances;
+	private Set<VisiteTechnique> visitesTechniques;
+	private Set<Employe> conducteurs;
 	private String specifications;
 	private String notes;
 	
@@ -45,10 +44,10 @@ public class Vehicule {
 	public void setNumChassis(String numChassis) {
 		this.numChassis = numChassis;
 	}
-	public File getPhoto() {
+	public byte[] getPhoto() {
 		return photo;
 	}
-	public void setPhoto(File photo) {
+	public void setPhoto(byte[] photo) {
 		this.photo = photo;
 	}
 	public String getMarque() {
@@ -105,22 +104,22 @@ public class Vehicule {
 	public void setVignette(Vignette vignette) {
 		this.vignette = vignette;
 	}
-	public List<Assurance> getAssurances() {
+	public Set<Assurance> getAssurances() {
 		return assurances;
 	}
-	public void setAssurances(List<Assurance> assurances) {
+	public void setAssurances(Set<Assurance> assurances) {
 		this.assurances = assurances;
 	}
-	public List<VisiteTechnique> getVisitesTechniques() {
+	public Set<VisiteTechnique> getVisitesTechniques() {
 		return visitesTechniques;
 	}
-	public void setVisitesTechniques(List<VisiteTechnique> visitesTechniques) {
+	public void setVisitesTechniques(Set<VisiteTechnique> visitesTechniques) {
 		this.visitesTechniques = visitesTechniques;
 	}
-	public List<Employe> getConducteurs() {
+	public Set<Employe> getConducteurs() {
 		return conducteurs;
 	}
-	public void setConducteurs(List<Employe> conducteurs) {
+	public void setConducteurs(Set<Employe> conducteurs) {
 		this.conducteurs = conducteurs;
 	}
 	public String getSpecifications() {

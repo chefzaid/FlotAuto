@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="net.sas.model.bean">
+	<class name="Vehicule">
+		<id name="id" type="long">
+			<generator class="native" />
+		</id>
+		<property name="matricule" type="string" />
+		<property name="numChassis" type="string" />
+		<property name="photo" type="image" />
+		<property name="marque" type="string" />
+		<property name="modele" type="string" />
+		<property name="annee" type="integer" />
+		<property name="couleur">
+			<type name="org.hibernate.type.EnumType">
+				<param name="enumClass">net.sas.model.enums.Couleur</param>
+			</type>
+		</property>
+		<property name="type">
+			<type name="org.hibernate.type.EnumType">
+				<param name="enumClass">net.sas.model.enums.TypeVehicule</param>
+			</type>
+		</property>
+		<property name="etat" type="boolean" />
+		<many-to-one name="fournisseur" class="Fournisseur"
+			cascade="save-update, delete, delete-orphan" />
+		<many-to-one name="garantie" class="Garantie" unique="true"
+			cascade="save-update, delete, delete-orphan" />
+		<many-to-one name="vignette" class="Vignette" unique="true"
+			cascade="save-update, delete, delete-orphan" />
+		<set name="assurances" inverse="true">
+			<key column="id" />
+			<one-to-many class="Assurance" />
+		</set>
+		<set name="visitesTechniques" inverse="true">
+			<key column="id" />
+			<one-to-many class="VisiteTechnique" />
+
+		</set>
+		<set name="conducteurs">
+			<key column="id" />
+			<many-to-many class="Conducteur" />
+		</set>
+		<property name="specifications" type="string" />
+		<property name="notes" type="string" />
+	</class>
+</hibernate-mapping>

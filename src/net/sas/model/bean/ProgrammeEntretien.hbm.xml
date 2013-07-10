@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="net.sas.model.bean">
+	<class name="ProgrammeEntretien">
+		<id name="id" type="long">
+			<generator class="native" />
+		</id>
+		<property name="description" type="string" />
+		<many-to-one name="cycle" class="Frequence" unique="true"
+			cascade="save-update, delete, delete-orphan" />
+		<many-to-one name="rappel" class="Frequence" unique="true"
+			cascade="save-update, delete, delete-orphan" />
+	</class>
+</hibernate-mapping>
