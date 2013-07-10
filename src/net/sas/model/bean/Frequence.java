@@ -5,7 +5,7 @@ import net.sas.model.enums.UniteMesure;
 public class Frequence {
 	
 	private Long id;
-	private Integer rotation;
+	private Integer cycle;
 	private UniteMesure unite;
 	
 	public Long getId() {
@@ -14,11 +14,11 @@ public class Frequence {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public Integer getRotation() {
-		return rotation;
+	public Integer getCycle() {
+		return cycle;
 	}
-	public void setRotation(Integer rotation) {
-		this.rotation = rotation;
+	public void setCycle(Integer cycle) {
+		this.cycle = cycle;
 	}
 	public UniteMesure getUnite() {
 		return unite;
