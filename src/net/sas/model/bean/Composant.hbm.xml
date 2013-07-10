@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="net.sas.model.bean">
+	<class name="Composant">
+		<id name="id" type="long">
+			<generator class="native" />
+		</id>
+		<property name="description" type="string" />
+		<property name="marque" type="string" />
+		<set name="fournisseurs">
+			<key column="id" />
+			<many-to-many class="Fournisseur" />
+		</set>
+		<property name="quantite" type="integer" />
+		<property name="prix" type="double" />
+		<property name="reference" type="string" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="net.sas.model.bean">
+	<class name="Assurance"> 
+		<id name="id" type="long"> 
+			<generator class="native"/> 
+		</id>
+		<many-to-one name="vehicule" class="Vehicule"
+				unique="true" cascade="save-update, delete, delete-orphan" />
+		<property name="assureur" type="string" />
+		<property name="cle" type="string" /> 
+		<property name="dateDebut" type="date" /> 
+		<property name="dateFin" type="date" />
+		<property name="notes" type="string" />  
+	</class>
+</hibernate-mapping>

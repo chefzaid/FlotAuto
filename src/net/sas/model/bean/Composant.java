@@ -1,5 +1,7 @@
 package net.sas.model.bean;
 
+import java.util.Set;
+
 import net.sas.model.enums.TypeComposant;
 
 public class Composant {
@@ -8,7 +10,7 @@ public class Composant {
 	private TypeComposant type;
 	private String description;
 	private String marque;
-	private Fournisseur fournisseur;
+	private Set<Fournisseur> fournisseurs;
 	private Integer quantite;
 	private Double prix;
 	private String reference;
@@ -37,11 +39,11 @@ public class Composant {
 	public void setMarque(String marque) {
 		this.marque = marque;
 	}
-	public Fournisseur getFournisseur() {
-		return fournisseur;
+	public Set<Fournisseur> getFournisseurs() {
+		return fournisseurs;
 	}
-	public void setFournisseur(Fournisseur fournisseur) {
-		this.fournisseur = fournisseur;
+	public void setFournisseurs(Set<Fournisseur> fournisseurs) {
+		this.fournisseurs = fournisseurs;
 	}
 	public Integer getQuantite() {
 		return quantite;

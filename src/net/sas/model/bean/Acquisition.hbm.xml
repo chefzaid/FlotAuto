@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="net.sas.model.bean">
+	<class name="Acquisition">
+		<id name="id" type="long">
+			<generator class="native" />
+		</id>
+		<property name="type">
+			<type name="org.hibernate.type.EnumType">
+				<param name="enumClass">net.sas.model.enums.TypeAcquisition</param>
+			</type>
+		</property>
+		<many-to-one name="vehicule" class="Vehicule" unique="true"
+			cascade="save-update, delete, delete-orphan" />
+		<many-to-one name="fournisseur" class="Fournisseur"
+			cascade="save-update, delete" />
+		<property name="dateAcquisition" type="date" />
+		<property name="prix" type="double" />
+		<many-to-one name="garantie" class="Garantie" unique="true"
+			cascade="save-update, delete, delete-orphan" />
+		<many-to-one name="odometreAcquisition" class="Odometre"
+			unique="true" cascade="save-update, delete, delete-orphan" />
+		<property name="notes" type="string" />
+	</class>
+</hibernate-mapping>
+	

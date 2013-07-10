@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="net.sas.model.bean">
+	<class name="Fournisseur">
+		<id name="id" type="long">
+			<generator class="native" />
+		</id>
+		<property name="raisonSociale" type="string" />
+		<property name="categorie">
+			<type name="org.hibernate.type.EnumType">
+				<param name="enumClass">net.sas.model.enums.TypeFournisseur</param>
+			</type>
+		</property>
+		<many-to-one name="adresse" class="Adresse" unique="true"
+			cascade="save-update, delete, delete-orphan" />
+		<property name="phone" type="string" />
+		<property name="fax" type="string" />
+		<property name="email" type="string" />
+		<property name="notes" type="string" />
+	</class>
+</hibernate-mapping>

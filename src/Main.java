@@ -1,4 +1,5 @@
 
+import java.io.File;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -68,11 +69,11 @@ public class Main {
 			p.setDateExpiration(new Date());
 			e.setPermis(p);
 			
-			/*
+			
 			File file = new File("C:\\img.jpg");
 			byte[] img = new byte[(int) file.length()];
 			e.setPhoto(img);
-			*/
+			
 			
 			e.setTauxHoraire(20.5);
 		} catch (ParseException e1) {
