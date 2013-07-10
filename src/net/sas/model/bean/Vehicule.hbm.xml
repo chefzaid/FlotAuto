@@ -27,7 +27,7 @@
 		</property>
 		<property name="etat" type="boolean" />
 		<many-to-one name="fournisseur" class="Fournisseur"
-			cascade="save-update, delete, delete-orphan" />
+			cascade="save-update, delete" />
 		<many-to-one name="garantie" class="Garantie" unique="true"
 			cascade="save-update, delete, delete-orphan" />
 		<many-to-one name="vignette" class="Vignette" unique="true"
@@ -39,7 +39,6 @@
 		<set name="visitesTechniques" inverse="true">
 			<key column="id" />
 			<one-to-many class="VisiteTechnique" />
-
 		</set>
 		<set name="conducteurs">
 			<key column="id" />

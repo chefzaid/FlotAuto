@@ -17,9 +17,9 @@
 				from Depense d d.id = id" />
 		<union-subclass name="Consommation">
 			<many-to-one name="employe" class="Employe"
-				cascade="save-update , delete , delete-orphan" />
+				cascade="save-update , delete" />
 			<many-to-one name="fournisseur" class="Fournisseur"
-				cascade="save-update, delete, delete-orphan" />
+				cascade="save-update, delete" />
 			<property name="dateConsommation" type="date" />
 			<many-to-one name="odometreDebut" class="Odometre"
 				unique="true" cascade="save-update, delete, delete-orphan" />

@@ -12,7 +12,7 @@
 		<property name="nom" type="string" />
 		<property name="prenom" type="string" />
 		<property name="dateNaissance" type="date" />
-		<many-to-one name="adresse" class="Adresse" />
+		<many-to-one name="adresse" class="Adresse" cascade="save-update, delete" />
 		<property name="phone" type="string" />
 		<property name="email" type="string" />
 		<union-subclass name="Employe">

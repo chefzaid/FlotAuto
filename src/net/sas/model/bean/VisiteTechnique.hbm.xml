@@ -14,6 +14,6 @@
 		<property name="dateVisite" type="date" />
 		<property name="dateFuturVisite" type="date" />
 		<many-to-one name="rappel" class="Frequence"
-			cascade="save-update, delete, delete-orphan" />
+			cascade="save-update, delete" />
 	</class>
 </hibernate-mapping>

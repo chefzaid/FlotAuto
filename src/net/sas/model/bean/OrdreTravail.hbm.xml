@@ -12,9 +12,9 @@
 		<property name="dateCreation" type="date" />
 		<property name="dateRequis" type="date" />
 		<many-to-one name="employeDemandant" class="Employe"
-			cascade="save-update, delete, delete-orphan" />
+			cascade="save-update, delete" />
 		<many-to-one name="employeCharge" class="Employe"
-			cascade="save-update, delete, delete-orphan" />
+			cascade="save-update, delete" />
 		<property name="description" type="string" />
 		<property name="etat">
 			<type name="org.hibernate.type.EnumType">
