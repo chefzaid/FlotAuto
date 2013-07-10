@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="net.sas.model.bean">
+	<class name="Personne" abstract="true">
+		<id name="id" type="long">
+			<generator class="native" />
+		</id>
+		<property name="nom" type="string" />
+		<property name="prenom" type="string" />
+		<property name="dateNaissance" type="date" />
+		<many-to-one name="adresse" class="Adresse" />
+		<property name="phone" type="string" />
+		<property name="email" type="string" />
+		<union-subclass name="Employe">
+			<property name="cin" type="string" />
+			<property name="matricule" type="string" />
+			<many-to-one name="fonction" class="Fonction" />
+			<property name="dateEmbauche" type="date" />
+			<property name="tauxHoraire" type="double" />
+			<property name="photo" type="image" />
+			<property name="nom" type="string" />
+			<set name="certificats">
+				<key column="id" />
+				<element column="certificats" type="string" />
+			</set>
+			<many-to-one name="examenSante" class="ExamenSante" unique="true" />
+			<many-to-one name="permis" class="Permis" unique="true" />
+			<property name="notes" type="string" />
+		</union-subclass>
+	</class>
+</hibernate-mapping>

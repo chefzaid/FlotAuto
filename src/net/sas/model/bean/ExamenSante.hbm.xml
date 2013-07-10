@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="net.sas.model.bean">
+	<class name="ExamenSante"> 
+		<id name="id" type="long"> 
+			<generator class="native"/> 
+		</id>
+		<property name="dateRealisation" type="date" />
+		<property name="dateExpiration" type="date" /> 
+		<property name="notes" type="string" />   
+	</class>
+</hibernate-mapping>
