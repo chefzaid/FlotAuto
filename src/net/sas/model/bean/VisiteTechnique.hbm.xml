@@ -9,11 +9,10 @@
 		<id name="id" type="long">
 			<generator class="native" />
 		</id>
-		<many-to-one name="vehicule" class="Vehicule" unique="true"
-			cascade="save-update, delete, delete-orphan" />
+		<many-to-one name="vehicule" class="Vehicule" cascade="save-update, delete" />
 		<property name="dateVisite" type="date" />
 		<property name="dateFuturVisite" type="date" />
-		<many-to-one name="rappel" class="Frequence"
-			cascade="save-update, delete" />
+		<many-to-one name="rappel" class="Frequence" unique="true"
+			cascade="save-update, delete, delete-orphan" />
 	</class>
 </hibernate-mapping>

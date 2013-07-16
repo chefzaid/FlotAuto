@@ -9,8 +9,7 @@
 		<id name="id" type="long">
 			<generator class="native" />
 		</id>
-		<many-to-one name="vehicule" class="Vehicule" unique="true"
-			cascade="save-update, delete, delete-orphan" />
+		<many-to-one name="vehicule" class="Vehicule" cascade="save-update, delete" />
 		<many-to-one name="frequence" class="Frequence" unique="true"
 			cascade="save-update, delete, delete-orphan" />
 		<property name="dateDebut" type="date" />

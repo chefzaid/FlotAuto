@@ -15,10 +15,10 @@
 		<property name="hibernate.hbm2ddl.auto">create</property>
 		<property name="hibernate.connection.autocommit">true</property>
 
-		<mapping resource="net/sas/model/bean/Adresse.hbm.xml" />
-		<mapping resource="net/sas/model/bean/Personne.hbm.xml" />
-		<mapping resource="net/sas/model/bean/ExamenSante.hbm.xml" />
-		<mapping resource="net/sas/model/bean/Permis.hbm.xml" />
+		<mapping class="net.sas.model.bean.Adresse" />
+		<mapping resource="net.sas.model.bean.Personne" />
+		<mapping resource="net.sas.model.bean.ExamenSante" />
+		<mapping resource="net.sas.model.bean.Permis" />
 
 	</session-factory>
 </hibernate-configuration>

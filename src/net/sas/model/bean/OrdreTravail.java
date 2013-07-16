@@ -2,19 +2,56 @@ package net.sas.model.bean;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
 import net.sas.model.enums.EtatOrdreTravail;
 
+@Entity
 public class OrdreTravail {
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
+	
+	@ManyToOne
+	@JoinColumn(name="vehicule_id")
+	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
 	private Vehicule vehicule;
+	
 	private Date dateCreation;
 	private Date dateRequis;
+	
+	@ManyToOne
+	@JoinColumn(name="employeDemandant_id")
+	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
 	private Employe employeDemandant;
+	
+	@ManyToOne
+	@JoinColumn(name="employeCharge_id")
+	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
 	private Employe employeCharge;
+	
 	private String description;
+	
+	@Enumerated(EnumType.STRING)
 	private EtatOrdreTravail etat;
+	
+	@OneToOne(orphanRemoval=true)
+    @JoinColumn(name="odometre_id", unique=true)
+    @Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
 	private Odometre odometre;
+	
 	private String reference;
 	private String notes;
 	

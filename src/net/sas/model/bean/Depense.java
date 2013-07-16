@@ -1,9 +1,30 @@
 package net.sas.model.bean;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
+@Entity
+@Inheritance (strategy=InheritanceType.TABLE_PER_CLASS)
 public abstract class Depense {
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	protected Long id;
+	
+	@ManyToOne
+	@JoinColumn(name="vehicule_id")
+	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
 	protected Vehicule vehicule;
+	
 	protected Integer quantite;
 	protected Double coutUnitaire;
 	protected Double couTotal; //derived property

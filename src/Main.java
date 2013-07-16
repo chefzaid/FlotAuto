@@ -3,9 +3,9 @@ import java.io.File;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.List;
 
 import net.sas.model.bean.Adresse;
 import net.sas.model.bean.Employe;
@@ -43,7 +43,7 @@ public class Main {
 			e.setPhone("05224444333");
 			e.setEmail("test@test.com");
 			
-			Set<String> list = new LinkedHashSet<String>();
+			List<String> list = new ArrayList<String>();
 			list.add("eee");
 			list.add("hhhh");
 			e.setCertificats(list);

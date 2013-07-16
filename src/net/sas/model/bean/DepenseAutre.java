@@ -1,5 +1,8 @@
 package net.sas.model.bean;
 
+import javax.persistence.Entity;
+
+@Entity
 public class DepenseAutre extends Depense {
 
 	private String description;

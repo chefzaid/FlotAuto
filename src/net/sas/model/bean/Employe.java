@@ -1,21 +1,53 @@
 package net.sas.model.bean;
 
 import java.util.Date;
-import java.util.Set;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
+import javax.persistence.OneToOne;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 import net.sas.model.enums.Fonction;
 
+@Entity
 public class Employe extends Personne {
 	
+	@Column(nullable=false)
 	private String cin;
+	
+	@Column(nullable=false)
 	private String matricule;
+	
+	@Enumerated(EnumType.STRING)
 	private Fonction fonction;
+	
 	private Date dateEmbauche;
 	private Double tauxHoraire;
+	
+	@Lob
 	private byte[] photo;
-	private Set<String> certificats;
+	
+	@ElementCollection
+	private List<String> certificats;
+	
+	@OneToOne(orphanRemoval=true)
+    @JoinColumn(name="examenSante_id", unique=true)
+    @Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
 	private ExamenSante examenSante;
+	
+	@OneToOne(orphanRemoval=true)
+    @JoinColumn(name="permis_id", unique=true)
+    @Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
 	private Permis permis;
+	
 	private String notes;
 
 	public String getCin() {
@@ -66,11 +98,11 @@ public class Employe extends Personne {
 		this.photo = photo;
 	}
 
-	public Set<String> getCertificats() {
+	public List<String> getCertificats() {
 		return certificats;
 	}
 
-	public void setCertificats(Set<String> certificats) {
+	public void setCertificats(List<String> certificats) {
 		this.certificats = certificats;
 	}
 

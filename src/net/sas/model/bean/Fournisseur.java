@@ -1,13 +1,36 @@
 package net.sas.model.bean;
 
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
 import net.sas.model.enums.TypeFournisseur;
 
+@Entity
 public class Fournisseur {
 
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
+	
 	private String raisonSociale;
+	
+	@Enumerated(EnumType.STRING)
 	private TypeFournisseur categorie;
+	
+	@OneToOne(orphanRemoval=true)
+    @JoinColumn(name="adresse_id", unique=true)
+    @Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
 	private Adresse adresse;
+	
 	private String phone;
 	private String fax;
 	private String email;

@@ -1,16 +1,43 @@
 package net.sas.model.bean;
 
-import java.util.Set;
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.JoinColumn;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 import net.sas.model.enums.TypeComposant;
 
+@Entity
 public class Composant {
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
+	
+	@Enumerated(EnumType.STRING)
 	private TypeComposant type;
+	
 	private String description;
 	private String marque;
-	private Set<Fournisseur> fournisseurs;
+	
+	@ManyToMany
+    @JoinTable (name="Fournisseur_Composant", 
+			joinColumns={@JoinColumn(name="composant_id")},
+			inverseJoinColumns={@JoinColumn(name="fournisseur_id")})
+	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE}) 
+	private List<Fournisseur> fournisseurs;
+	
+	
 	private Integer quantite;
 	private Double prix;
 	private String reference;
@@ -39,10 +66,10 @@ public class Composant {
 	public void setMarque(String marque) {
 		this.marque = marque;
 	}
-	public Set<Fournisseur> getFournisseurs() {
+	public List<Fournisseur> getFournisseurs() {
 		return fournisseurs;
 	}
-	public void setFournisseurs(Set<Fournisseur> fournisseurs) {
+	public void setFournisseurs(List<Fournisseur> fournisseurs) {
 		this.fournisseurs = fournisseurs;
 	}
 	public Integer getQuantite() {

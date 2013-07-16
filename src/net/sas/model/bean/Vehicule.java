@@ -2,27 +2,77 @@ package net.sas.model.bean;
 
 import java.util.Set;
 
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
 import net.sas.model.enums.Couleur;
 import net.sas.model.enums.TypeVehicule;
 
+@Entity
 public class Vehicule {
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	private String matricule;
 	private String numChassis;
+	
+	@Lob
 	private byte[] photo;
+	
 	private String marque;
 	private String modele;
 	private Integer annee;
+	
+	@Enumerated(EnumType.STRING)
 	private Couleur couleur;
+	
+	@Enumerated(EnumType.STRING)
 	private TypeVehicule type;
+	
 	private Boolean etat;
+	
+	@ManyToOne
+	@JoinColumn(name="fournisseur_id")
+	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
 	private Fournisseur fournisseur;
+	
+	@OneToOne(orphanRemoval=true)
+    @JoinColumn(name="garantie_id", unique=true)
+    @Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
 	private Garantie garantie;
+	
+	@OneToOne(orphanRemoval=true)
+    @JoinColumn(name="vignette_id", unique=true)
+    @Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
 	private Vignette vignette;
+	
+	@OneToMany(mappedBy="vehicule", orphanRemoval=true)
+	@JoinColumn(name="vehicule_id")
+	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE}) 
 	private Set<Assurance> assurances;
+	
+	@OneToMany(mappedBy="vehicule", orphanRemoval=true)
+	@JoinColumn(name="vehicule_id")
+	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE}) 
 	private Set<VisiteTechnique> visitesTechniques;
+	
+	@OneToMany(orphanRemoval=true)
+	@JoinColumn(name="vehicule_id")
 	private Set<Employe> conducteurs;
+	
 	private String specifications;
 	private String notes;
 	
