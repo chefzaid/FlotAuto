@@ -11,22 +11,20 @@ import net.sas.model.bean.Adresse;
 import net.sas.model.bean.Employe;
 import net.sas.model.bean.ExamenSante;
 import net.sas.model.bean.Permis;
+import net.sas.model.dao.GenericDao;
 import net.sas.model.enums.Fonction;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.service.ServiceRegistry;
-import org.hibernate.service.ServiceRegistryBuilder;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Main {
 
+	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {
-		Configuration configuration = new Configuration().configure();
-		ServiceRegistry registry = new ServiceRegistryBuilder().applySettings(
-				configuration.getProperties()).buildServiceRegistry();
-		SessionFactory factory = configuration.buildSessionFactory(registry);
-		Session session = factory.openSession();
+//		Configuration configuration = new Configuration().configure();
+//		SessionFactory factory = configuration.buildSessionFactory(); 
+//		Session session = factory.openSession();
+
 		Employe e = new Employe();
 		try {
 			e.setNom("abc");
@@ -80,8 +78,12 @@ public class Main {
 			e1.printStackTrace();
 		}
 		
-		session.save(e);
-		session.flush();
-
+//		session.save(e);
+//		session.flush();
+		
+		ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
+		GenericDao<Employe> dao = (GenericDao<Employe>) context.getBean("employeDao");
+		dao.create(e);
+		
 	}
 }

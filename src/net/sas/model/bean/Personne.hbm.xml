@@ -5,29 +5,26 @@
   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping package="net.sas.model.bean">
-	<typedef name="Fonction" class='EnumUserType'>
-		<param name="enumClassName">net.sas.model.enums.Fonction</param>
-	</typedef>
 	<class name="Personne" abstract="true">
 		<id name="id" type="long">
 			<generator class="increment" />
 		</id>
-		<property name="nom" type="string" />
-		<property name="prenom" type="string" />
+		<property name="nom" type="string" not-null="true" />
+		<property name="prenom" type="string" not-null="true" />
 		<property name="dateNaissance" type="date" />
 		<many-to-one name="adresse" class="Adresse" cascade="save-update, delete" />
-		<property name="phone" type="string" />
-		<property name="email" type="string" />
+		<property name="phone" type="string" unique="true" not-null="true" />
+		<property name="email" type="string" unique="true" />
 		<union-subclass name="Employe">
-			<property name="cin" type="string" />
-			<property name="matricule" type="string" />
+			<property name="cin" type="string" unique="true" not-null="true" />
+			<property name="matricule" type="string" unique="true" not-null="true" />
 			<property name="fonction">
 				<type name="org.hibernate.type.EnumType">
 					<param name="enumClass">net.sas.model.enums.Fonction</param>
 				</type>
 			</property>
-			<property name="dateEmbauche" type="date" />
-			<property name="tauxHoraire" type="double" />
+			<property name="dateEmbauche" type="date" not-null="true" />
+			<property name="tauxHoraire" type="double" not-null="true" />
 			<property name="photo" type="image" />
 			<set name="certificats">
 				<key column="id" />
