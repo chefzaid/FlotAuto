@@ -26,8 +26,8 @@ public class Paiement {
 	private Vehicule vehicule;
 	
 	@OneToOne(orphanRemoval=true)
-    @JoinColumn(name="frequence_id", unique=true)
-    @Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
+	@JoinColumn(name="frequence_id", unique=true)
+	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
 	private Frequence frequence;
 	
 	private Date dateDebut;

@@ -31,7 +31,7 @@ public class Composant {
 	private String marque;
 	
 	@ManyToMany
-    @JoinTable (name="Fournisseur_Composant", 
+	@JoinTable (name="Fournisseur_Composant", 
 			joinColumns={@JoinColumn(name="composant_id")},
 			inverseJoinColumns={@JoinColumn(name="fournisseur_id")})
 	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE}) 

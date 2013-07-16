@@ -11,8 +11,8 @@ import org.hibernate.annotations.CascadeType;
 public class DepenseOrdreTravail extends Depense{
 	
 	@OneToOne(orphanRemoval=true)
-    @JoinColumn(name="ordreTravail_id", unique=true)
-    @Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
+	@JoinColumn(name="ordreTravail_id", unique=true)
+	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
 	private OrdreTravail ordreTravail;
 
 	public OrdreTravail getOrdreTravail() {

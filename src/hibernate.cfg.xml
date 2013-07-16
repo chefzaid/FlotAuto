@@ -8,7 +8,7 @@
 		<property name="hibernate.connection.driver_class">org.hsqldb.jdbcDriver</property>
 		<property name="hibernate.connection.url">
 			jdbc:hsqldb:file:data/flotauto;shutdown=true;hsqldb.write_delay=false;
-    	</property>
+		</property>
 		<property name="hibernate.connection.username">sa</property>
 		<property name="hibernate.connection.password">Z41d</property>
 		<property name="hibernate.show_sql">true</property>
@@ -16,9 +16,10 @@
 		<property name="hibernate.connection.autocommit">true</property>
 
 		<mapping class="net.sas.model.bean.Adresse" />
-		<mapping resource="net.sas.model.bean.Personne" />
-		<mapping resource="net.sas.model.bean.ExamenSante" />
-		<mapping resource="net.sas.model.bean.Permis" />
+		<mapping class="net.sas.model.bean.Personne" />
+		<mapping class="net.sas.model.bean.Employe" />
+		<mapping class="net.sas.model.bean.ExamenSante" />
+		<mapping class="net.sas.model.bean.Permis" />
 
 	</session-factory>
 </hibernate-configuration>

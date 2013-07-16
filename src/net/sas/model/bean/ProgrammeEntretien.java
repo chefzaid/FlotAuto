@@ -20,13 +20,13 @@ public class ProgrammeEntretien {
 	private String description;
 	
 	@OneToOne(orphanRemoval=true)
-    @JoinColumn(name="cycle_id", unique=true)
-    @Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
+	@JoinColumn(name="cycle_id", unique=true)
+	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
 	private Frequence cycle;
 	
 	@OneToOne(orphanRemoval=true)
-    @JoinColumn(name="rappel_id", unique=true)
-    @Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
+	@JoinColumn(name="rappel_id", unique=true)
+	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
 	private Frequence rappel;
 	
 	public Long getId() {

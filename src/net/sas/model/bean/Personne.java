@@ -20,7 +20,7 @@ import org.hibernate.annotations.CascadeType;
 public abstract class Personne {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.TABLE)
 	protected Long id;
 	
 	@Column(nullable=false)

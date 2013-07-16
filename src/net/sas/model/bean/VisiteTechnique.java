@@ -29,8 +29,8 @@ public class VisiteTechnique {
 	private Date dateFuturVisite;
 	
 	@OneToOne(orphanRemoval=true)
-    @JoinColumn(name="rappel_id", unique=true)
-    @Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
+	@JoinColumn(name="rappel_id", unique=true)
+	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
 	private Frequence rappel;
 	
 	public Long getId() {

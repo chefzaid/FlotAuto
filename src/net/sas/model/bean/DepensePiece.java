@@ -18,8 +18,8 @@ public class DepensePiece extends Depense {
 	private TypeComposant piece;
 	
 	@OneToOne(orphanRemoval=true)
-    @JoinColumn(name="garantie_id", unique=true)
-    @Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
+	@JoinColumn(name="garantie_id", unique=true)
+	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
 	private Garantie garantie;
 	
 	public TypeComposant getPiece() {

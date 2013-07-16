@@ -17,7 +17,7 @@ import org.hibernate.annotations.CascadeType;
 public abstract class Depense {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.TABLE)
 	protected Long id;
 	
 	@ManyToOne

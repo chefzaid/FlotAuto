@@ -22,8 +22,8 @@ public class Garantie {
 	private Date dateDebut;
 	
 	@OneToOne(orphanRemoval=true)
-    @JoinColumn(name="validite_id", unique=true)
-    @Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
+	@JoinColumn(name="validite_id", unique=true)
+	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
 	private Frequence validite;
 	
 	public Long getId() {

@@ -27,8 +27,8 @@ public class Fournisseur {
 	private TypeFournisseur categorie;
 	
 	@OneToOne(orphanRemoval=true)
-    @JoinColumn(name="adresse_id", unique=true)
-    @Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
+	@JoinColumn(name="adresse_id", unique=true)
+	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
 	private Adresse adresse;
 	
 	private String phone;

@@ -48,8 +48,8 @@ public class OrdreTravail {
 	private EtatOrdreTravail etat;
 	
 	@OneToOne(orphanRemoval=true)
-    @JoinColumn(name="odometre_id", unique=true)
-    @Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
+	@JoinColumn(name="odometre_id", unique=true)
+	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
 	private Odometre odometre;
 	
 	private String reference;

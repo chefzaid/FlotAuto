@@ -28,8 +28,8 @@ public class Acquisition {
 	private TypeAcquisition type;
 	
 	@OneToOne(orphanRemoval=true)
-    @JoinColumn(name="vehicule_id", unique=true)
-    @Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
+	@JoinColumn(name="vehicule_id", unique=true)
+	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
 	private Vehicule vehicule;
 	
 	@ManyToOne
@@ -41,13 +41,13 @@ public class Acquisition {
 	private Double prix;
 	
 	@OneToOne(orphanRemoval=true)
-    @JoinColumn(name="garantie_id", unique=true)
-    @Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
+	@JoinColumn(name="garantie_id", unique=true)
+	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
 	private Garantie garantie;
 	
 	@OneToOne(orphanRemoval=true)
-    @JoinColumn(name="odometre_id", unique=true)
-    @Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
+	@JoinColumn(name="odometre_id", unique=true)
+	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
 	private Odometre odometreAcquisition;
 	
 	private String notes;

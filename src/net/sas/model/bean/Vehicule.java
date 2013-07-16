@@ -50,13 +50,13 @@ public class Vehicule {
 	private Fournisseur fournisseur;
 	
 	@OneToOne(orphanRemoval=true)
-    @JoinColumn(name="garantie_id", unique=true)
-    @Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
+	@JoinColumn(name="garantie_id", unique=true)
+	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
 	private Garantie garantie;
 	
 	@OneToOne(orphanRemoval=true)
-    @JoinColumn(name="vignette_id", unique=true)
-    @Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
+	@JoinColumn(name="vignette_id", unique=true)
+	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
 	private Vignette vignette;
 	
 	@OneToMany(mappedBy="vehicule", orphanRemoval=true)

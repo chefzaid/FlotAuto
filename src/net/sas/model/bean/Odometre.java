@@ -13,13 +13,13 @@ import org.hibernate.annotations.CascadeType;
 public class Odometre {
 	
 	@OneToOne(orphanRemoval=true)
-    @JoinColumn(name="odometreDebut_id", unique=true)
-    @Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
+	@JoinColumn(name="odometreDebut_id", unique=true)
+	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
 	private Long id;
 	
 	@OneToOne(orphanRemoval=true)
-    @JoinColumn(name="odometreDebut_id", unique=true)
-    @Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
+	@JoinColumn(name="odometreDebut_id", unique=true)
+	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
 	private Vehicule vehicule;
 	
 	private Integer compteur;
