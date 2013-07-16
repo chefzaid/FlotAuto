@@ -60,12 +60,10 @@ public class Vehicule {
 	private Vignette vignette;
 	
 	@OneToMany(mappedBy="vehicule", orphanRemoval=true)
-	@JoinColumn(name="vehicule_id")
 	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE}) 
 	private Set<Assurance> assurances;
 	
 	@OneToMany(mappedBy="vehicule", orphanRemoval=true)
-	@JoinColumn(name="vehicule_id")
 	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE}) 
 	private Set<VisiteTechnique> visitesTechniques;
 	

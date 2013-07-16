@@ -1,8 +1,6 @@
 package net.sas.model.bean;
 
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,7 +22,9 @@ public class Entretien {
 	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
 	private Vehicule vehicule;
 	
-	@Enumerated(EnumType.STRING)
+	@ManyToOne
+	@JoinColumn(name="programmeEntretien_id")
+	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
 	private ProgrammeEntretien programmeEntretien;
 	
 	public Long getId() {
