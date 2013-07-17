@@ -1,7 +1,8 @@
 package net.sas.model.bean;
 
-import java.util.Set;
+import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -9,7 +10,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -25,15 +28,23 @@ public class Vehicule {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id;
+	private Integer id;
+	
+	@Column(unique=true, nullable=false)
 	private String matricule;
+	
+	@Column(unique=true, nullable=false)
 	private String numChassis;
 	
 	@Lob
 	private byte[] photo;
 	
+	@Column(nullable=false)
 	private String marque;
+	
+	@Column(nullable=false)
 	private String modele;
+	
 	private Integer annee;
 	
 	@Enumerated(EnumType.STRING)
@@ -42,7 +53,7 @@ public class Vehicule {
 	@Enumerated(EnumType.STRING)
 	private TypeVehicule type;
 	
-	private Boolean etat;
+	private boolean actif;
 	
 	@ManyToOne
 	@JoinColumn(name="fournisseur_id")
@@ -61,23 +72,26 @@ public class Vehicule {
 	
 	@OneToMany(mappedBy="vehicule", orphanRemoval=true)
 	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE}) 
-	private Set<Assurance> assurances;
+	private List<Assurance> assurances;
 	
 	@OneToMany(mappedBy="vehicule", orphanRemoval=true)
 	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE}) 
-	private Set<VisiteTechnique> visitesTechniques;
+	private List<VisiteTechnique> visitesTechniques;
 	
-	@OneToMany(orphanRemoval=true)
-	@JoinColumn(name="vehicule_id")
-	private Set<Employe> conducteurs;
+	@ManyToMany
+	@JoinTable (name="Vehicule_Conducteur", 
+			joinColumns={@JoinColumn(name="vehicule_id")},
+			inverseJoinColumns={@JoinColumn(name="employe_id")})
+	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE}) 
+	private List<Employe> conducteurs;
 	
 	private String specifications;
 	private String notes;
 	
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getMatricule() {
@@ -128,11 +142,11 @@ public class Vehicule {
 	public void setType(TypeVehicule type) {
 		this.type = type;
 	}
-	public Boolean getEtat() {
-		return etat;
+	public boolean isActif() {
+		return actif;
 	}
-	public void setEtat(Boolean etat) {
-		this.etat = etat;
+	public void setActif(boolean actif) {
+		this.actif = actif;
 	}
 	public Fournisseur getFournisseur() {
 		return fournisseur;
@@ -152,22 +166,22 @@ public class Vehicule {
 	public void setVignette(Vignette vignette) {
 		this.vignette = vignette;
 	}
-	public Set<Assurance> getAssurances() {
+	public List<Assurance> getAssurances() {
 		return assurances;
 	}
-	public void setAssurances(Set<Assurance> assurances) {
+	public void setAssurances(List<Assurance> assurances) {
 		this.assurances = assurances;
 	}
-	public Set<VisiteTechnique> getVisitesTechniques() {
+	public List<VisiteTechnique> getVisitesTechniques() {
 		return visitesTechniques;
 	}
-	public void setVisitesTechniques(Set<VisiteTechnique> visitesTechniques) {
+	public void setVisitesTechniques(List<VisiteTechnique> visitesTechniques) {
 		this.visitesTechniques = visitesTechniques;
 	}
-	public Set<Employe> getConducteurs() {
+	public List<Employe> getConducteurs() {
 		return conducteurs;
 	}
-	public void setConducteurs(Set<Employe> conducteurs) {
+	public void setConducteurs(List<Employe> conducteurs) {
 		this.conducteurs = conducteurs;
 	}
 	public String getSpecifications() {

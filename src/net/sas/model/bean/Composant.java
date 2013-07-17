@@ -2,6 +2,7 @@ package net.sas.model.bean;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -22,12 +23,14 @@ public class Composant {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id;
+	private Integer id;
 	
 	@Enumerated(EnumType.STRING)
 	private TypeComposant type;
 	
+	@Column(nullable=false)
 	private String description;
+	
 	private String marque;
 	
 	@ManyToMany
@@ -42,10 +45,10 @@ public class Composant {
 	private Double prix;
 	private String reference;
 	
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public TypeComposant getType() {

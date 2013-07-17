@@ -2,6 +2,7 @@ package net.sas.model.bean;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,7 +19,7 @@ public class Paiement {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id;
+	private Integer id;
 	
 	@ManyToOne
 	@JoinColumn(name="vehicule_id")
@@ -30,15 +31,21 @@ public class Paiement {
 	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
 	private Frequence frequence;
 	
+	@Column(nullable=false)
 	private Date dateDebut;
+	
+	@Column(nullable=false)
 	private Date dateFin;
+	
+	@Column(nullable=false)
 	private Double montant;
+	
 	private String notes;
 	
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public Vehicule getVehicule() {

@@ -30,7 +30,7 @@ public class GenericDao<T> implements IDao<T> {
 	}
 
 	@Override
-	public T findById(Long id) {
+	public T findById(Integer id) {
 		return template.get(entity, id);
 	}
 

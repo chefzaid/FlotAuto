@@ -1,5 +1,6 @@
 package net.sas.model.bean;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -15,6 +16,7 @@ import net.sas.model.enums.TypeComposant;
 public class DepensePiece extends Depense {
 
 	@Enumerated(EnumType.STRING)
+	@Column(nullable=false)
 	private TypeComposant piece;
 	
 	@OneToOne(orphanRemoval=true)

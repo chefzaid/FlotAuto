@@ -2,6 +2,7 @@ package net.sas.model.bean;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -22,7 +23,7 @@ public class OrdreTravail {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id;
+	private Integer id;
 	
 	@ManyToOne
 	@JoinColumn(name="vehicule_id")
@@ -52,13 +53,15 @@ public class OrdreTravail {
 	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
 	private Odometre odometre;
 	
+	@Column(unique=true, nullable=false)
 	private String reference;
+	
 	private String notes;
 	
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public Vehicule getVehicule() {

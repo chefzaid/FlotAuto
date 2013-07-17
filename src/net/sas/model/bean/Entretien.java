@@ -15,7 +15,7 @@ public class Entretien {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id;
+	private Integer id;
 	
 	@ManyToOne
 	@JoinColumn(name="vehicule_id")
@@ -27,10 +27,10 @@ public class Entretien {
 	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
 	private ProgrammeEntretien programmeEntretien;
 	
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public Vehicule getVehicule() {

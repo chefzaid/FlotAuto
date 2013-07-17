@@ -1,5 +1,6 @@
 package net.sas.model.bean;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -14,17 +15,19 @@ public class Frequence {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id;
+	private Integer id;
 	
+	@Column(nullable=false)
 	private Integer cycle;
 	
 	@Enumerated(EnumType.STRING)
+	@Column(nullable=false)
 	private UniteMesure unite;
 	
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public Integer getCycle() {

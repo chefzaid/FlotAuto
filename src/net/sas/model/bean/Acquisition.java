@@ -22,7 +22,7 @@ public class Acquisition {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id;
+	private Integer id;
 	
 	@Enumerated(EnumType.STRING)
 	private TypeAcquisition type;
@@ -52,10 +52,10 @@ public class Acquisition {
 	
 	private String notes;
 	
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public TypeAcquisition getType() {

@@ -7,5 +7,5 @@ public interface IDao<T> {
 	void update(T obj);
 	void delete(T obj);
 	List<T> read();
-	T findById(Long id);
+	T findById(Integer id);
 }

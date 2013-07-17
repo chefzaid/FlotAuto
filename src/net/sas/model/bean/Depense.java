@@ -1,5 +1,6 @@
 package net.sas.model.bean;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,7 +19,7 @@ public abstract class Depense {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.TABLE)
-	protected Long id;
+	protected Integer id;
 	
 	@ManyToOne
 	@JoinColumn(name="vehicule_id")
@@ -26,13 +27,16 @@ public abstract class Depense {
 	protected Vehicule vehicule;
 	
 	protected Integer quantite;
+	
+	@Column(nullable=false)
 	protected Double coutUnitaire;
+	
 	protected Double couTotal; //derived property
 	
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public Vehicule getVehicule() {

@@ -27,9 +27,13 @@ public class Employe extends Personne {
 	private String matricule;
 	
 	@Enumerated(EnumType.STRING)
+	@Column(nullable=false)
 	private Fonction fonction;
 	
+	@Column(nullable=false)
 	private Date dateEmbauche;
+	
+	@Column(nullable=false)
 	private Double tauxHoraire;
 	
 	@Lob

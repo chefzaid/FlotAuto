@@ -21,7 +21,7 @@ public abstract class Personne {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.TABLE)
-	protected Long id;
+	protected Integer id;
 	
 	@Column(nullable=false)
 	protected String nom;
@@ -41,10 +41,10 @@ public abstract class Personne {
 	
 	protected String email;
 	
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getNom() {

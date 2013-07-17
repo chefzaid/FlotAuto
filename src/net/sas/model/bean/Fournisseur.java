@@ -1,5 +1,6 @@
 package net.sas.model.bean;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -19,8 +20,9 @@ public class Fournisseur {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id;
+	private Integer id;
 	
+	@Column(unique=true, nullable=false)
 	private String raisonSociale;
 	
 	@Enumerated(EnumType.STRING)
@@ -31,16 +33,18 @@ public class Fournisseur {
 	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
 	private Adresse adresse;
 	
+	@Column(nullable=false)
 	private String phone;
+	
 	private String fax;
 	private String email;
 	private String notes;
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
