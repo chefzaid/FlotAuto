@@ -8,7 +8,6 @@ public class GenericDao<T> implements IDao<T> {
 
 	protected HibernateTemplate template;
 	protected Class<T> entity;
-	protected String searchQuery = "from " + entity + " where";
 	
 	@Override
 	public void create(T obj) {
