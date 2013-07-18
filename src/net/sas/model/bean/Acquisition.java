@@ -15,7 +15,7 @@ import javax.persistence.OneToOne;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
-import net.sas.model.enums.TypeAcquisition;
+import net.sas.model.enums.AcquisitionType;
 
 @Entity
 public class Acquisition {
@@ -23,82 +23,75 @@ public class Acquisition {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
-	
 	@Enumerated(EnumType.STRING)
-	private TypeAcquisition type;
-	
+	private AcquisitionType type;
 	@OneToOne(orphanRemoval=true)
-	@JoinColumn(name="vehicule_id", unique=true)
+	@JoinColumn(name="vehicle_id", unique=true)
 	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
-	private Vehicule vehicule;
-	
+	private Vehicle vehicle;
 	@ManyToOne
-	@JoinColumn(name="fournisseur_id")
+	@JoinColumn(name="supplier_id")
 	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
-	private Fournisseur fournisseur;
-	
-	private Date dateAcquisition;
-	private Double prix;
-	
+	private Supplier fournisseur;
+	private Date acquisitionDate;
+	private Double price;
 	@OneToOne(orphanRemoval=true)
-	@JoinColumn(name="garantie_id", unique=true)
+	@JoinColumn(name="warranty_id", unique=true)
 	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
-	private Garantie garantie;
-	
+	private Warranty warranty;
 	@OneToOne(orphanRemoval=true)
-	@JoinColumn(name="odometre_id", unique=true)
+	@JoinColumn(name="odometer_id", unique=true)
 	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
-	private Odometre odometreAcquisition;
-	
+	private Odometer acquisitionOdometer;
 	private String notes;
-	
+
 	public Integer getId() {
 		return id;
 	}
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public TypeAcquisition getType() {
+	public AcquisitionType getType() {
 		return type;
 	}
-	public void setType(TypeAcquisition type) {
+	public void setType(AcquisitionType type) {
 		this.type = type;
 	}
-	public Vehicule getVehicule() {
-		return vehicule;
+	public Vehicle getVehicle() {
+		return vehicle;
 	}
-	public void setVehicule(Vehicule vehicule) {
-		this.vehicule = vehicule;
+	public void setVehicle(Vehicle vehicle) {
+		this.vehicle = vehicle;
 	}
-	public Fournisseur getFournisseur() {
+	public Supplier getFournisseur() {
 		return fournisseur;
 	}
-	public void setFournisseur(Fournisseur fournisseur) {
+	public void setFournisseur(Supplier fournisseur) {
 		this.fournisseur = fournisseur;
 	}
-	public Date getDateAcquisition() {
-		return dateAcquisition;
+	public Date getAcquisitionDate() {
+		return acquisitionDate;
 	}
-	public void setDateAcquisition(Date dateAcquisition) {
-		this.dateAcquisition = dateAcquisition;
+	public void setAcquisitionDate(Date acquisitionDate) {
+		this.acquisitionDate = acquisitionDate;
 	}
-	public Double getPrix() {
-		return prix;
+	public Double getPrice() {
+		return price;
 	}
-	public void setPrix(Double prix) {
-		this.prix = prix;
+	public void setPrice(Double price) {
+		this.price = price;
 	}
-	public Garantie getGarantie() {
-		return garantie;
+	public Warranty getWarranty() {
+		return warranty;
 	}
-	public void setGarantie(Garantie garantie) {
-		this.garantie = garantie;
+	public void setWarranty(Warranty warranty) {
+		this.warranty = warranty;
 	}
-	public Odometre getOdometreAcquisition() {
-		return odometreAcquisition;
+	public Odometer getAcquisitionOdometer() {
+		return acquisitionOdometer;
 	}
-	public void setOdometreAcquisition(Odometre odometreAcquisition) {
-		this.odometreAcquisition = odometreAcquisition;
+	public void setAcquisitionOdometer(Odometer acquisitionOdometer) {
+		this.acquisitionOdometer = acquisitionOdometer;
 	}
 	public String getNotes() {
 		return notes;

@@ -43,13 +43,13 @@
 		abstract="true">
 		<property name="template" ref="hibernateTemplate" />
 	</bean>
-	<bean id="employeDao" class="net.sas.model.dao.EmployeDao" parent="genericDao">
-		<property name="entity" value="net.sas.model.bean.Employe" />
+	<bean id="employeeDao" class="net.sas.model.dao.EmployeeDao" parent="genericDao">
+		<property name="entity" value="net.sas.model.bean.Employee" />
 	</bean>
-	<bean id="permisDao" class="net.sas.model.dao.PermisDao" parent="genericDao">
-		<property name="entity" value="net.sas.model.bean.Permis" />
+	<bean id="licenseDao" class="net.sas.model.dao.DrivingLicenseDao" parent="genericDao">
+		<property name="entity" value="net.sas.model.bean.DrivingLicense" />
 	</bean>
-	<bean id="vehiculeDao" class="net.sas.model.dao.VehiculeDao" parent="genericDao">
-		<property name="entity" value="net.sas.model.bean.Vehicule" />
+	<bean id="vehicleDao" class="net.sas.model.dao.VehicleDao" parent="genericDao">
+		<property name="entity" value="net.sas.model.bean.Vehicle" />
 	</bean>
 </beans>
