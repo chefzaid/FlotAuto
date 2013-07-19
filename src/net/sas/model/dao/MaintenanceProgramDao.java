@@ -1,6 +1,6 @@
 package net.sas.model.dao;
 
-import net.sas.model.bean.MaintenanceProgram;
+import net.sas.model.bo.MaintenanceProgram;
 
 public class MaintenanceProgramDao extends GenericDao<MaintenanceProgram> {
 

@@ -1,6 +1,6 @@
 package net.sas.model.dao;
 
-import net.sas.model.bean.DrivingLicense;
+import net.sas.model.bo.DrivingLicense;
 
 public class DrivingLicenseDao extends GenericDao<DrivingLicense> {
 

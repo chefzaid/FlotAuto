@@ -6,10 +6,10 @@ import java.util.Date;
 import java.util.List;
 
 import junit.framework.TestCase;
-import net.sas.model.bean.Address;
-import net.sas.model.bean.Employee;
-import net.sas.model.bean.HealthCheck;
-import net.sas.model.bean.DrivingLicense;
+import net.sas.model.bo.Address;
+import net.sas.model.bo.DrivingLicense;
+import net.sas.model.bo.Employee;
+import net.sas.model.bo.HealthCheck;
 import net.sas.model.dao.EmployeeDao;
 import net.sas.model.enums.Occupation;
 import net.sas.model.service.ContextUtil;

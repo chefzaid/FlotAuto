@@ -2,8 +2,8 @@ package net.sas.model.dao;
 
 import java.util.List;
 
-import net.sas.model.bean.Employee;
-import net.sas.model.bean.DrivingLicense;
+import net.sas.model.bo.DrivingLicense;
+import net.sas.model.bo.Employee;
 import net.sas.model.enums.Occupation;
 import net.sas.model.service.ContextUtil;
 

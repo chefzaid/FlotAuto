@@ -2,10 +2,10 @@ package net.sas.model.dao;
 
 import java.util.List;
 
-import net.sas.model.bean.Component;
-import net.sas.model.bean.Maintenance;
-import net.sas.model.bean.MaintenanceProgram;
-import net.sas.model.bean.Vehicle;
+import net.sas.model.bo.Component;
+import net.sas.model.bo.Maintenance;
+import net.sas.model.bo.MaintenanceProgram;
+import net.sas.model.bo.Vehicle;
 
 public class MaintenanceDao extends GenericDao<Maintenance> {
 

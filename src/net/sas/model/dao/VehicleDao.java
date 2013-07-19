@@ -1,6 +1,6 @@
 package net.sas.model.dao;
 
-import net.sas.model.bean.Vehicle;
+import net.sas.model.bo.Vehicle;
 
 public class VehicleDao extends GenericDao<Vehicle> {
 

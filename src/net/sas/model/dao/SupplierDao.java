@@ -2,7 +2,7 @@ package net.sas.model.dao;
 
 import java.util.List;
 
-import net.sas.model.bean.Supplier;
+import net.sas.model.bo.Supplier;
 import net.sas.model.enums.SupplierType;
 
 public class SupplierDao extends GenericDao<Supplier> {
