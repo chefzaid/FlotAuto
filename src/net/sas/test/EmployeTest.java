@@ -73,10 +73,10 @@ public class EmployeTest extends TestCase {
 		e.setHourlyRate(20.5);
 	}
 
-//	@Test
-//	public void testCreate() {
-//		dao.create(e);
-//	}
+	@Test
+	public void testCreate() {
+		dao.create(e);
+	}
 
 	@Test
 	public void testUpdate() {
@@ -92,10 +92,10 @@ public class EmployeTest extends TestCase {
 		assertNotNull(list);
 	}
 
-//	@Test
-//	public void testDelete() {
-//		dao.delete(e);
-//	}
+	@Test
+	public void testDelete() {
+		dao.delete(e);
+	}
 
 	@Test
 	public void testFindById() {

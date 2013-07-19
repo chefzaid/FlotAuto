@@ -50,4 +50,7 @@
 	<bean id="vehicleDao" class="net.sas.model.dao.VehicleDao" parent="genericDao">
 		<property name="entity" value="net.sas.model.bo.Vehicle" />
 	</bean>
+	<bean id="supplierDao" class="net.sas.model.dao.SupplierDao" parent="genericDao">
+		<property name="entity" value="net.sas.model.bo.Supplier" />
+	</bean>
 </beans>
