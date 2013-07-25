@@ -74,10 +74,10 @@
 <!-- Just for demonstration -->
 <script src="jsp/js/demonstration.min.js"></script>
 <!-- Favicon -->
-<link rel="shortcut icon" href="img/favicon.ico" />
+<link rel="shortcut icon" href="jsp/img/favicon.ico" />
 <!-- Apple devices Homescreen icon -->
 <link rel="apple-touch-icon-precomposed"
-	href="img/apple-touch-icon-precomposed.png" />
+	href="jsp/img/apple-touch-icon-precomposed.png" />
 
 <title><tiles:insertAttribute name="title" ignore="true" />
 </title>
@@ -90,9 +90,11 @@
 		<div id="content">
 			<tiles:insertAttribute name="body" />
 		</div>
+		<!-- 
 		<div id="footer">
 			<tiles:insertAttribute name="footer" />
 		</div>
+		 -->
 	</div>
 </body>
 </html>

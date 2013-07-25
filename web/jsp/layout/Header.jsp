@@ -1,67 +1,22 @@
 
 <div id="navigation">
 	<div class="container-fluid">
-		<a href="#" id="brand">FLAT</a> <a href="#" class="toggle-nav"
+		<a href="#" id="brand">FlotAuto</a> <a href="#" class="toggle-nav"
 			rel="tooltip" data-placement="bottom" title="Toggle navigation"><i
 			class="icon-reorder"></i> </a>
 		<ul class='main-nav'>
-			<li class='active'><a href="index.html"> <i
+			<li  id="vehicle"><a href="vehicle.action"> <i class="icon-home"></i> <span>Véhicule</span>
+			</a></li>
+			<li id="employee"><a href="employee.action"> <i class="icon-home"></i> <span>Employé</span>
+			</a></li>
+			<li><a href="index.html"> <i class="icon-home"></i> <span>Fournisseur</span>
+			</a></li>
+			<li><a href="index.html"> <i class="icon-home"></i> <span>Pièce</span>
+			</a></li>
+			<li><a href="index.html"> <i class="icon-home"></i> <span>Entretien</span>
+			</a></li>
+			<li><a href="index.html"> <i
 					class="icon-home"></i> <span>Dashboard</span> </a></li>
-			<li><a href="#" data-toggle="dropdown" class='dropdown-toggle'>
-					<i class="icon-edit"></i> <span>Forms</span> <span class="caret"></span>
-			</a>
-				<ul class="dropdown-menu">
-					<li><a href="forms-basic.html">Basic forms</a></li>
-					<li><a href="forms-extended.html">Extended forms</a></li>
-					<li><a href="forms-validation.html">Validation</a></li>
-					<li><a href="forms-wizard.html">Wizard</a></li>
-				</ul></li>
-			<li><a href="#" data-toggle="dropdown" class='dropdown-toggle'>
-					<i class="icon-th-large"></i> <span>Components</span> <span
-					class="caret"></span> </a>
-				<ul class="dropdown-menu">
-					<li><a href="components-messages.html">Messages &amp; Chat</a>
-					</li>
-					<li><a href="components-gallery.html">Gallery &amp; Thumbs</a>
-					</li>
-					<li><a href="components-tiles.html">Tiles</a></li>
-					<li><a href="components-icons.html">Icons &amp; Buttons</a></li>
-					<li><a href="components-elements.html">UI elements</a></li>
-					<li><a href="components-typography.html">Typography</a></li>
-					<li><a href="components-bootstrap.html">Bootstrap elements</a>
-					</li>
-					<li><a href="components-grid.html">Grid</a></li>
-				</ul></li>
-			<li><a href="#" data-toggle="dropdown" class='dropdown-toggle'>
-					<i class="icon-table"></i> <span>Tables</span> <span class="caret"></span>
-			</a>
-				<ul class="dropdown-menu">
-					<li><a href="tables-basic.html">Basic tables</a></li>
-					<li><a href="tables-dynamic.html">Dynamic tables</a></li>
-					<li><a href="tables-large.html">Large tables</a></li>
-				</ul></li>
-			<li><a href="#" data-toggle="dropdown" class='dropdown-toggle'>
-					<i class="icon-th-large"></i> <span>Plugins</span> <span
-					class="caret"></span> </a>
-				<ul class="dropdown-menu">
-					<li><a href="plugins-charts.html">Charts</a></li>
-					<li><a href="plugins-calendar.html">Calendar</a></li>
-					<li><a href="plugins-filemanager.html">File manager</a></li>
-					<li><a href="plugins-filetrees.html">File trees</a></li>
-					<li><a href="plugins-elements.html">Editable elements</a></li>
-					<li><a href="plugins-maps.html">Maps</a></li>
-				</ul></li>
-			<li><a href="#" data-toggle="dropdown" class='dropdown-toggle'>
-					<i class="icon-th"></i> <span>Pages</span> <span class="caret"></span>
-			</a>
-				<ul class="dropdown-menu">
-					<li><a href="more-error.html">Error pages</a></li>
-					<li><a href="more-invoice.html">Invoice</a></li>
-					<li><a href="more-userprofile.html">User profile</a></li>
-					<li><a href="more-searchresults.html">Search results</a></li>
-					<li><a href="more-login.html">Login</a></li>
-					<li><a href="more-blank.html">Blank page</a></li>
-				</ul></li>
 		</ul>
 		<div class="user">
 			<ul class="icon-nav">

@@ -11,9 +11,13 @@
 			<result-type name="tiles"
 				class="org.apache.struts2.views.tiles.TilesResult" />
 		</result-types>
-		
-		<action name="index">
-		    <result type="tiles">/index.tiles</result>
+
+		<action name="vehicle">
+			<result type="tiles">/vehicle.tiles</result>
 		</action>
+		<action name="employee">
+			<result type="tiles">/employee.tiles</result>
+		</action>
+
 	</package>
 </struts>
