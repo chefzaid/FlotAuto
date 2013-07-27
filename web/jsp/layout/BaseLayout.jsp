@@ -1,8 +1,7 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<!doctype html>
 <html>
-<head>
+<head> <!-- optimize js/css, delete unused -->
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <!-- Apple devices fullscreen -->
@@ -10,8 +9,7 @@
 <!-- Apple devices fullscreen -->
 <meta name="apple-mobile-web-app-status-bar-style"
 	content="black-translucent" />
-
-
+	
 <!-- Bootstrap -->
 <link rel="stylesheet" href="jsp/css/bootstrap.min.css">
 <!-- Bootstrap responsive -->
@@ -21,6 +19,10 @@
 	href="jsp/css/plugins/jquery-ui/smoothness/jquery-ui.css">
 <link rel="stylesheet"
 	href="jsp/css/plugins/jquery-ui/smoothness/jquery.ui.theme.css">
+
+<!-- Datepicker -->
+<link rel="stylesheet" href="jsp/css/plugins/datepicker/datepicker.css">
+
 <!-- PageGuide -->
 <link rel="stylesheet" href="jsp/css/plugins/pageguide/pageguide.css">
 <!-- Fullcalendar -->
@@ -78,6 +80,9 @@
 <!-- Apple devices Homescreen icon -->
 <link rel="apple-touch-icon-precomposed"
 	href="jsp/img/apple-touch-icon-precomposed.png" />
+
+<!-- Datepicker -->	
+<script src="jsp/js/plugins/datepicker/bootstrap-datepicker.js"></script>
 
 <title><tiles:insertAttribute name="title" ignore="true" />
 </title>
