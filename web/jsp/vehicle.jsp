@@ -114,7 +114,7 @@
 			</div>
 			<div class="breadcrumbs">
 				<ul>
-					<li><a href="more-login.html">Home</a> <i
+					<li><a href="more-login.html">FlotAuto</a> <i
 						class="icon-angle-right"></i>
 					</li>
 					<li><a href="index.html">Véhicule</a>

@@ -64,7 +64,7 @@
 			</div>
 			<div class="breadcrumbs">
 				<ul>
-					<li><a href="more-login.html">Home</a> <i
+					<li><a href="more-login.html">FlotAuto</a> <i
 						class="icon-angle-right"></i></li>
 					<li><a href="index.html">Employé</a></li>
 				</ul>
@@ -85,42 +85,169 @@
 				<div class="span12">
 					<div class="box">
 						<div class="box-content nopadding">
-							<form action="#" method="POST"
-								class='form-horizontal form-column'>
+							<s:form method="POST" cssClass='form-horizontal form-column'>
 								<div class="span6">
 									<div class="control-group">
-										<label for="firstName" class="control-label">Prénom :</label>
+										<label for="employee.firstName" class="control-label">Prénom
+											:</label>
 										<div class="controls">
-											<input type="text" name="firstName"
-												placeholder="Prénom de l'employé" class="input-xlarge">
+											<input type="text" name="employee.firstName"
+												id="employee.firstName" placeholder="Prénom"
+												class="input-xlarge">
 										</div>
 									</div>
 									<div class="control-group">
-										<label for="lastName" class="control-label">Nom :</label>
+										<label for="employee.lastName" class="control-label">Nom
+											:</label>
 										<div class="controls">
-											<input type="text" name="lastname"
-												placeholder="Nom de l'employé" class="input-xlarge">
+											<input type="text" name="employee.lastname"
+												id="employee.lastname" placeholder="NOM"
+												class="input-xlarge">
 										</div>
 									</div>
 									<div class="control-group">
-										<label for="birthDate" class="control-label">Date
+										<label for="employee.birthDate" class="control-label">Date
 											naissance :</label>
 										<div class="controls">
-											<input type="text" name="birthDate"
-												class="input-medium datepick"> <span
-												class="help-block">Format : jj/mm/aaaa</span>
+											<input type="text" name="employee.birthDate"
+												id="employee.birthDate" class="input-xlarge datepick">
+											<span class="help-block">Format : jj/mm/aaaa</span>
+										</div>
+									</div>
+									<div class="control-group">
+										<label for="address.address" class="control-label">Adresse
+											:</label>
+										<div class="controls">
+											<input type="text" name="address.address"
+												id="address.address" placeholder="Adresse du domicile"
+												class="input-xlarge">
+										</div>
+									</div>
+									<div class="control-group">
+										<label for="address.zip" class="control-label">Code
+											postal :</label>
+										<div class="controls">
+											<input type="text" name="address.zip" id="address.zip"
+												placeholder="Code postal" class="input-xlarge">
+										</div>
+									</div>
+									<div class="control-group">
+										<label for="address.city" class="control-label">Ville
+											:</label>
+										<div class="controls">
+											<input type="text" name="address.city" id="address.city"
+												placeholder="Ville" class="input-xlarge">
+										</div>
+									</div>
+									<div class="control-group">
+										<label for="address.country" class="control-label">Pays
+											:</label>
+										<div class="controls">
+											<input type="text" name="address.country"
+												id="address.country" placeholder="Pays" class="input-xlarge">
+										</div>
+									</div>
+									<div class="control-group">
+										<label for="employee.phone" class="control-label">Téléphone
+											:</label>
+										<div class="controls">
+											<input type="text" name="employee.phone" id="employee.phone"
+												class="input-xlarge mask_phone"> <span
+												class="help-block">Format : (123) 456-7890</span>
+										</div>
+									</div>
+									<div class="control-group">
+										<label for="employee.email" class="control-label">Email
+											:</label>
+										<div class="controls">
+											<input type="text" name="employee.email" id="employee.email"
+												placeholder="nom@domaine.com" class="input-xlarge">
 										</div>
 									</div>
 								</div>
-							</form>
+								<div class="span6">
+									<div class="control-group">
+										<label for="employee.cin" class="control-label">CIN :</label>
+										<div class="controls">
+											<input type="text" name="employee.cin" id="employee.cin"
+												placeholder="XX 123 456" class="input-xlarge">
+										</div>
+									</div>
+									<div class="control-group">
+										<label for="employee.number" class="control-label">Matricule
+											:</label>
+										<div class="controls">
+											<input type="text" name="employee.number"
+												id="employee.number" placeholder="Numéro de l'employé"
+												class="input-xlarge">
+										</div>
+									</div>
+									<div class="control-group">
+										<label for="employee.occupation" class="control-label">Occupation
+											:</label>
+										<div class="controls">
+											<s:select name="employee.occupation" id="employee.occupation"
+												label="%{getText('Enum.label')}"
+												list="@net.sas.model.enums.Occupation@values()"
+												listKey="getStatus()" listValue="getStatus()" headerKey=""
+												headerValue="%{'Fonction...'}" cssClass="input-xlarge" />
+										</div>
+									</div>
+									<div class="control-group">
+										<label for="employee.hireDate" class="control-label">Date
+											embauche :</label>
+										<div class="controls">
+											<input type="text" name="employee.hireDate"
+												id="employee.hireDate" class="input-xlarge datepick">
+											<span class="help-block">Format : jj/mm/aaaa</span>
+										</div>
+									</div>
+									<div class="control-group">
+										<label for="employee.picture" class="control-label">Photo
+											:</label>
+										<div class="controls">
+											<div class="fileupload fileupload-new"
+												data-provides="fileupload">
+												<div class="fileupload-new thumbnail"
+													style="width: 200px; height: 150px;">
+													<img src="jsp/img/no_image.gif" />
+												</div>
+												<div class="fileupload-preview fileupload-exists thumbnail"
+													style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+												<div>
+													<span class="btn btn-file"><span
+														class="fileupload-new">Choisir photo</span><span
+														class="fileupload-exists">Changer</span> <input
+														type="file" name="employee.picture" id="employee.picture" />
+													</span> <a href="#" class="btn fileupload-exists"
+														data-dismiss="fileupload">Retirer</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="control-group">
+										<label for="employee.certificates" class="control-label">Certificats
+											:</label>
+										<div class="controls">
+											<input type="text" name="employee.certificates"
+												id="textfield" class="tagsinput" />
+										</div>
+									</div>
+								</div>
+							</s:form>
 						</div>
 					</div>
 				</div>
-				<div class="span12">
-					<div class="form-actions">
-						<button type="submit" class="btn btn-primary">Valider</button>
-						<button type="button" class="btn">Annuler</button>
-					</div>
+				<div class="form-actions">
+					<center>
+						<s:submit value="<<" cssClass=" btn btn-primary" />
+						<s:submit value="<" cssClass=" btn btn-primary" />
+						<s:reset value="Nouveau" cssClass="btn" />
+						<s:submit value="Enregistrer" cssClass="btn btn-success" />
+						<s:submit value="Supprimer" cssClass="btn btn-danger" />
+						<s:submit value=">" cssClass="btn btn-primary" />
+						<s:submit value=">>" cssClass="btn btn-primary" />
+					</center>
 				</div>
 			</div>
 		</div>
