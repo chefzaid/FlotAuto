@@ -34,7 +34,7 @@ public class Employee extends Person {
 	@Lob
 	private byte[] picture;
 	@ElementCollection
-	private List<String> certificates;
+	private List<String> trainings;
 	@OneToOne(orphanRemoval=true)
 	@JoinColumn(name="healthCheck_id", unique=true)
 	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
@@ -81,11 +81,11 @@ public class Employee extends Person {
 	public void setPicture(byte[] picture) {
 		this.picture = picture;
 	}
-	public List<String> getCertificates() {
-		return certificates;
+	public List<String> getTrainings() {
+		return trainings;
 	}
-	public void setCertificates(List<String> certificates) {
-		this.certificates = certificates;
+	public void setTrainings(List<String> trainings) {
+		this.trainings = trainings;
 	}
 	public HealthCheck getHealthCheck() {
 		return healthCheck;

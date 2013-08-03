@@ -10,9 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.Lob;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -63,12 +61,9 @@ public class Vehicle {
 	@OneToMany(mappedBy="vehicle", orphanRemoval=true)
 	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE}) 
 	private List<TechnicalCheck> technicalChecks;
-	@ManyToMany
-	@JoinTable (name="Vehicle_Driver", 
-			joinColumns={@JoinColumn(name="vehicle_id")},
-			inverseJoinColumns={@JoinColumn(name="employee_id")})
+	@OneToMany(mappedBy="vehicle", orphanRemoval=true)
 	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE}) 
-	private List<Employee> drivers;
+	private List<VehicleHistory> history;
 	private String specs;
 	private String notes;
 	
@@ -162,11 +157,11 @@ public class Vehicle {
 	public void setTechnicalChecks(List<TechnicalCheck> technicalChecks) {
 		this.technicalChecks = technicalChecks;
 	}
-	public List<Employee> getDrivers() {
-		return drivers;
+	public List<VehicleHistory> getHistory() {
+		return history;
 	}
-	public void setDrivers(List<Employee> drivers) {
-		this.drivers = drivers;
+	public void setHistory(List<VehicleHistory> history) {
+		this.history = history;
 	}
 	public String getSpecs() {
 		return specs;

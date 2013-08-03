@@ -5150,3 +5150,8 @@ body.error .wrapper .input-append .btn {
 body.error .wrapper .input-append .btn:hover {
 	background: #1b67af
 }
+
+.center {
+	text-align: center;
+}
+}

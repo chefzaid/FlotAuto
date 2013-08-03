@@ -45,7 +45,7 @@ public class EmployeTest extends TestCase {
 		List<String> list = new ArrayList<String>();
 		list.add("eee");
 		list.add("hhhh");
-		e.setCertificates(list);
+		e.setTrainings(list);
 
 		e.setCin("B656");
 		e.setHireDate(new Date());
