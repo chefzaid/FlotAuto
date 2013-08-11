@@ -9,21 +9,18 @@
 		<put-attribute name="body" value="" />
 		<put-attribute name="footer" value="/jsp/layout/Footer.jsp" />
 	</definition>
-	<definition name="/welcome.tiles" extends="baseLayout">
-		<put-attribute name="title" value="Welcome page" />
-		<put-attribute name="body" value="/Welcome.jsp" />
-	</definition>
-	<definition name="/error.tiles" extends="baseLayout">
-		<put-attribute name="title" value="Error page" />
-		<put-attribute name="body" value="/Error.jsp" />
-	</definition>
 
 	<definition name="/vehicle.tiles" extends="baseLayout">
 		<put-attribute name="title" value="Véhicule" />
-		<put-attribute name="body" value="/jsp/vehicle.jsp" />
+		<put-attribute name="body" value="/jsp/forms/vehicle/vehicle.jsp" />
 	</definition>
+	
 	<definition name="/employee.tiles" extends="baseLayout">
-		<put-attribute name="title" value="Employé" />
-		<put-attribute name="body" value="/jsp/employee.jsp" />
+		<put-attribute name="title" value="FlotAuto>Employé - Informations générales" />
+		<put-attribute name="body" value="/jsp/forms/employee/employee.jsp" />
+	</definition>
+	<definition name="/employeeHistory.tiles" extends="baseLayout">
+		<put-attribute name="title" value="FlotAuto>Employé - Véhicules conduits" />
+		<put-attribute name="body" value="/jsp/forms/employee/history.jsp" />
 	</definition>
 </tiles-definitions>

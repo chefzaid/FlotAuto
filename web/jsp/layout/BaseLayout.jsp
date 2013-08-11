@@ -13,94 +13,67 @@
 
 
 <!-- Bootstrap -->
-<link rel="stylesheet" href="jsp/css/bootstrap.min.css">
+<link rel="stylesheet" href="/FlotAuto/jsp/css/bootstrap.min.css">
 <!-- Bootstrap responsive -->
-<link rel="stylesheet" href="jsp/css/bootstrap-responsive.min.css">
+<link rel="stylesheet" href="/FlotAuto/jsp/css/bootstrap-responsive.min.css">
 <!-- jQuery UI -->
 <link rel="stylesheet"
-	href="jsp/css/plugins/jquery-ui/smoothness/jquery-ui.css">
+	href="/FlotAuto/jsp/css/plugins/jquery-ui/smoothness/jquery-ui.css">
 <link rel="stylesheet"
-	href="jsp/css/plugins/jquery-ui/smoothness/jquery.ui.theme.css">
-<!-- PageGuide -->
-<link rel="stylesheet" href="jsp/css/plugins/pageguide/pageguide.css">
-<!-- Fullcalendar -->
-<link rel="stylesheet"
-	href="jsp/css/plugins/fullcalendar/fullcalendar.css">
-<link rel="stylesheet"
-	href="jsp/css/plugins/fullcalendar/fullcalendar.print.css"
-	media="print">
+	href="/FlotAuto/jsp/css/plugins/jquery-ui/smoothness/jquery.ui.theme.css">
 <!-- Theme CSS -->
-<link rel="stylesheet" href="jsp/css/style.css">
+<link rel="stylesheet" href="/FlotAuto/jsp/css/style.css">
 <!-- Color CSS -->
-<link rel="stylesheet" href="jsp/css/themes.css">
+<link rel="stylesheet" href="/FlotAuto/jsp/css/themes.css">
 <!-- Tagsinput -->
 <link rel="stylesheet"
-	href="jsp/css/plugins/tagsinput/jquery.tagsinput.css">
-<!-- chosen -->
-<link rel="stylesheet" href="jsp/css/plugins/chosen/chosen.css">
-<!-- multi select -->
-<link rel="stylesheet"
-	href="jsp/css/plugins/multiselect/multi-select.css">
-<!-- timepicker -->
-<link rel="stylesheet"
-	href="jsp/css/plugins/timepicker/bootstrap-timepicker.min.css">
-<!-- colorpicker -->
-<link rel="stylesheet"
-	href="jsp/css/plugins/colorpicker/colorpicker.css">
+	href="/FlotAuto/jsp/css/plugins/tagsinput/jquery.tagsinput.css">
 <!-- Datepicker -->
-<link rel="stylesheet" href="jsp/css/plugins/datepicker/datepicker.css">
-<!-- Plupload -->
-<link rel="stylesheet"
-	href="jsp/css/plugins/plupload/jquery.plupload.queue.css">
+<link rel="stylesheet" href="/FlotAuto/jsp/css/plugins/datepicker/datepicker.css">	
+<!-- dataTables -->
+<link rel="stylesheet" href="/FlotAuto/jsp/css/plugins/datatable/TableTools.css">
+<!-- chosen -->
+<link rel="stylesheet" href="/FlotAuto/jsp/css/plugins/chosen/chosen.css">
 
 
 <!-- jQuery -->
-<script src="jsp/js/jquery.min.js"></script>
+<script src="/FlotAuto/jsp/js/jquery.min.js"></script>
 <!-- jQuery UI -->
-<script src="jsp/js/plugins/jquery-ui/jquery.ui.core.min.js"></script>
-<script src="jsp/js/plugins/jquery-ui/jquery.ui.widget.min.js"></script>
-<script src="jsp/js/plugins/jquery-ui/jquery.ui.mouse.min.js"></script>
-<script src="jsp/js/plugins/jquery-ui/jquery.ui.resizable.min.js"></script>
-<script src="jsp/js/plugins/jquery-ui/jquery.ui.spinner.js"></script>
-<script src="jsp/js/plugins/jquery-ui/jquery.ui.slider.js"></script>
+<script src="/FlotAuto/jsp/js/plugins/jquery-ui/jquery.ui.core.min.js"></script>
+<script src="/FlotAuto/jsp/js/plugins/jquery-ui/jquery.ui.widget.min.js"></script>
+<script src="/FlotAuto/jsp/js/plugins/jquery-ui/jquery.ui.mouse.min.js"></script>
+<script src="/FlotAuto/jsp/js/plugins/jquery-ui/jquery.ui.resizable.min.js"></script>
+<script src="/FlotAuto/jsp/js/plugins/jquery-ui/jquery.ui.spinner.js"></script>
+<script src="/FlotAuto/jsp/js/plugins/jquery-ui/jquery.ui.slider.js"></script>
 <!-- Bootstrap -->
-<script src="jsp/js/bootstrap.min.js"></script>
+<script src="/FlotAuto/jsp/js/bootstrap.min.js"></script>
 <!-- Bootbox -->
-<script src="jsp/js/plugins/bootbox/jquery.bootbox.js"></script>
+<script src="/FlotAuto/jsp/js/plugins/bootbox/jquery.bootbox.js"></script>
 <!-- Masked inputs -->
-<script src="jsp/js/plugins/maskedinput/jquery.maskedinput.min.js"></script>
+<script src="/FlotAuto/jsp/js/plugins/maskedinput/jquery.maskedinput.min.js"></script>
 <!-- TagsInput -->
-<script src="jsp/js/plugins/tagsinput/jquery.tagsinput.min.js"></script>
+<script src="/FlotAuto/jsp/js/plugins/tagsinput/jquery.tagsinput.min.js"></script>
 <!-- Datepicker -->
-<script src="jsp/js/plugins/datepicker/bootstrap-datepicker.js"></script>
-<!-- Timepicker -->
-<script src="jsp/js/plugins/timepicker/bootstrap-timepicker.min.js"></script>
-<!-- Colorpicker -->
-<script src="jsp/js/plugins/colorpicker/bootstrap-colorpicker.js"></script>
+<script src="/FlotAuto/jsp/js/plugins/datepicker/bootstrap-datepicker.js"></script>
+<!-- dataTables -->
+<script src="/FlotAuto/jsp/js/plugins/datatable/jquery.dataTables.min.js"></script>
+<script src="/FlotAuto/jsp/js/plugins/datatable/TableTools.min.js"></script>
+<script src="/FlotAuto/jsp/js/plugins/datatable/ColReorder.min.js"></script>
+<script src="/FlotAuto/jsp/js/plugins/datatable/ColVis.min.js"></script>
 <!-- Chosen -->
-<script src="jsp/js/plugins/chosen/chosen.jquery.min.js"></script>
-<!-- MultiSelect -->
-<script src="jsp/js/plugins/multiselect/jquery.multi-select.js"></script>
-<!-- CKEditor -->
-<script src="jsp/js/plugins/ckeditor/ckeditor.js"></script>
-<!-- PLUpload -->
-<script src="jsp/js/plugins/plupload/plupload.full.js"></script>
-<script src="jsp/js/plugins/plupload/jquery.plupload.queue.js"></script>
-<!-- Custom file upload -->
-<script src="jsp/js/plugins/fileupload/bootstrap-fileupload.min.js"></script>
+<script src="/FlotAuto/jsp/js/plugins/chosen/chosen.jquery.min.js"></script>
+<!-- slimScroll -->
+<script src="/FlotAuto/jsp/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 
 <!-- Theme framework -->
-<script src="jsp/js/eakroko.min.js"></script>
+<script src="/FlotAuto/jsp/js/eakroko.min.js"></script>
 <!-- Theme scripts -->
-<script src="jsp/js/application.min.js"></script>
-<!-- Just for demonstration -->
-<script src="jsp/js/demonstration.min.js"></script>
+<script src="/FlotAuto/jsp/js/application.min.js"></script>
 <!-- Favicon -->
-<link rel="shortcut icon" href="jsp/img/favicon.ico" />
+<link rel="shortcut icon" href="/FlotAuto/jsp/img/favicon.ico" />
 <!-- Apple devices Homescreen icon -->
 <link rel="apple-touch-icon-precomposed"
-	href="jsp/img/apple-touch-icon-precomposed.png" />
-
+	href="/FlotAuto/jsp/img/apple-touch-icon-precomposed.png" />
 
 <title><tiles:insertAttribute name="title" ignore="true" /></title>
 </head>

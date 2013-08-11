@@ -70,72 +70,74 @@ public class EmployeTest extends TestCase {
 		byte[] img = new byte[(int) file.length()];
 		e.setPicture(img);
 
-		e.setHourlyRate(20.5);
+		e.setSalary(20000.00);
 	}
+//
+//	@Test
+//	public void testCreate() {
+//		dao.create(e);
+//	}
 
-	@Test
-	public void testCreate() {
-		dao.create(e);
-	}
-
-	@Test
-	public void testUpdate() {
-		Employee e = dao.findById(1);
-		assertNotNull(e);
-		e.setLastName("xyz");
-		dao.update(e);
-	}
+//	@Test
+//	public void testUpdate() {
+//		Employee e = dao.findById(1);
+//		assertNotNull(e);
+//		e.setLastName("xyz");
+//		dao.update(e);
+//	}
 
 	@Test
 	public void testRead() {
 		List<Employee> list = dao.read();
 		assertNotNull(list);
+		assertTrue(list.size() == 1);
+		assertNotNull(list.get(0));
 	}
 
-	@Test
-	public void testDelete() {
-		dao.delete(e);
-	}
-
-	@Test
-	public void testFindById() {
-		Employee e = dao.findById(1);
-		assertNotNull(e);
-	}
-
-	@Test
-	public void testFindByLastName() {
-		List<Employee> list = dao.findByLastName("abc");
-		assertNotNull(list);
-	}
-
-	@Test
-	public void testFindByFirstName() {
-		List<Employee> list = dao.findByFirstName("foo");
-		assertNotNull(list);
-	}
-
-	@Test
-	public void testFindByOccupation() {
-		List<Employee> list = dao.findByOccupation(Occupation.DRIVER);
-		assertNotNull(list);
-	}
-
-	@Test
-	public void testFindByNumber() {
-		Employee e = dao.findByNumber("hjk356YU");
-		assertNotNull(e);
-	}
-
-	@Test
-	public void testFindByCin() {
-		Employee e = dao.findByCin("B656");
-		assertNotNull(e);
-	}
-
-	@Test
-	public void testFindByDrivingLicense() {
-		Employee e = dao.findByDrivingLicense("456789");
-		assertNotNull(e);
-	}
+//	@Test
+//	public void testDelete() {
+//		dao.delete(e);
+//	}
+//
+//	@Test
+//	public void testFindById() {
+//		Employee e = dao.findById(1);
+//		assertNotNull(e);
+//	}
+//
+//	@Test
+//	public void testFindByLastName() {
+//		List<Employee> list = dao.findByLastName("abc");
+//		assertNotNull(list);
+//	}
+//
+//	@Test
+//	public void testFindByFirstName() {
+//		List<Employee> list = dao.findByFirstName("foo");
+//		assertNotNull(list);
+//	}
+//
+//	@Test
+//	public void testFindByOccupation() {
+//		List<Employee> list = dao.findByOccupation(Occupation.DRIVER);
+//		assertNotNull(list);
+//	}
+//
+//	@Test
+//	public void testFindByNumber() {
+//		Employee e = dao.findByNumber("hjk356YU");
+//		assertNotNull(e);
+//	}
+//
+//	@Test
+//	public void testFindByCin() {
+//		Employee e = dao.findByCin("B656");
+//		assertNotNull(e);
+//	}
+//
+//	@Test
+//	public void testFindByDrivingLicense() {
+//		Employee e = dao.findByDrivingLicense("456789");
+//		assertNotNull(e);
+//	}
 }

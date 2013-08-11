@@ -30,7 +30,7 @@ public class Employee extends Person {
 	@Column(nullable=false)
 	private Date hireDate;
 	@Column(nullable=false)
-	private Double hourlyRate;
+	private Double salary;
 	@Lob
 	private byte[] picture;
 	@ElementCollection
@@ -69,11 +69,11 @@ public class Employee extends Person {
 	public void setHireDate(Date hireDate) {
 		this.hireDate = hireDate;
 	}
-	public Double getHourlyRate() {
-		return hourlyRate;
+	public Double getSalary() {
+		return salary;
 	}
-	public void setHourlyRate(Double hourlyRate) {
-		this.hourlyRate = hourlyRate;
+	public void setSalary(Double salary) {
+		this.salary = salary;
 	}
 	public byte[] getPicture() {
 		return picture;

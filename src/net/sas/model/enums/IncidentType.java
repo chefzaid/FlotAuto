@@ -2,7 +2,7 @@ package net.sas.model.enums;
 
 public enum IncidentType {
 	
-	FAILURE("Panne"),
+	BREAK_DOWN("Panne"),
 	ACCIDENT("Accident"),
 	INFRINGEMENT("Infraction");
 	

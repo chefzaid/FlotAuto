@@ -16,7 +16,7 @@ public class GenericDao<T> implements IDao<T> {
 
 	@Override
 	public void update(T obj) {
-		template.saveOrUpdate(obj);
+		template.update(obj);
 	}
 
 	@Override
@@ -24,6 +24,11 @@ public class GenericDao<T> implements IDao<T> {
 		template.delete(obj);
 	}
 
+	@Override
+	public void createUpdate(T obj){
+		template.saveOrUpdate(obj);
+	}
+	
 	@Override
 	public List<T> read() {
 		return template.loadAll(entity);
