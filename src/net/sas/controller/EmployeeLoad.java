@@ -1,6 +1,11 @@
 package net.sas.controller;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.struts2.ServletActionContext;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import net.sas.model.bo.Employee;
 import net.sas.model.dao.EmployeeDao;
@@ -12,13 +17,18 @@ import com.opensymphony.xwork2.ActionSupport;
 public class EmployeeLoad extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 	
-	private EmployeeDao dao;
+
 	private List<Employee> employees;
 	
 	@Override
 	public String execute(){
 //		EmployeeDao dao = (EmployeeDao) ContextUtil.getInstance().getBean("employeeDao");
+		WebApplicationContext context =
+				WebApplicationContextUtils.getRequiredWebApplicationContext(ServletActionContext.getServletContext());
+		EmployeeDao dao = (EmployeeDao) context.getBean("employeeDao");
 		employees = dao.read();
+		
+//		employees = new ArrayList<Employee>();
 		
 		Employee e1 = new Employee();
 		e1.setFirstName("aze");
@@ -39,13 +49,5 @@ public class EmployeeLoad extends ActionSupport {
 
 	public void setEmployees(List<Employee> employees) {
 		this.employees = employees;
-	}
-
-	public EmployeeDao getDao() {
-		return dao;
-	}
-
-	public void setDao(EmployeeDao dao) {
-		this.dao = dao;
 	}
 }

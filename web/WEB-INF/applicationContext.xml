@@ -55,6 +55,6 @@
 	</bean>
 	
 	<bean id="employeeLoadAction" class="net.sas.controller.EmployeeLoad">
-    	<property name="dao" ref="employeeDao"/>
+    	
     </bean>   
 </beans>
