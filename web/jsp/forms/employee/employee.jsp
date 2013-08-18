@@ -315,8 +315,8 @@
 					</div>
 					<div class="form-actions">
 						<div class="center">
-							<s:submit value="<<" cssClass="btn btn-primary" />
-							<s:submit value="<" cssClass="btn btn-primary" />
+							<s:submit value="<<" cssClass=" btn btn-primary" />
+							<s:submit value="<" cssClass=" btn btn-primary" />
 							<s:reset value="Nouveau" cssClass="btn" />
 							<s:submit value="Enregistrer" cssClass="btn btn-success" />
 							<s:submit value="Supprimer" cssClass="btn btn-danger" />
