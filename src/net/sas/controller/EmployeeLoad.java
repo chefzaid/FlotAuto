@@ -1,11 +1,6 @@
 package net.sas.controller;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import org.apache.struts2.ServletActionContext;
-import org.springframework.web.context.WebApplicationContext;
-import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import net.sas.model.bo.Employee;
 import net.sas.model.dao.EmployeeDao;
@@ -22,10 +17,7 @@ public class EmployeeLoad extends ActionSupport {
 	
 	@Override
 	public String execute(){
-//		EmployeeDao dao = (EmployeeDao) ContextUtil.getInstance().getBean("employeeDao");
-		WebApplicationContext context =
-				WebApplicationContextUtils.getRequiredWebApplicationContext(ServletActionContext.getServletContext());
-		EmployeeDao dao = (EmployeeDao) context.getBean("employeeDao");
+		EmployeeDao dao = (EmployeeDao) ContextUtil.getInstance().getBean("employeeDao");
 		employees = dao.read();
 		
 //		employees = new ArrayList<Employee>();
