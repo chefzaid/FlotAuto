@@ -8,7 +8,7 @@ public class ContextUtil {
 	private static ApplicationContext context;
 	
 	private ContextUtil(){
-		context = new ClassPathXmlApplicationContext("/WEB-INF/applicationContext.xml");
+		context = new ClassPathXmlApplicationContext("beans.xml");
 	}
 	
 	public static ApplicationContext getInstance(){

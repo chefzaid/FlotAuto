@@ -1,2 +1,2 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<c:redirect url="/employee/employee.action" />
+<c:redirect url="/employee.html" />

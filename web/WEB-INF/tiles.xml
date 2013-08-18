@@ -3,24 +3,24 @@
        "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
 <tiles-definitions>
-	<definition name="baseLayout" template="/jsp/layout/BaseLayout.jsp">
+	<definition name="baseLayout" template="/WEB-INF/jsp/layout/BaseLayout.jsp">
 		<put-attribute name="title" value="FlotAuto" />
-		<put-attribute name="header" value="/jsp/layout/Header.jsp" />
+		<put-attribute name="header" value="/WEB-INF/jsp/layout/Header.jsp" />
 		<put-attribute name="body" value="" />
-		<put-attribute name="footer" value="/jsp/layout/Footer.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/jsp/layout/Footer.jsp" />
 	</definition>
 
-	<definition name="/vehicle.tiles" extends="baseLayout">
+	<definition name="vehicle" extends="baseLayout">
 		<put-attribute name="title" value="Véhicule" />
-		<put-attribute name="body" value="/jsp/forms/vehicle/vehicle.jsp" />
+		<put-attribute name="body" value="/WEB-INF/jsp/forms/vehicle/vehicle.jsp" />
 	</definition>
 	
-	<definition name="/employee.tiles" extends="baseLayout">
+	<definition name="employee" extends="baseLayout">
 		<put-attribute name="title" value="FlotAuto>Employé - Informations générales" />
-		<put-attribute name="body" value="/jsp/forms/employee/employee.jsp" />
+		<put-attribute name="body" value="/WEB-INF/jsp/forms/employee/employee.jsp" />
 	</definition>
-	<definition name="/employeeHistory.tiles" extends="baseLayout">
+	<definition name="employeeHistory" extends="baseLayout">
 		<put-attribute name="title" value="FlotAuto>Employé - Véhicules conduits" />
-		<put-attribute name="body" value="/jsp/forms/employee/history.jsp" />
+		<put-attribute name="body" value="/WEB-INF/jsp/forms/employee/history.jsp" />
 	</definition>
 </tiles-definitions>
