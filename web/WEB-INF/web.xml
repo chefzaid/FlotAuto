@@ -14,7 +14,11 @@
 	</context-param>
 	<filter>
 		<filter-name>struts2</filter-name>
+<<<<<<< HEAD
 		<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+=======
+		<filter-class>org.apache.struts2.dispatcher.FilterDispatcher</filter-class>
+>>>>>>> 1fdc2e38816a961a19cb3e2388599cc2f8789c42
 	</filter>
 	<filter-mapping>
 		<filter-name>struts2</filter-name>
