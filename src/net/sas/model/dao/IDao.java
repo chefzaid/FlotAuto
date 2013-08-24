@@ -5,7 +5,7 @@ import java.util.List;
 public interface IDao<T> {
 	void create(T obj);
 	void update(T obj);
-	void createUpdate(T obj);
+	void createOrUpdate(T obj);
 	void delete(T obj);
 	List<T> read();
 	T findById(Integer id);

@@ -2,48 +2,64 @@ package net.sas.model.dao;
 
 import java.util.List;
 
-import org.springframework.orm.hibernate3.HibernateTemplate;
+import net.sas.model.bo.Employee;
+import net.sas.model.service.HibernateUtil;
 
-public class GenericDao<T> implements IDao<T> {
+import org.apache.struts2.ServletActionContext;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 
-	protected HibernateTemplate template;
+import com.googlecode.s2hibernate.struts2.plugin.annotations.SessionTarget;
+import com.googlecode.s2hibernate.struts2.plugin.annotations.TransactionTarget;
+
+public class GenericDao<T> /* implements IDao<T> */{
+
+	// @SessionTarget
+	// Session session;
+	// @TransactionTarget
+	// Transaction transaction;
 	protected Class<T> entity;
-	
-	@Override
-	public void create(T obj) {
-		template.save(obj);
+
+	public GenericDao() {
 	}
 
-	@Override
-	public void update(T obj) {
-		template.update(obj);
-	}
-
-	@Override
-	public void delete(T obj) {
-		template.delete(obj);
-	}
-
-	@Override
-	public void createUpdate(T obj){
-		template.saveOrUpdate(obj);
-	}
-	
-	@Override
-	public List<T> read() {
-		return template.loadAll(entity);
-	}
-
-	@Override
-	public T findById(Integer id) {
-		return template.get(entity, id);
-	}
-
-	public void setTemplate(HibernateTemplate template) {
-		this.template = template;
-	}
-
-	public void setEntity(Class<T> entity) {
+	public GenericDao(Class<T> entity) {
 		this.entity = entity;
 	}
+
+	// @Override
+	// public void create(T obj) {
+	// session.save(obj);
+	// }
+	//
+	// @Override
+	// public void update(T obj) {
+	// session.update(obj);
+	// }
+	//
+	// @Override
+	// public void delete(T obj) {
+	// session.delete(obj);
+	// }
+	//
+	// @Override
+	// public void createOrUpdate(T obj) {
+	// session.saveOrUpdate(obj);
+	// }
+
+	@SuppressWarnings("unchecked")
+	public List<T> read() {
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		List<T> list = session.createQuery("from Employee").list();
+		session.getTransaction().commit();
+		return list;
+	}
+
+	// @SuppressWarnings("unchecked")
+	// @Override
+	// public T findById(Integer id) {
+	// return (T) session.get(entity, id);
+	// }
 }

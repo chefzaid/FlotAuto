@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.connection.driver_class">
+			org.hsqldb.jdbcDriver
+		</property>
+		<property name="hibernate.dialect">
+			org.hibernate.dialect.HSQLDialect
+		</property>
+		<property name="hibernate.connection.url">
+			jdbc:hsqldb:file:data/flotauto;shutdown=true;hsqldb.write_delay=false;
+		</property>
+
+		<property name="hibernate.connection.username">sa</property>
+		<property name="hibernate.connection.password">Z41d</property>
+		<property name="hibernate.connection.pool_size">10</property>
+		<property name="current_session_context_class">thread</property>
+		<property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		<property name="hibernate.connection.autocommit">true</property>
+		<property name="hibernate.show_sql">true</property>
+
+		<mapping class="net.sas.model.bo.Acquisition" />
+		<mapping class="net.sas.model.bo.Address" />
+		<mapping class="net.sas.model.bo.Component" />
+		<mapping class="net.sas.model.bo.Consumption" />
+		<mapping class="net.sas.model.bo.Cycle" />
+		<mapping class="net.sas.model.bo.DrivingLicense" />
+		<mapping class="net.sas.model.bo.Employee" />
+		<mapping class="net.sas.model.bo.Expense" />
+		<mapping class="net.sas.model.bo.ExpenseEquipment" />
+		<mapping class="net.sas.model.bo.ExpenseOther" />
+		<mapping class="net.sas.model.bo.ExpensePart" />
+		<mapping class="net.sas.model.bo.ExpenseWorkOrder" />
+		<mapping class="net.sas.model.bo.HealthCheck" />
+		<mapping class="net.sas.model.bo.Incident" />
+		<mapping class="net.sas.model.bo.Insurance" />
+		<mapping class="net.sas.model.bo.Maintenance" />
+		<mapping class="net.sas.model.bo.MaintenanceProgram" />
+		<mapping class="net.sas.model.bo.Odometer" />
+		<mapping class="net.sas.model.bo.Payment" />
+		<mapping class="net.sas.model.bo.Person" />
+		<mapping class="net.sas.model.bo.Supplier" />
+		<mapping class="net.sas.model.bo.TechnicalCheck" />
+		<mapping class="net.sas.model.bo.Vehicle" />
+		<mapping class="net.sas.model.bo.VehicleHistory" />
+		<mapping class="net.sas.model.bo.VehicleTax" />
+		<mapping class="net.sas.model.bo.Warranty" />
+		<mapping class="net.sas.model.bo.WorkOrder" />
+	</session-factory>
+</hibernate-configuration> 

@@ -12,7 +12,6 @@ import net.sas.model.bo.Employee;
 import net.sas.model.bo.HealthCheck;
 import net.sas.model.dao.EmployeeDao;
 import net.sas.model.enums.Occupation;
-import net.sas.model.service.ContextUtil;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -24,7 +23,7 @@ public class EmployeTest extends TestCase {
 
 	@BeforeClass
 	public void setUp() {
-		dao = (EmployeeDao) ContextUtil.getInstance().getBean("employeeDao");
+		//dao = (EmployeeDao) ContextUtil.getInstance().getBean("employeeDao");
 		e = new Employee();
 
 		e.setLastName("abc");

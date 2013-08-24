@@ -1,7 +1,9 @@
+
 <script>
 	document.getElementById('employee').classList.add('active');
 </script>
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <div class="container-fluid" id="content">
 	<div id="left">
@@ -349,6 +351,11 @@
 									</tr>
 								</thead>
 								<tbody>
+								<c:forEach items="${employees}" var="x">
+										<tr>
+											<td>${x.firstName}</td>										
+										</tr>
+									</c:forEach>
 									<s:iterator value="employees">
 										<tr>
 											<td><s:property value="number" /></td>

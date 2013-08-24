@@ -7,25 +7,25 @@ import net.sas.model.enums.SupplierType;
 
 public class SupplierDao extends GenericDao<Supplier> {
 
-	private String searchQuery = "from Supplier where";
-	
-	public Supplier findByCompanyName(String companyName) {
-		return (Supplier) template.find(searchQuery + " companyName=?",
-				companyName).get(0);
-	}
-
-	@SuppressWarnings("unchecked")
-	public List<Supplier> findByType(SupplierType type) {
-		return template.find(searchQuery + " type=?", type);
-	}
-
-	@SuppressWarnings("unchecked")
-	public List<Supplier> findByCity(String city) {
-		return template.find(searchQuery + " city=?", city);
-	}
-
-	@SuppressWarnings("unchecked")
-	public List<Supplier> findByPhone(String phone) {
-		return template.find(searchQuery + " phone=?", phone);
-	}
+//	private String searchQuery = "from Supplier where";
+//	
+//	public Supplier findByCompanyName(String companyName) {
+//		return (Supplier) session.createQuery(searchQuery + " companyName=?",
+//				companyName).get(0);
+//	}
+//
+//	@SuppressWarnings("unchecked")
+//	public List<Supplier> findByType(SupplierType type) {
+//		return session.createQuery(searchQuery + " type=?", type);
+//	}
+//
+//	@SuppressWarnings("unchecked")
+//	public List<Supplier> findByCity(String city) {
+//		return session.createQuery(searchQuery + " city=?", city);
+//	}
+//
+//	@SuppressWarnings("unchecked")
+//	public List<Supplier> findByPhone(String phone) {
+//		return session.createQuery(searchQuery + " phone=?", phone);
+//	}
 }
