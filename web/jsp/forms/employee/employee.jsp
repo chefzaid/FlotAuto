@@ -1,7 +1,8 @@
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <script>
 	document.getElementById('employee').classList.add('active');
 </script>
-<%@ taglib prefix="s" uri="/struts-tags"%>
 
 <div class="container-fluid" id="content">
 	<div id="left">
@@ -38,7 +39,7 @@
 				<ul>
 					<li><a href="/FlotAuto">FlotAuto</a> <i
 						class="icon-angle-right"></i></li>
-					<li><a href="/FlotAuto/employee/employee.action">Employé</a> <i
+					<li><a href="/FlotAuto/employee/general.action">Employé</a> <i
 						class="icon-angle-right"></i></li>
 					<li><a href="/FlotAuto/employee/employee.action">Général</a></li>
 				</ul>
@@ -82,8 +83,9 @@
 										<div class="controls">
 											<s:select name="employee.occupation" id="employee.occupation"
 												list="@net.sas.model.enums.Occupation@values()"
-												listKey="getStatus()" listValue="getStatus()" headerKey=""
-												headerValue="%{''}" cssClass="sinput-large" />
+												listValue="getStatus()" headerKey="-1" headerValue="%{''}"
+												cssClass="sinput-large"
+												value="#{currentEmployee.occupation}" />
 										</div>
 									</div>
 									<div class="control-group">
@@ -93,7 +95,8 @@
 											<div class="input-append">
 												<input type="text" name="employee.salary"
 													id="employee.salary" placeholder="12 345.67"
-													class='input-medium'> <span class="add-on">DH</span>
+													class='input-medium' value="${currentEmployee.salary}" />
+												<span class="add-on">DH</span>
 											</div>
 										</div>
 									</div>
@@ -102,7 +105,8 @@
 											naissance :</label>
 										<div class="controls">
 											<input type="text" name="employee.birthDate"
-												id="employee.birthDate" class="input-large datepick">
+												id="employee.birthDate" class="input-large datepick"
+												value="<fmt:formatDate value="${currentEmployee.birthDate}" pattern="dd/MM/yyyy"/>" />
 											<span class="help-block">Format : jj/mm/aaaa</span>
 										</div>
 									</div>
@@ -111,7 +115,8 @@
 											embauche :</label>
 										<div class="controls">
 											<input type="text" name="employee.hireDate"
-												id="employee.hireDate" class="input-large datepick">
+												id="employee.hireDate" class="input-large datepick"
+												value="<fmt:formatDate value="${currentEmployee.hireDate}" pattern="dd/MM/yyyy"/>" />
 										</div>
 									</div>
 									<div class="control-group">
@@ -119,7 +124,8 @@
 											:</label>
 										<div class="controls">
 											<input type="text" name="employee.phone" id="employee.phone"
-												class="input-large mask_phone"> <span
+												class="input-large mask_phone"
+												value="${currentEmployee.phone}" /> <span
 												class="help-block">Format : (123) 456-7890</span>
 										</div>
 									</div>
@@ -128,7 +134,8 @@
 											:</label>
 										<div class="controls">
 											<input type="text" name="employee.email" id="employee.email"
-												placeholder="nom@domaine.com" class="input-large">
+												placeholder="nom@domaine.com" class="input-large"
+												value="${currentEmployee.email}" />
 										</div>
 									</div>
 								</div>
