@@ -20,7 +20,7 @@
 				</a>
 			</div>
 			<ul class="subnav-menu">
-				<li><a href="../employee/employee.action">Général</a></li>
+				<li><a href="../employee/general.action">Général</a></li>
 				<li><a href="../employee/history.action">Véhicules conduits</a></li>
 				<li><a href="#">Accidents commis</a></li>
 				<li><a href="#">Fichiers joints</a></li>
@@ -64,7 +64,7 @@
 										<div class="controls">
 											<input type="text" name="employee.firstName"
 												id="employee.firstName" placeholder="Prénom"
-												class="input-large">
+												class="input-large" value="${currentEmployee.firstName}" />
 										</div>
 									</div>
 									<div class="control-group">
@@ -72,7 +72,8 @@
 											:</label>
 										<div class="controls">
 											<input type="text" name="employee.lastName"
-												id="employee.lastName" placeholder="NOM" class="input-large">
+												id="employee.lastName" placeholder="NOM" class="input-large"
+												value="${currentEmployee.lastName}" />
 										</div>
 									</div>
 									<div class="control-group">
@@ -346,6 +347,7 @@
 										<th class='hidden-350'>Date emabauche</th>
 										<th class='hidden-1024'>Phone</th>
 										<th class='hidden-480'>Email</th>
+										<th class='hidden-480'>Options</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -354,10 +356,17 @@
 											<td><s:property value="number" /></td>
 											<td><s:property value="firstName" /></td>
 											<td><s:property value="lastName" /></td>
-											<td><s:property value="occupation" /></td>
-											<td class='hidden-350'><s:property value="hireDate" /></td>
-											<td class='hidden-1024'><s:property value="phone" /></td>
+											<td><s:property value="occupation.status" /></td>
+											<td class='hidden-1024'><s:property value="hireDate" /></td>
+											<td class='hidden-350'><s:property value="phone" /></td>
 											<td class='hidden-480'><s:property value="email" /></td>
+											<td class='hidden-480'><a
+												href="view.action?id=<s:property value='id'/>" class="btn"
+												rel="tooltip" title="Afficher"><i class="icon-search"></i></a>
+												<a href="#" class="btn" rel="tooltip" title="Modifier"><i
+													class="icon-edit"></i></a> <a href="#" class="btn"
+												rel="tooltip" title="Supprimer"><i class="icon-remove"></i></a>
+											</td>
 										</tr>
 									</s:iterator>
 								</tbody>

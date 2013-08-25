@@ -15,9 +15,15 @@
 	</package>
 
 	<package name="employee" extends="app" namespace="/employee">
-		<action name="employee" class="net.sas.controller.EmployeeLoad">
+		<action name="general" class="net.sas.controller.EmployeeAction"
+			method="load">
 			<result name="success" type="tiles">/employee.tiles</result>
 		</action>
+		<action name="view" class="net.sas.controller.EmployeeAction"
+			method="view">
+			<result name="success" type="tiles">/employee.tiles</result>
+		</action>
+		
 		<action name="history">
 			<result type="tiles">/employeeHistory.tiles</result>
 		</action>

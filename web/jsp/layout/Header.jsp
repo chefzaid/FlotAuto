@@ -5,9 +5,9 @@
 			rel="tooltip" data-placement="bottom" title="Toggle navigation"><i
 			class="icon-reorder"></i> </a>
 		<ul class='main-nav'>
-			<li  id="vehicle"><a href="../vehicle/vehicle.action"> <i class="icon-home"></i> <span>Véhicule</span>
+			<li  id="vehicle"><a href="../vehicle/general.action"> <i class="icon-home"></i> <span>Véhicule</span>
 			</a></li>
-			<li id="employee"><a href="../employee/employee.action"> <i class="icon-home"></i> <span>Employé</span>
+			<li id="employee"><a href="../employee/general.action"> <i class="icon-home"></i> <span>Employé</span>
 			</a></li>
 			<li><a href="index.html"> <i class="icon-home"></i> <span>Fournisseur</span>
 			</a></li>
