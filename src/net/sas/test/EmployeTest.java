@@ -24,6 +24,7 @@ public class EmployeTest extends TestCase {
 	@BeforeClass
 	public void setUp() {
 		//dao = (EmployeeDao) ContextUtil.getInstance().getBean("employeeDao");
+		dao = new EmployeeDao();
 		e = new Employee();
 
 		e.setLastName("abc");
@@ -71,11 +72,11 @@ public class EmployeTest extends TestCase {
 
 		e.setSalary(20000.00);
 	}
-//
-//	@Test
-//	public void testCreate() {
-//		dao.create(e);
-//	}
+
+	@Test
+	public void testCreate() {
+		dao.create(e);
+	}
 
 //	@Test
 //	public void testUpdate() {

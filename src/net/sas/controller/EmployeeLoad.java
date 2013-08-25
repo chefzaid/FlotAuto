@@ -18,7 +18,7 @@ public class EmployeeLoad extends ActionSupport {
 	public String execute(){
 		EmpDao dao = new EmpDao();
 		employees = dao.read();
-		
+		System.out.println(employees.size());
 //		employees = new ArrayList<Employee>();
 	
 		

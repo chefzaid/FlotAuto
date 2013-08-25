@@ -28,11 +28,14 @@ public class GenericDao<T> /* implements IDao<T> */{
 		this.entity = entity;
 	}
 
-	// @Override
-	// public void create(T obj) {
-	// session.save(obj);
-	// }
-	//
+	 
+	 public void create(T obj) {
+		 Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+			session.beginTransaction();
+			session.save(obj);
+			session.getTransaction().commit();
+	 }
+	
 	// @Override
 	// public void update(T obj) {
 	// session.update(obj);

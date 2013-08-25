@@ -5,6 +5,7 @@
 
 <hibernate-configuration>
 	<session-factory>
+	<!-- 
 		<property name="hibernate.connection.driver_class">
 			org.hsqldb.jdbcDriver
 		</property>
@@ -14,13 +15,24 @@
 		<property name="hibernate.connection.url">
 			jdbc:hsqldb:file:data/flotauto;shutdown=true;hsqldb.write_delay=false;
 		</property>
-
 		<property name="hibernate.connection.username">sa</property>
 		<property name="hibernate.connection.password">Z41d</property>
+		 -->
+		 <property name="hibernate.connection.driver_class">
+			com.mysql.jdbc.Driver
+		</property>
+		<property name="hibernate.dialect">
+			org.hibernate.dialect.MySQLDialect
+		</property>
+		<property name="hibernate.connection.url">
+			jdbc:mysql://localhost:3306/flotauto
+		</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">Z41d</property>
+		
 		<property name="hibernate.connection.pool_size">10</property>
 		<property name="current_session_context_class">thread</property>
 		<property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
-
 		<property name="hibernate.hbm2ddl.auto">update</property>
 		<property name="hibernate.connection.autocommit">true</property>
 		<property name="hibernate.show_sql">true</property>
