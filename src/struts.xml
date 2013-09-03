@@ -11,7 +11,13 @@
 		<result-types>
 			<result-type name="tiles"
 				class="org.apache.struts2.views.tiles.TilesResult" />
+			<result-type name="image"
+				class="net.sas.controller.ImageBytesResult" />
 		</result-types>
+ 
+		<action name="ImageAction" class="net.sas.controller.ImageAction">
+			<result name="success" type="image"></result>
+		</action>
 	</package>
 
 	<package name="employee" extends="app" namespace="/employee">
@@ -23,7 +29,11 @@
 			method="view">
 			<result name="success" type="tiles">/employee.tiles</result>
 		</action>
-		
+		<action name="delete" class="net.sas.controller.EmployeeAction"
+			method="delete">
+			<result name="success" type="tiles">/employee.tiles</result>
+		</action>
+
 		<action name="history">
 			<result type="tiles">/employeeHistory.tiles</result>
 		</action>

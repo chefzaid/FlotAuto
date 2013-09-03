@@ -38,11 +38,19 @@ public class EmployeeAction extends ActionSupport {
 	}
 	
 	public String view(){
-		
 		HttpServletRequest request = ServletActionContext.getRequest();
 		int id = Integer.parseInt(request.getParameter("id"));
 		currentEmployee = dao.findById(id);
-		
+		load();
+		return Action.SUCCESS;
+	}
+	
+	public String delete(){
+		HttpServletRequest request = ServletActionContext.getRequest();
+		int id = Integer.parseInt(request.getParameter("id"));
+		Employee e = dao.findById(id);
+		dao.delete(e);
+		load();
 		return Action.SUCCESS;
 	}
 

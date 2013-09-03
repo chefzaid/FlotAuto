@@ -25,6 +25,7 @@ public class HealthCheck {
 	private Date visitDate;
 	@Column(nullable=false)
 	private Date expireDate;
+	private String observations;
 	
 	public Integer getId() {
 		return id;
@@ -50,4 +51,11 @@ public class HealthCheck {
 	public void setExpireDate(Date expireDate) {
 		this.expireDate = expireDate;
 	}
+	public String getObservations() {
+		return observations;
+	}
+	public void setObservations(String observations) {
+		this.observations = observations;
+	}
+	
 }

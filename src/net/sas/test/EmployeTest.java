@@ -1,7 +1,6 @@
 package net.sas.test;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -42,10 +41,7 @@ public class EmployeTest extends TestCase {
 		e.setPhone("05224444333");
 		e.setEmail("test@test.com");
 
-		List<String> list = new ArrayList<String>();
-		list.add("eee");
-		list.add("hhhh");
-		e.setTrainings(list);
+		e.setTrainings("aaaaa, bbbb, ffff, ddd");
 
 		e.setCin("B656");
 		e.setHireDate(new Date());
@@ -53,6 +49,7 @@ public class EmployeTest extends TestCase {
 		HealthCheck ex = new HealthCheck();
 		ex.setVisitDate(new Date());
 		ex.setExpireDate(new Date());
+		ex.setObservations("All OK !");
 		e.setHealthCheck(ex);
 
 		e.setOccupation(Occupation.DRIVER);
@@ -72,11 +69,11 @@ public class EmployeTest extends TestCase {
 
 		e.setSalary(20000.00);
 	}
-//
-//	@Test
-//	public void testCreate() {
-//		dao.create(e);
-//	}
+
+	@Test
+	public void testCreate() {
+		dao.create(e);
+	}
 
 //	@Test
 //	public void testUpdate() {
@@ -99,11 +96,11 @@ public class EmployeTest extends TestCase {
 //		dao.delete(e);
 //	}
 //
-//	@Test
-//	public void testFindById() {
-//		Employee e = dao.findById(1);
-//		assertNotNull(e);
-//	}
+	@Test
+	public void testFindById() {
+		Employee e = dao.findById(1);
+		assertNotNull(e);
+	}
 //
 //	@Test
 //	public void testFindByLastName() {
