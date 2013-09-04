@@ -21,7 +21,7 @@
 	</package>
 
 	<package name="employee" extends="app" namespace="/employee">
-		<action name="general" class="net.sas.controller.EmployeeAction"
+		<action name="load" class="net.sas.controller.EmployeeAction"
 			method="load">
 			<result name="success" type="tiles">/employee.tiles</result>
 		</action>
@@ -31,6 +31,14 @@
 		</action>
 		<action name="delete" class="net.sas.controller.EmployeeAction"
 			method="delete">
+			<result name="success" type="tiles">/employee.tiles</result>
+		</action>
+		<action name="save" class="net.sas.controller.EmployeeAction"
+			method="save">
+			<result name="success" type="tiles">/employee.tiles</result>
+		</action>
+		<action name="clear" class="net.sas.controller.EmployeeAction"
+			method="clear">
 			<result name="success" type="tiles">/employee.tiles</result>
 		</action>
 

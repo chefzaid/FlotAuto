@@ -1,8 +1,13 @@
 package net.sas.test;
 
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
+
+import javax.imageio.ImageIO;
 
 import junit.framework.TestCase;
 import net.sas.model.bo.Address;
@@ -34,7 +39,6 @@ public class EmployeTest extends TestCase {
 		Address adr = new Address();
 		adr.setAddress("rue 8");
 		adr.setCity("casa");
-		adr.setCountry("maroc");
 		adr.setZip(20420);
 		e.setAddress(adr);
 
@@ -64,7 +68,7 @@ public class EmployeTest extends TestCase {
 		e.setDrivingLicense(dl);
 
 		File file = new File("C:\\img.jpg");
-		byte[] img = new byte[(int) file.length()];
+		byte[] img = getImage(file);
 		e.setPicture(img);
 
 		e.setSalary(20000.00);
@@ -83,13 +87,13 @@ public class EmployeTest extends TestCase {
 //		dao.update(e);
 //	}
 
-	@Test
-	public void testRead() {
-		List<Employee> list = dao.read();
-		assertNotNull(list);
-		assertTrue(list.size() == 1);
-		assertNotNull(list.get(0));
-	}
+//	@Test
+//	public void testRead() {
+//		List<Employee> list = dao.read();
+//		assertNotNull(list);
+//		assertTrue(list.size() == 1);
+//		assertNotNull(list.get(0));
+//	}
 
 //	@Test
 //	public void testDelete() {
@@ -137,4 +141,23 @@ public class EmployeTest extends TestCase {
 //		Employee e = dao.findByDrivingLicense("456789");
 //		assertNotNull(e);
 //	}
+	
+	public byte[] getImage(File image) {
+		byte[] imageInByte = null;
+		BufferedImage originalImage;
+		try {
+			originalImage = ImageIO.read(image);
+			// convert BufferedImage to byte array
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			ImageIO.write(originalImage, "jpg", baos);
+			baos.flush();
+			imageInByte = baos.toByteArray();
+			baos.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+ 
+		return imageInByte;
+	}
 }

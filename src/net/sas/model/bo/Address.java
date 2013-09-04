@@ -17,7 +17,6 @@ public class Address {
 	private Integer zip;
 	@Column(nullable=false)
 	private String city;
-	private String country;
 
 	public Integer getId() {
 		return id;
@@ -42,11 +41,5 @@ public class Address {
 	}
 	public void setCity(String city) {
 		this.city = city;
-	}
-	public String getCountry() {
-		return country;
-	}
-	public void setCountry(String country) {
-		this.country = country;
 	}
 }

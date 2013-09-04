@@ -1,6 +1,5 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <script>
 	document.getElementById('employee').classList.add('active');
 </script>
@@ -21,7 +20,7 @@
 			</a>
 		</div>
 		<ul class="subnav-menu">
-			<li><a href="../employee/general.action">Général</a></li>
+			<li><a href="../employee/load.action">Général</a></li>
 			<li><a href="../employee/history.action">Véhicules conduits</a></li>
 			<li><a href="#">Accidents commis</a></li>
 			<li><a href="#">Fichiers joints</a></li>
@@ -39,7 +38,7 @@
 			<ul>
 				<li><a href="/FlotAuto">FlotAuto</a> <i
 					class="icon-angle-right"></i></li>
-				<li><a href="/FlotAuto/employee/general.action">Employé</a> <i
+				<li><a href="/FlotAuto/employee/load.action">Employé</a> <i
 					class="icon-angle-right"></i></li>
 				<li><a href="/FlotAuto/employee/employee.action">Général</a></li>
 			</ul>
@@ -48,8 +47,9 @@
 			</div>
 		</div>
 		<div class="row-fluid">
-			<s:form method="POST" cssClass='form-horizontal form-column'>
-				<div id="abcdef" class="span12">
+			<s:form method="POST" enctype="multipart/form-data"
+				cssClass='form-horizontal form-column'>
+				<div class="span12">
 					<div class="box">
 						<div class="box-title">
 							<h3>
@@ -57,82 +57,78 @@
 							</h3>
 						</div>
 						<div class="box-content nopadding">
-
 							<div class="span6">
 								<div class="control-group">
-									<label for="employee.firstName" class="control-label">Prénom
-										:</label>
+									<label for="firstName" class="control-label">Prénom :</label>
 									<div class="controls">
-										<input type="text" name="employee.firstName"
-											id="employee.firstName" placeholder="Prénom"
+										<input type="hidden" name="id" id="id"
+											value="${currentEmployee.id}" /> <input type="text"
+											name="firstName" id="firstName" placeholder="Prénom"
 											class="input-large" value="${currentEmployee.firstName}" />
 									</div>
 								</div>
 								<div class="control-group">
-									<label for="employee.lastName" class="control-label">Nom
-										:</label>
+									<label for="lastName" class="control-label">Nom :</label>
 									<div class="controls">
-										<input type="text" name="employee.lastName"
-											id="employee.lastName" placeholder="NOM" class="input-large"
+										<input type="text" name="lastName" id="lastName"
+											placeholder="NOM" class="input-large"
 											value="${currentEmployee.lastName}" />
 									</div>
 								</div>
 								<div class="control-group">
-									<label for="employee.occupation" class="control-label">Occupation
+									<label for="occupation" class="control-label">Occupation
 										:</label>
 									<div class="controls">
-										<s:select name="employee.occupation" id="employee.occupation"
+										<s:select name="occupation" id="occupation"
 											list="@net.sas.model.enums.Occupation@values()"
 											listValue="getStatus()" headerKey="-1" headerValue="%{''}"
 											cssClass="sinput-large" value="#{currentEmployee.occupation}" />
 									</div>
 								</div>
 								<div class="control-group">
-									<label for="employee.salary" class="control-label">Salaire
-										:</label>
+									<label for="salary" class="control-label">Salaire :</label>
 									<div class="controls">
 										<div class="input-append">
-											<input type="text" name="employee.salary"
-												id="employee.salary" placeholder="12 345.67"
-												class='input-medium' value="${currentEmployee.salary}" /> <span
-												class="add-on">DH</span>
+											<input type="text" name="salary" id="salary"
+												placeholder="12 345.67" class='input-medium'
+												value="${currentEmployee.salary}" /> <span class="add-on">DH</span>
 										</div>
 									</div>
 								</div>
 								<div class="control-group">
-									<label for="employee.birthDate" class="control-label">Date
+									<label for="birthDate" class="control-label">Date
 										naissance :</label>
 									<div class="controls">
-										<input type="text" name="employee.birthDate"
-											id="employee.birthDate" class="input-large datepick"
-											value="<fmt:formatDate value="${currentEmployee.birthDate}" pattern="dd/MM/yyyy"/>" />
+										<input type="text" name="birthDate" id="birthDate"
+											class="input-large datepick"
+											value="<s:date name="currentEmployee.birthDate"
+												format="dd/MM/yyyy" />" />
 										<span class="help-block">Format : jj/mm/aaaa</span>
 									</div>
 								</div>
 								<div class="control-group">
-									<label for="employee.hireDate" class="control-label">Date
+									<label for="hireDate" class="control-label">Date
 										embauche :</label>
 									<div class="controls">
-										<input type="text" name="employee.hireDate"
-											id="employee.hireDate" class="input-large datepick"
-											value="<fmt:formatDate value="${currentEmployee.hireDate}" pattern="dd/MM/yyyy"/>" />
+										<input type="text" name="hireDate" id="hireDate"
+											class="input-large datepick"
+											value="<s:date name="currentEmployee.hireDate"
+												format="dd/MM/yyyy" />" />
 									</div>
 								</div>
 								<div class="control-group">
-									<label for="employee.phone" class="control-label">Téléphone
-										:</label>
+									<label for="phone" class="control-label">Téléphone :</label>
 									<div class="controls">
-										<input type="text" name="employee.phone" id="employee.phone"
+										<input type="text" name="phone" id="phone"
 											class="input-large mask_phone"
 											value="${currentEmployee.phone}" /> <span class="help-block">Format
 											: (123) 456-7890</span>
 									</div>
 								</div>
 								<div class="control-group">
-									<label for="employee.email" class="control-label">Email
-										:</label>
+									<label for="email" class="control-label">Email :</label>
 									<div class="controls">
-										<input type="text" name="employee.email" id="employee.email"
+										<input type="text" name="email" id="email"
 											placeholder="nom@domaine.com" class="input-large"
 											value="${currentEmployee.email}" />
 									</div>
@@ -140,14 +136,18 @@
 							</div>
 							<div class="span6">
 								<div class="control-group">
-									<label for="employee.picture" class="control-label">Photo
-										:</label>
+									<label for="picture" class="control-label">Photo :</label>
 									<div class="controls">
 										<div class="fileupload fileupload-new"
 											data-provides="fileupload">
 											<div class="fileupload-new thumbnail"
 												style="width: 200px; height: 150px;">
-												<img src="/FlotAuto/ImageAction?id=${currentEmployee.id}" />
+												<s:if test="#{currentEmployee.picture != null}">
+													<img src="/FlotAuto/ImageAction?id=${currentEmployee.id}" />
+												</s:if>
+												<s:else>
+													<img src="/FlotAuto/jsp/img/no_image.gif" />
+												</s:else>
 											</div>
 											<div class="fileupload-preview fileupload-exists thumbnail"
 												style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
@@ -155,26 +155,24 @@
 												<span class="btn btn-file"><span
 													class="fileupload-new">Choisir photo</span><span
 													class="fileupload-exists">Changer</span> <input type="file"
-													name="employee.picture" id="employee.picture" /> </span> <a
-													href="#" class="btn fileupload-exists"
-													data-dismiss="fileupload">Retirer</a>
+													name="image" id="image" /> </span> <a href="#"
+													class="btn fileupload-exists" data-dismiss="fileupload">Retirer</a>
 											</div>
 										</div>
 									</div>
 								</div>
 								<div class="control-group">
-									<label for="employee.number" class="control-label">Matricule
-										:</label>
+									<label for="number" class="control-label">Matricule :</label>
 									<div class="controls">
-										<input type="text" name="employee.number" id="employee.number"
+										<input type="text" name="number" id="number"
 											placeholder="Numéro de l'employé" class="input-large"
 											value="${currentEmployee.number}" />
 									</div>
 								</div>
 								<div class="control-group">
-									<label for="employee.cin" class="control-label">CIN :</label>
+									<label for="cin" class="control-label">CIN :</label>
 									<div class="controls">
-										<input type="text" name="employee.cin" id="employee.cin"
+										<input type="text" name="cin" id="cin"
 											placeholder="XX 123 456" class="input-large"
 											value="${currentEmployee.cin}" />
 									</div>
@@ -183,7 +181,9 @@
 									<label for="address.address" class="control-label">Adresse
 										:</label>
 									<div class="controls">
-										<input type="text" name="address.address" id="address.address"
+										<input type="hidden" name="address.id" id="address.id"
+											value="${currentEmployee.address.id}" /> <input type="text"
+											name="address.address" id="address.address"
 											placeholder="Adresse du domicile" class="input-large"
 											value="${currentEmployee.address.address}" />
 									</div>
@@ -205,15 +205,6 @@
 											value="${currentEmployee.address.city}" />
 									</div>
 								</div>
-								<div class="control-group">
-									<label for="address.country" class="control-label">Pays
-										:</label>
-									<div class="controls">
-										<input type="text" name="address.country" id="address.country"
-											placeholder="Pays" class="input-large"
-											value="${currentEmployee.address.country}" />
-									</div>
-								</div>
 							</div>
 						</div>
 					</div>
@@ -229,7 +220,10 @@
 									<label for="drivingLicense.number" class="control-label">Numéro
 										:</label>
 									<div class="controls">
-										<input type="text" name="drivingLicense.number"
+										<input type="hidden" name="drivingLicense.id"
+											id="drivingLicense.id"
+											value="${currentEmployee.drivingLicense.id}" /> <input
+											type="text" name="drivingLicense.number"
 											id="drivingLicense.number" placeholder="Numéro du permis"
 											class="input-large"
 											value="${currentEmployee.drivingLicense.number}" />
@@ -253,7 +247,8 @@
 									<div class="controls">
 										<input type="text" name="drivingLicense.obtainDate"
 											id="drivingLicense.obtainDate" class="input-large datepick"
-											value="<fmt:formatDate value="${currentEmployee.drivingLicense.obtainDate}" pattern="dd/MM/yyyy"/>" />
+											value="<s:date name="currentEmployee.drivingLicense.obtainDate"
+												format="dd/MM/yyyy" />" />
 									</div>
 								</div>
 								<div class="control-group">
@@ -262,7 +257,8 @@
 									<div class="controls">
 										<input type="text" name="drivingLicense.expireDate"
 											id="drivingLicense.expireDate" class="input-large datepick"
-											value="<fmt:formatDate value="${currentEmployee.drivingLicense.expireDate}" pattern="dd/MM/yyyy"/>" />
+											value="<s:date name="currentEmployee.drivingLicense.expireDate"
+												format="dd/MM/yyyy" />" />
 									</div>
 								</div>
 							</div>
@@ -280,19 +276,20 @@
 									<label for="healthCheck.visitDate" class="control-label">Date
 										visite :</label>
 									<div class="controls">
-										<input type="text" name="healthCheck.visitDate"
+										<input type="hidden" name="healthCheck.id" id="healthCheck.id"
+											value="${currentEmployee.healthCheck.id}" /> <input
+											type="text" name="healthCheck.visitDate"
 											id="healthCheck.visitDate" class="input-large datepick"
-											value="<fmt:formatDate value="${currentEmployee.healthCheck.visitDate}" pattern="dd/MM/yyyy"/>" />
+											value="<s:date name="currentEmployee.healthCheck.visitDate"
+												format="dd/MM/yyyy" />" />
 									</div>
 								</div>
 
 								<div class="control-group">
-									<label for="employee.notes" class="control-label">Observations
-										:</label>
+									<label for="notes" class="control-label">Observations :</label>
 									<div class="controls">
 										<textarea name="healthCheck.observations"
-											placeholder="Rapport santé..." id="employee.notes"
-											class="input-large">${currentEmployee.healthCheck.observations}</textarea>
+											placeholder="Rapport santé..." id="notes" class="input-large">${currentEmployee.healthCheck.observations}</textarea>
 									</div>
 								</div>
 							</div>
@@ -303,7 +300,8 @@
 									<div class="controls">
 										<input type="text" name="healthCheck.expireDate"
 											id="healthCheck.expireDate" class="input-large datepick"
-											value="<fmt:formatDate value="${currentEmployee.healthCheck.expireDate}" pattern="dd/MM/yyyy"/>" />
+											value="<s:date name="currentEmployee.healthCheck.expireDate"
+												format="dd/MM/yyyy" />" />
 									</div>
 								</div>
 							</div>
@@ -318,21 +316,20 @@
 						<div class="box-content nopadding">
 							<div class="span6">
 								<div class="control-group">
-									<label for="employee.trainings" class="control-label">Formations
+									<label for="trainings" class="control-label">Formations
 										:</label>
 									<div class="controls">
-										<input type="text" name="employee.trainings" id="textfield"
+										<input type="text" name="trainings" id="textfield"
 											class="tagsinput" value="aaa, bbbb, ddd" />
 									</div>
 								</div>
 							</div>
 							<div class="span6">
 								<div class="control-group">
-									<label for="employee.notes" class="control-label">Notes
-										:</label>
+									<label for="notes" class="control-label">Notes :</label>
 									<div class="controls">
-										<textarea name="employee.notes" placeholder="..."
-											id="employee.notes" class="input-large">${currentEmployee.notes}</textarea>
+										<textarea name="notes" placeholder="..." id="notes"
+											class="input-large">${currentEmployee.notes}</textarea>
 									</div>
 								</div>
 							</div>
@@ -343,9 +340,12 @@
 					<div class="center">
 						<s:submit value="<<" cssClass=" btn btn-primary" />
 						<s:submit value="<" cssClass=" btn btn-primary" />
-						<s:reset value="Nouveau" cssClass="btn" />
-						<s:submit value="Enregistrer" cssClass="btn btn-success" />
-						<s:submit value="Supprimer" cssClass="btn btn-danger" />
+						<s:submit value="Nouveau" cssClass="btn" action="load" />
+						<!-- to correct : NPE -->
+						<s:submit value="Enregistrer" cssClass="btn btn-success"
+							action="save" />
+						<s:submit value="Supprimer" cssClass="btn btn-danger"
+							action="delete" />
 						<s:submit value=">" cssClass="btn btn-primary" />
 						<s:submit value=">>" cssClass="btn btn-primary" />
 					</div>
@@ -392,11 +392,11 @@
 												<s:param name="id">
 													<s:property value="id" />
 												</s:param>
-											</s:url> <sj:a href="%{view}" targets="home" cssClass="btn"
-												rel="tooltip" title="Afficher">
+											</s:url> <sj:a onClick="$(document).load().scrollTop(200);"
+												href="%{view}" targets="home" cssClass="btn" rel="tooltip"
+												title="Afficher">
 												<i class="icon-search"></i>
-											</sj:a> <a href="#" class="btn" rel="tooltip" title="Modifier"><i
-												class="icon-edit"></i></a> <a href="#"
+											</sj:a> <a href="#"
 											onClick="if (confirm('Voulez vous vraiment supprimer cet enregistrement ?')) 
 				window.location='delete.action?id=<s:property value='id'/>'; return false"
 											class="btn" rel="tooltip" title="Supprimer"><i

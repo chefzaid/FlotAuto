@@ -74,6 +74,9 @@
 <!-- slimScroll -->
 <script
 	src="/FlotAuto/jsp/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<!-- Custom file upload -->
+<script
+	src="/FlotAuto/jsp/js/plugins/fileupload/bootstrap-fileupload.min.js"></script>
 
 <!-- Theme framework -->
 <script src="/FlotAuto/jsp/js/eakroko.min.js"></script>

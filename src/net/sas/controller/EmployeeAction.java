@@ -1,7 +1,12 @@
 package net.sas.controller;
 
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts2.ServletActionContext;
@@ -12,16 +17,18 @@ import net.sas.model.service.ContextUtil;
 
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.ModelDriven;
 
-public class EmployeeAction extends ActionSupport {
+public class EmployeeAction extends ActionSupport implements ModelDriven<Employee> {
 	
 	private static final long serialVersionUID = 1L;
 	private EmployeeDao dao = (EmployeeDao) ContextUtil.getInstance().getBean("employeeDao");
 	private List<Employee> employees;
 	private Employee currentEmployee;
+	private Employee newEmployee = new Employee();
+	private File image;
 	
 	public String load(){
-		
 		employees = dao.read();
 		
 		Employee e1 = new Employee();
@@ -53,7 +60,29 @@ public class EmployeeAction extends ActionSupport {
 		load();
 		return Action.SUCCESS;
 	}
+	
+	public String save(){
+		newEmployee = getModel();
+		if(image != null){
+			newEmployee.setPicture(getPicture());
+		}
+//		if(currentEmployee != null){
+//			System.out.println("update..................................");
+//			dao.update(newEmployee);
+//		}else{
+//			System.out.println("create..................................");
+//			dao.create(newEmployee);
+//		}
+		dao.update(newEmployee);
+		load();
+		return Action.SUCCESS;
+	}
 
+	public String clear(){
+		currentEmployee = new Employee();
+		return Action.SUCCESS;
+	}
+	
 	public List<Employee> getEmployees() {
 		return employees;
 	}
@@ -72,5 +101,32 @@ public class EmployeeAction extends ActionSupport {
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	@Override
+	public Employee getModel() {
+		return newEmployee;
+	}
+	
+	public void setImage(File image) {
+		this.image = image;
+	}
+	public File getImage() {
+		return image;
+	}
+	private byte[] getPicture() {
+		byte[] imageInByte = null;
+		BufferedImage originalImage;
+		try {
+			originalImage = ImageIO.read(image);
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			ImageIO.write(originalImage, "jpg", baos);
+			baos.flush();
+			imageInByte = baos.toByteArray();
+			baos.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return imageInByte;
 	}
 }

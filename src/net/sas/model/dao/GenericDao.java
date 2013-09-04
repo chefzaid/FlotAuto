@@ -25,7 +25,7 @@ public class GenericDao<T> implements IDao<T> {
 	}
 
 	@Override
-	public void createUpdate(T obj){
+	public void createOrUpdate(T obj){
 		template.saveOrUpdate(obj);
 	}
 	
