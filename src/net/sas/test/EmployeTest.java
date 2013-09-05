@@ -5,7 +5,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.util.Date;
-import java.util.List;
 
 import javax.imageio.ImageIO;
 
@@ -72,6 +71,9 @@ public class EmployeTest extends TestCase {
 		e.setPicture(img);
 
 		e.setSalary(20000.00);
+		
+		dl.setEmployee(e);
+		ex.setEmployee(e);
 	}
 
 	@Test
@@ -100,11 +102,11 @@ public class EmployeTest extends TestCase {
 //		dao.delete(e);
 //	}
 //
-	@Test
-	public void testFindById() {
-		Employee e = dao.findById(1);
-		assertNotNull(e);
-	}
+//	@Test
+//	public void testFindById() {
+//		Employee e = dao.findById(1);
+//		assertNotNull(e);
+//	}
 //
 //	@Test
 //	public void testFindByLastName() {

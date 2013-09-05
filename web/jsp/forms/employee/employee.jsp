@@ -213,7 +213,11 @@
 							<h3>
 								<i class="icon-edit"></i> Permis de conduire
 							</h3>
+
 						</div>
+						<s:if test="%{currentEmployee.drivingLicense == null}">
+							<h6 class="center">Employé sans permis ! Veuillez en saisir un, s'il vient de l'obtenir.</h6>
+						</s:if>
 						<div class="box-content nopadding">
 							<div class="span6">
 								<div class="control-group">

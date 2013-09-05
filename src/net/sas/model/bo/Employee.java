@@ -6,42 +6,107 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 
 import net.sas.model.enums.Occupation;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 
 @Entity
-public class Employee extends Person {
-	
-	@Column(nullable=false)
+public class Employee {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name="employee_id")
+	private Integer id;
+	@Column(nullable = false)
+	private String lastName;
+	@Column(nullable = false)
+	private String firstName;
+	private Date birthDate;
+	@OneToOne(orphanRemoval = true)
+	@JoinColumn(name = "address_id", unique = true)
+	@Cascade(value = { CascadeType.SAVE_UPDATE, CascadeType.DELETE })
+	private Address address;
+	@Column(nullable = false)
+	private String phone;
+	private String email;
+	@Column(nullable = false)
 	private String cin;
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private String number;
 	@Enumerated(EnumType.STRING)
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private Occupation occupation;
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private Date hireDate;
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private Double salary;
 	@Lob
 	private byte[] picture;
 	private String trainings;
-	@OneToOne(orphanRemoval=true)
-	@JoinColumn(name="healthCheck_id", unique=true)
-	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
+	@OneToOne(orphanRemoval = true)
+	@JoinColumn(name = "healthCheck_id", unique = true)
+	@Cascade(value = { CascadeType.SAVE_UPDATE, CascadeType.DELETE })
 	private HealthCheck healthCheck;
-	@OneToOne(orphanRemoval=true)
-	@JoinColumn(name="drivingLicense_id", unique=true)
-	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
+	@OneToOne(cascade = javax.persistence.CascadeType.ALL)
+	@PrimaryKeyJoinColumn
+	@NotFound(action = NotFoundAction.IGNORE)
 	private DrivingLicense drivingLicense;
+	
 	private String notes;
 	
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	public Date getBirthDate() {
+		return birthDate;
+	}
+	public void setBirthDate(Date birthDate) {
+		this.birthDate = birthDate;
+	}
+	public Address getAddress() {
+		return address;
+	}
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	public String getCin() {
 		return cin;
 	}

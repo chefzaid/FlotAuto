@@ -64,16 +64,17 @@ public class EmployeeAction extends ActionSupport implements ModelDriven<Employe
 	public String save(){
 		newEmployee = getModel();
 		if(image != null){
-			newEmployee.setPicture(getPicture());
+			newEmployee.setPicture(getImageBytes());
+		}else{ //if updating employee, keep old image if it hasnt changed
+			Employee e = dao.findById(newEmployee.getId());
+			if(e != null){ //if existing employee
+				newEmployee.setPicture(e.getPicture());
+			}
 		}
-//		if(currentEmployee != null){
-//			System.out.println("update..................................");
-//			dao.update(newEmployee);
-//		}else{
-//			System.out.println("create..................................");
-//			dao.create(newEmployee);
-//		}
-		dao.update(newEmployee);
+		if(newEmployee.getDrivingLicense().getNumber() == null){
+			newEmployee.setDrivingLicense(null);
+		}
+		dao.createOrUpdate(newEmployee);
 		load();
 		return Action.SUCCESS;
 	}
@@ -114,7 +115,7 @@ public class EmployeeAction extends ActionSupport implements ModelDriven<Employe
 	public File getImage() {
 		return image;
 	}
-	private byte[] getPicture() {
+	private byte[] getImageBytes() {
 		byte[] imageInByte = null;
 		BufferedImage originalImage;
 		try {
