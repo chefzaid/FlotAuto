@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
@@ -29,8 +31,10 @@ public class Payment {
 	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
 	private Cycle frequence;
 	@Column(nullable=false)
+	@Temporal(TemporalType.DATE)
 	private Date beginDate;
 	@Column(nullable=false)
+	@Temporal(TemporalType.DATE)
 	private Date endDate;
 	@Column(nullable=false)
 	private Double amount;

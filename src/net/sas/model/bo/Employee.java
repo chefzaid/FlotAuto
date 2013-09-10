@@ -13,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import net.sas.model.enums.Occupation;
 
@@ -32,6 +34,7 @@ public class Employee {
 	private String lastName;
 	@Column(nullable = false)
 	private String firstName;
+	@Temporal(TemporalType.DATE)
 	private Date birthDate;
 	@OneToOne(orphanRemoval = true)
 	@JoinColumn(name = "address_id", unique = true)
@@ -48,6 +51,7 @@ public class Employee {
 	@Column(nullable = false)
 	private Occupation occupation;
 	@Column(nullable = false)
+	@Temporal(TemporalType.DATE)
 	private Date hireDate;
 	@Column(nullable = false)
 	private Double salary;

@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
@@ -22,6 +24,7 @@ public class Warranty {
 	@Column(unique=true, nullable=false)
 	private String reference;
 	@Column(nullable=false)
+	@Temporal(TemporalType.DATE)
 	private Date beginDate;
 	@OneToOne(orphanRemoval=true)
 	@JoinColumn(name="validity_id", unique=true)

@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
@@ -26,8 +28,10 @@ public class DrivingLicense {
 	@Column(nullable = false)
 	private String type;
 	@Column(nullable = false)
+	@Temporal(TemporalType.DATE)
 	private Date obtainDate;
 	@Column(nullable = false)
+	@Temporal(TemporalType.DATE)
 	private Date expireDate;
 
 	public Integer getId() {

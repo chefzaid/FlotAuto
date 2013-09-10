@@ -7,21 +7,19 @@ import net.sas.model.bo.Employee;
 import net.sas.model.enums.Occupation;
 import net.sas.model.service.ContextUtil;
 
+@SuppressWarnings("unchecked")
 public class EmployeeDao extends GenericDao<Employee> {
 
 	private String searchQuery = "from Employee where";
 	
-	@SuppressWarnings("unchecked")
 	public List<Employee> findByLastName(String lastName) {
 		return template.find(searchQuery + " lastName=?", lastName);
 	}
 
-	@SuppressWarnings("unchecked")
 	public List<Employee> findByFirstName(String firstName) {
 		return template.find(searchQuery + " firstName=?", firstName);
 	}
-
-	@SuppressWarnings("unchecked")
+	
 	public List<Employee> findByOccupation(Occupation occupation) {
 		return template.find(searchQuery + " occupation=?", occupation);
 	}

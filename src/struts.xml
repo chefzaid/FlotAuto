@@ -12,10 +12,10 @@
 			<result-type name="tiles"
 				class="org.apache.struts2.views.tiles.TilesResult" />
 			<result-type name="image"
-				class="net.sas.controller.ImageBytesResult" />
+				class="net.sas.controller.util.ImageBytesResult" />
 		</result-types>
  
-		<action name="ImageAction" class="net.sas.controller.ImageAction">
+		<action name="ImageAction" class="net.sas.controller.util.ImageAction">
 			<result name="success" type="image"></result>
 		</action>
 	</package>

@@ -5,6 +5,7 @@ import java.util.List;
 import net.sas.model.bo.Supplier;
 import net.sas.model.enums.SupplierType;
 
+@SuppressWarnings("unchecked")
 public class SupplierDao extends GenericDao<Supplier> {
 
 	private String searchQuery = "from Supplier where";
@@ -14,17 +15,14 @@ public class SupplierDao extends GenericDao<Supplier> {
 				companyName).get(0);
 	}
 
-	@SuppressWarnings("unchecked")
 	public List<Supplier> findByType(SupplierType type) {
 		return template.find(searchQuery + " type=?", type);
 	}
 
-	@SuppressWarnings("unchecked")
 	public List<Supplier> findByCity(String city) {
 		return template.find(searchQuery + " city=?", city);
 	}
 
-	@SuppressWarnings("unchecked")
 	public List<Supplier> findByPhone(String phone) {
 		return template.find(searchQuery + " phone=?", phone);
 	}

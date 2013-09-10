@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
@@ -22,8 +24,10 @@ public class HealthCheck {
 	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
 	private Employee employee;
 	@Column(nullable=false)
+	@Temporal(TemporalType.DATE)
 	private Date visitDate;
 	@Column(nullable=false)
+	@Temporal(TemporalType.DATE)
 	private Date expireDate;
 	private String observations;
 	

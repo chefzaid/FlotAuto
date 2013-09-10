@@ -1,11 +1,15 @@
 package net.sas.model.bo;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
@@ -20,6 +24,8 @@ public class Incident {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	private IncidentType type;
+	@Temporal(TemporalType.DATE)
+	private Date date;
 	private Double cost;
 	@ManyToOne
 	@JoinColumn(name="employee_id")
@@ -38,6 +44,12 @@ public class Incident {
 	}
 	public void setType(IncidentType type) {
 		this.type = type;
+	}
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
 	}
 	public Double getCost() {
 		return cost;
