@@ -13,7 +13,7 @@
 	content="black-translucent" />
 
 <!-- jQuery + Struts2-jquery-plugin-->
-<sj:head />
+<sj:head jqueryui="true" />
 <!-- jQuery UI -->
 <script src="/FlotAuto/jsp/js/plugins/jquery-ui/jquery.ui.core.min.js"></script>
 <script src="/FlotAuto/jsp/js/plugins/jquery-ui/jquery.ui.widget.min.js"></script>
@@ -49,6 +49,9 @@
 <!-- chosen -->
 <link rel="stylesheet"
 	href="/FlotAuto/jsp/css/plugins/chosen/chosen.css">
+<!-- Notify -->
+<link rel="stylesheet"
+	href="/FlotAuto/jsp/css/plugins/gritter/jquery.gritter.css">
 
 
 <!-- Bootstrap -->
@@ -77,6 +80,10 @@
 <!-- Custom file upload -->
 <script
 	src="/FlotAuto/jsp/js/plugins/fileupload/bootstrap-fileupload.min.js"></script>
+<!-- Notify -->
+<script src="/FlotAuto/jsp/js/plugins/gritter/jquery.gritter.min.js"></script>
+
+<script src="/FlotAuto/jsp/js/loading.js"></script>
 
 <!-- Theme framework -->
 <script src="/FlotAuto/jsp/js/eakroko.min.js"></script>
@@ -95,6 +102,15 @@
 		<tiles:insertAttribute name="header" />
 	</div>
 	<div class="container-fluid" id="content">
+
+		<sj:dialog id="indicator" title="Veuillez patientez !"
+			autoOpen="false" modal="true" resizable="false"
+			dialogClass="no-close">
+			<img id="indicator" title="Chargement en cours..."
+				src="/FlotAuto/jsp/img/loading.gif" />
+				<p class="center">Chargement en cours...</p>
+		</sj:dialog>
+
 		<tiles:insertAttribute name="body" />
 	</div>
 	<!-- 

@@ -25,12 +25,9 @@ public class DrivingLicense {
 	private Employee employee;
 	@Column(unique = true, nullable = false)
 	private String number;
-	@Column(nullable = false)
 	private String type;
-	@Column(nullable = false)
 	@Temporal(TemporalType.DATE)
 	private Date obtainDate;
-	@Column(nullable = false)
 	@Temporal(TemporalType.DATE)
 	private Date expireDate;
 

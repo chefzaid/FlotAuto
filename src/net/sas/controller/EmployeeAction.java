@@ -27,7 +27,7 @@ public class EmployeeAction extends ActionSupport implements ModelDriven<Employe
 	
 	public String load(){
 		employees = dao.read();
-		return Action.SUCCESS;
+		return Action.INPUT;
 	}
 	
 	public String view(){
@@ -35,7 +35,7 @@ public class EmployeeAction extends ActionSupport implements ModelDriven<Employe
 		int id = Integer.parseInt(request.getParameter("id"));
 		currentEmployee = dao.findById(id);
 		load();
-		return Action.SUCCESS;
+		return Action.INPUT;
 	}
 	
 	public String delete(){
@@ -44,7 +44,7 @@ public class EmployeeAction extends ActionSupport implements ModelDriven<Employe
 		Employee e = dao.findById(id);
 		dao.delete(e);
 		load();
-		return Action.SUCCESS;
+		return Action.INPUT;
 	}
 	
 	public String save(){
@@ -61,12 +61,12 @@ public class EmployeeAction extends ActionSupport implements ModelDriven<Employe
 		newEmployee.getHealthCheck().setEmployee(newEmployee);
 		dao.createOrUpdate(newEmployee);
 		load();
-		return Action.SUCCESS;
+		return Action.INPUT;
 	}
 
 	public String clear(){
 		currentEmployee = new Employee();
-		return Action.SUCCESS;
+		return Action.INPUT;
 	}
 	
 	@Override

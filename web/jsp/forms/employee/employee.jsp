@@ -216,7 +216,8 @@
 
 						</div>
 						<s:if test="%{currentEmployee.drivingLicense == null}">
-							<h6 class="center">Employé sans permis ! Veuillez en saisir un, s'il vient de l'obtenir.</h6>
+							<h6 class="center">Employé sans permis ! Veuillez en saisir
+								un, s'il vient de l'obtenir.</h6>
 						</s:if>
 						<div class="box-content nopadding">
 							<div class="span6">
@@ -324,7 +325,7 @@
 										:</label>
 									<div class="controls">
 										<input type="text" name="trainings" id="textfield"
-											class="tagsinput" value="aaa, bbbb, ddd" />
+											class="tagsinput" value="${currentEmployee.trainings}" />
 									</div>
 								</div>
 							</div>
@@ -344,14 +345,22 @@
 					<div class="center">
 						<s:submit value="<<" cssClass=" btn btn-primary" />
 						<s:submit value="<" cssClass=" btn btn-primary" />
-						<s:submit value="Nouveau" cssClass="btn" action="load" />
-						<!-- to correct : NPE -->
-						<s:submit value="Enregistrer" cssClass="btn btn-success"
-							action="save" />
-						<s:submit value="Supprimer" cssClass="btn btn-danger"
-							action="delete" />
+						<input type="button" value="Nouveau" class="btn"
+							onClick="window.location=load.action" />
+
+						<a href="#modal-1" class="notify" data-notify-title="Succès"
+							data-notify-message="Employé enregistré !"><s:submit
+								value="Enregistrer" cssClass="btn btn-success" action="save" /></a>
+
+						<a href="#modal-1" class="notify" data-notify-title="Succès"
+							data-notify-message="Employé supprimé !"><s:submit
+								value="Supprimer" cssClass="btn btn-danger" action="delete" /></a>
+						
+						<a href="#modal-1" role="button" class="btn notify" data-notify-title="Success!">Basic notification</a>		
+						
 						<s:submit value=">" cssClass="btn btn-primary" />
 						<s:submit value=">>" cssClass="btn btn-primary" />
+						<a href="#modal-3" role="button" class="btn" data-toggle="modal">Alert</a>
 					</div>
 				</div>
 			</s:form>
@@ -381,7 +390,6 @@
 							</thead>
 							<tbody>
 								<s:iterator value="employees">
-
 									<tr>
 										<td><s:property value="number" /></td>
 										<td><s:property value="firstName" /></td>
@@ -398,9 +406,12 @@
 												</s:param>
 											</s:url> <sj:a onClick="$(document).load().scrollTop(200);"
 												href="%{view}" targets="home" cssClass="btn" rel="tooltip"
-												title="Afficher">
+												title="Afficher" onBeforeTopics="onBeforeLoading"
+												onCompleteTopics="onCompleteLoading">
 												<i class="icon-search"></i>
-											</sj:a> <a href="#"
+											</sj:a> <a href="#modal-1" class="btn notify"
+											data-notify-title="Succès"
+											data-notify-message="Employé supprimé !"
 											onClick="if (confirm('Voulez vous vraiment supprimer cet enregistrement ?')) 
 				window.location='delete.action?id=<s:property value='id'/>'; return false"
 											class="btn" rel="tooltip" title="Supprimer"><i
