@@ -402,9 +402,12 @@ button.ui-button::-moz-focus-inner {
 	padding: .2em;
 	outline: 0;
 }
+/* .ui-dialog .ui-dialog-titlebar { */
+/* 	padding: .4em 1em; */
+/* 	position: relative; */
+/* } */
 .ui-dialog .ui-dialog-titlebar {
-	padding: .4em 1em;
-	position: relative;
+	display: none;
 }
 .ui-dialog .ui-dialog-title {
 	float: left;

@@ -41,6 +41,26 @@
 			method="clear">
 			<result name="input" type="tiles">/employee.tiles</result>
 		</action>
+		
+		<action name="previous" class="net.sas.controller.EmployeeAction"
+			method="previous">
+			<result name="input" type="tiles">/employee.tiles</result>
+		</action>
+		
+		<action name="next" class="net.sas.controller.EmployeeAction"
+			method="next">
+			<result name="input" type="tiles">/employee.tiles</result>
+		</action>
+		
+		<action name="first" class="net.sas.controller.EmployeeAction"
+			method="first">
+			<result name="input" type="tiles">/employee.tiles</result>
+		</action>
+		
+		<action name="last" class="net.sas.controller.EmployeeAction"
+			method="clear">
+			<result name="input" type="tiles">/employee.tiles</result>
+		</action>
 
 		<action name="history">
 			<result type="tiles">/employeeHistory.tiles</result>

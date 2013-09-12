@@ -1,8 +1,6 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
-<script>
-	document.getElementById('employee').classList.add('active');
-</script>
+<script>setActiveTab('employee');</script>
 
 <div id="left">
 	<form action="http://www.eakroko.de/flat/search-results.html"
@@ -29,23 +27,6 @@
 </div>
 <div id="main">
 	<div class="container-fluid">
-		<div class="page-header">
-			<div class="pull-left">
-				<h1>Employé</h1>
-			</div>
-		</div>
-		<div class="breadcrumbs">
-			<ul>
-				<li><a href="/FlotAuto">FlotAuto</a> <i
-					class="icon-angle-right"></i></li>
-				<li><a href="/FlotAuto/employee/load.action">Employé</a> <i
-					class="icon-angle-right"></i></li>
-				<li><a href="/FlotAuto/employee/employee.action">Général</a></li>
-			</ul>
-			<div class="close-bread">
-				<a href="#"><i class="icon-remove"></i></a>
-			</div>
-		</div>
 		<div class="row-fluid">
 			<s:form method="POST" enctype="multipart/form-data"
 				cssClass='form-horizontal form-column'>
@@ -289,7 +270,6 @@
 												format="dd/MM/yyyy" />" />
 									</div>
 								</div>
-
 								<div class="control-group">
 									<label for="notes" class="control-label">Observations :</label>
 									<div class="controls">
@@ -343,24 +323,39 @@
 				</div>
 				<div class="form-actions">
 					<div class="center">
-						<s:submit value="<<" cssClass=" btn btn-primary" />
-						<s:submit value="<" cssClass=" btn btn-primary" />
+						<s:submit value="<<" cssClass="btn btn-primary" action="first"
+							 />
+						<s:submit value="<" cssClass="btn btn-primary" action="previous"
+							 />
 						<input type="button" value="Nouveau" class="btn"
-							onClick="window.location=load.action" />
-
-						<a href="#modal-1" class="notify" data-notify-title="Succès"
+							onClick="window.location=load.action" /> <a href="#modal-1"
+							class="notify" data-notify-title="Succès"
 							data-notify-message="Employé enregistré !"><s:submit
 								value="Enregistrer" cssClass="btn btn-success" action="save" /></a>
-
 						<a href="#modal-1" class="notify" data-notify-title="Succès"
 							data-notify-message="Employé supprimé !"><s:submit
 								value="Supprimer" cssClass="btn btn-danger" action="delete" /></a>
 						
-						<a href="#modal-1" role="button" class="btn notify" data-notify-title="Success!">Basic notification</a>		
 						
-						<s:submit value=">" cssClass="btn btn-primary" />
-						<s:submit value=">>" cssClass="btn btn-primary" />
-						<a href="#modal-3" role="button" class="btn" data-toggle="modal">Alert</a>
+						<s:url id="next"
+												value="next.action">
+												<s:param name="id">
+													<s:property value="id" />
+												</s:param>
+											</s:url>
+												
+											<sj:a 
+												href="%{next}" targets="home" cssClass="btn btn-primary" 
+												onBeforeTopics="onBeforeLoading"
+												onCompleteTopics="onCompleteLoading">
+												&gt;
+											</sj:a> 
+						<s:submit value=">" cssClass="btn btn-primary" action="next"
+							 />
+							
+							
+						<s:submit value=">>" cssClass="btn btn-primary" action="last"
+							 />
 					</div>
 				</div>
 			</s:form>
@@ -404,7 +399,7 @@
 												<s:param name="id">
 													<s:property value="id" />
 												</s:param>
-											</s:url> <sj:a onClick="$(document).load().scrollTop(200);"
+											</s:url> <sj:a onClick="$(document).load().scrollTop(80);"
 												href="%{view}" targets="home" cssClass="btn" rel="tooltip"
 												title="Afficher" onBeforeTopics="onBeforeLoading"
 												onCompleteTopics="onCompleteLoading">

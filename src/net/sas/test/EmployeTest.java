@@ -30,7 +30,7 @@ public class EmployeTest extends TestCase {
 		dao = (EmployeeDao) ContextUtil.getInstance().getBean("employeeDao");
 		e = new Employee();
 
-		e.setLastName("abc");
+		e.setLastName("abc3333");
 		e.setFirstName("foo");
 		
 		e.setBirthDate(new Date());
@@ -60,7 +60,7 @@ public class EmployeTest extends TestCase {
 		e.setNotes("azefghjklszdfhjkl");
 
 		DrivingLicense dl = new DrivingLicense();
-		dl.setNumber("456789");
+		dl.setNumber("234565");
 		dl.setType("B");
 		dl.setObtainDate(new Date());
 		dl.setExpireDate(new Date());

@@ -5154,4 +5154,7 @@ body.error .wrapper .input-append .btn:hover {
 .center {
 	text-align: center;
 }
+
+.hide{
+	display: none;
 }

@@ -84,6 +84,7 @@
 <script src="/FlotAuto/jsp/js/plugins/gritter/jquery.gritter.min.js"></script>
 
 <script src="/FlotAuto/jsp/js/loading.js"></script>
+<script src="/FlotAuto/jsp/js/utils.js"></script>
 
 <!-- Theme framework -->
 <script src="/FlotAuto/jsp/js/eakroko.min.js"></script>
@@ -102,15 +103,13 @@
 		<tiles:insertAttribute name="header" />
 	</div>
 	<div class="container-fluid" id="content">
-
-		<sj:dialog id="indicator" title="Veuillez patientez !"
-			autoOpen="false" modal="true" resizable="false"
-			dialogClass="no-close">
-			<img id="indicator" title="Chargement en cours..."
-				src="/FlotAuto/jsp/img/loading.gif" />
-				<p class="center">Chargement en cours...</p>
+		<sj:dialog id="indicator" autoOpen="false" modal="true"
+			resizable="false">
+			<div id="loading" class="center hide">
+				<p>Chargement en cours...</p>
+				<img src="/FlotAuto/jsp/img/loading.gif" />
+			</div>
 		</sj:dialog>
-
 		<tiles:insertAttribute name="body" />
 	</div>
 	<!-- 
