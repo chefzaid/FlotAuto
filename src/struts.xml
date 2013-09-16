@@ -12,17 +12,16 @@
 			<result-type name="tiles"
 				class="org.apache.struts2.views.tiles.TilesResult" />
 			<result-type name="image"
-				class="net.sas.controller.util.ImageBytesResult" />
+				class="net.sas.util.ImageBytesResult" />
 		</result-types>
  
-		<action name="ImageAction" class="net.sas.controller.util.ImageAction">
+		<action name="ImageAction" class="net.sas.util.ImageAction">
 			<result name="success" type="image"></result>
 		</action>
 	</package>
 
 	<package name="employee" extends="app" namespace="/employee">
-		<action name="load" class="net.sas.controller.EmployeeAction"
-			method="load">
+		<action name="list" class="net.sas.controller.EmployeeAction">
 			<result name="input" type="tiles">/employee.tiles</result>
 		</action>
 		<action name="view" class="net.sas.controller.EmployeeAction"

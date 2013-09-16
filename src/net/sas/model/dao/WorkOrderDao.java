@@ -3,10 +3,10 @@ package net.sas.model.dao;
 import java.util.List;
 
 import net.sas.model.bo.Employee;
+import net.sas.model.bo.Occupation;
 import net.sas.model.bo.Vehicle;
 import net.sas.model.bo.WorkOrder;
-import net.sas.model.enums.WorkOrderState;
-import net.sas.model.enums.Occupation;
+import net.sas.model.bo.WorkOrderState;
 
 @SuppressWarnings("unchecked")
 public class WorkOrderDao extends GenericDao<WorkOrder> {

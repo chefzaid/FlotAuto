@@ -14,8 +14,6 @@ import javax.persistence.TemporalType;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
-import net.sas.model.enums.IncidentType;
-
 
 @Entity
 public class Incident {

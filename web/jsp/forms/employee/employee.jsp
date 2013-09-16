@@ -1,6 +1,6 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
-<script>setActiveTab('employee');</script>
+<script type="text/javascript">setActiveTab('employee');</script>
 
 <div id="left">
 	<form action="http://www.eakroko.de/flat/search-results.html"
@@ -18,7 +18,7 @@
 			</a>
 		</div>
 		<ul class="subnav-menu">
-			<li><a href="../employee/load.action">Général</a></li>
+			<li><a href="../employee/list.action">Général</a></li>
 			<li><a href="../employee/history.action">Véhicules conduits</a></li>
 			<li><a href="#">Accidents commis</a></li>
 			<li><a href="#">Fichiers joints</a></li>
@@ -61,7 +61,7 @@
 										:</label>
 									<div class="controls">
 										<s:select name="occupation" id="occupation"
-											list="@net.sas.model.enums.Occupation@values()"
+											list="@net.sas.model.bo.Occupation@values()"
 											listValue="getStatus()" headerKey="-1" headerValue="%{''}"
 											cssClass="sinput-large" value="#{currentEmployee.occupation}" />
 									</div>
@@ -196,10 +196,10 @@
 							</h3>
 
 						</div>
-						<s:if test="%{currentEmployee.drivingLicense == null}">
-							<h6 class="center">Employé sans permis ! Veuillez en saisir
-								un, s'il vient de l'obtenir.</h6>
-						</s:if>
+						<%-- 						<s:if test="%{currentEmployee.drivingLicense == null}"> --%>
+						<!-- 							<h6 class="center">Employé sans permis ! Veuillez en saisir -->
+						<!-- 								un, s'il vient de l'obtenir.</h6> -->
+						<%-- 						</s:if> --%>
 						<div class="box-content nopadding">
 							<div class="span6">
 								<div class="control-group">
@@ -323,39 +323,42 @@
 				</div>
 				<div class="form-actions">
 					<div class="center">
-						<s:submit value="<<" cssClass="btn btn-primary" action="first"
-							 />
-						<s:submit value="<" cssClass="btn btn-primary" action="previous"
-							 />
-						<input type="button" value="Nouveau" class="btn"
-							onClick="window.location=load.action" /> <a href="#modal-1"
-							class="notify" data-notify-title="Succès"
-							data-notify-message="Employé enregistré !"><s:submit
+						<s:url id="first" value="first.action" />
+						<sj:a onClick="$(document).load().scrollTop(80);" href="%{first}"
+							targets="home" cssClass="btn btn-primary"
+							onBeforeTopics="onBeforeLoading"
+							onCompleteTopics="onCompleteLoading">&lt;&lt;</sj:a>
+						<s:url id="previous" value="previous.action" />
+						<sj:a onClick="$(document).load().scrollTop(80);"
+							href="%{previous}" targets="home" cssClass="btn btn-primary"
+							onBeforeTopics="onBeforeLoading"
+							onCompleteTopics="onCompleteLoading">&lt;</sj:a>
+
+						<s:url id="clear" value="clear.action" />
+						<sj:a onClick="$(document).load().scrollTop(80);" href="%{clear}"
+							targets="home" cssClass="btn" onBeforeTopics="onBeforeLoading"
+							onCompleteTopics="onCompleteLoading">Nouveau</sj:a>
+
+						<!-- to enhance, not satisfied -->
+						<a href="#modal-1" class="notify" data-notify-title="Succès"
+							data-notify-message="Employé enregistré !"> <s:submit 
 								value="Enregistrer" cssClass="btn btn-success" action="save" /></a>
+
 						<a href="#modal-1" class="notify" data-notify-title="Succès"
 							data-notify-message="Employé supprimé !"><s:submit
 								value="Supprimer" cssClass="btn btn-danger" action="delete" /></a>
-						
-						
-						<s:url id="next"
-												value="next.action">
-												<s:param name="id">
-													<s:property value="id" />
-												</s:param>
-											</s:url>
-												
-											<sj:a 
-												href="%{next}" targets="home" cssClass="btn btn-primary" 
-												onBeforeTopics="onBeforeLoading"
-												onCompleteTopics="onCompleteLoading">
-												&gt;
-											</sj:a> 
-						<s:submit value=">" cssClass="btn btn-primary" action="next"
-							 />
-							
-							
-						<s:submit value=">>" cssClass="btn btn-primary" action="last"
-							 />
+						<!-- to enhance, not satisfied -->
+
+						<s:url id="next" value="next.action" />
+						<sj:a onClick="$(document).load().scrollTop(80);" href="%{next}"
+							targets="home" cssClass="btn btn-primary"
+							onBeforeTopics="onBeforeLoading"
+							onCompleteTopics="onCompleteLoading">&gt;</sj:a>
+						<s:url id="last" value="last.action" />
+						<sj:a onClick="$(document).load().scrollTop(80);" href="%{last}"
+							targets="home" cssClass="btn btn-primary"
+							onBeforeTopics="onBeforeLoading"
+							onCompleteTopics="onCompleteLoading">&gt;&gt;</sj:a>
 					</div>
 				</div>
 			</s:form>
@@ -384,7 +387,7 @@
 								</tr>
 							</thead>
 							<tbody>
-								<s:iterator value="employees">
+								<s:iterator value="employees" status="employee">
 									<tr>
 										<td><s:property value="number" /></td>
 										<td><s:property value="firstName" /></td>
@@ -396,8 +399,8 @@
 										<td class='hidden-480'><s:property value="email" /></td>
 										<td class='hidden-480'><s:url id="view"
 												value="view.action">
-												<s:param name="id">
-													<s:property value="id" />
+												<s:param name="index">
+													<s:property value="#employee.index" />
 												</s:param>
 											</s:url> <sj:a onClick="$(document).load().scrollTop(80);"
 												href="%{view}" targets="home" cssClass="btn" rel="tooltip"

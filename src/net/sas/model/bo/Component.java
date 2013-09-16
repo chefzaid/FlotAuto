@@ -16,8 +16,6 @@ import javax.persistence.JoinColumn;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
-import net.sas.model.enums.ComponentType;
-
 @Entity
 public class Component {
 	

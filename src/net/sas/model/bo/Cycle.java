@@ -8,8 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import net.sas.model.enums.MeasureUnit;
-
 @Entity
 public class Cycle {
 	

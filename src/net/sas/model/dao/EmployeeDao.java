@@ -4,8 +4,8 @@ import java.util.List;
 
 import net.sas.model.bo.DrivingLicense;
 import net.sas.model.bo.Employee;
-import net.sas.model.enums.Occupation;
-import net.sas.model.service.ContextUtil;
+import net.sas.model.bo.Occupation;
+import net.sas.util.ContextUtil;
 
 @SuppressWarnings("unchecked")
 public class EmployeeDao extends GenericDao<Employee> {

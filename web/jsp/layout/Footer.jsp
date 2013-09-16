@@ -1,3 +1,4 @@
-<%@ page contentType="text/html; charset=UTF-8"%>
-<%@ taglib prefix="s" uri="/struts-tags"%>
-<center>&copy; 2013 - FlotAuto</center>
+<div class="center footer" style="background-color: #eee;">
+	<p><a href="mailto:chefzaid@gmail.com">&copy; 2013 - FlotAuto</a></p>
+	<p><a href="#top">Scroll Top</a></p>
+</div>

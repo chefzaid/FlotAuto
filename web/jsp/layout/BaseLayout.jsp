@@ -83,7 +83,6 @@
 <!-- Notify -->
 <script src="/FlotAuto/jsp/js/plugins/gritter/jquery.gritter.min.js"></script>
 
-<script src="/FlotAuto/jsp/js/loading.js"></script>
 <script src="/FlotAuto/jsp/js/utils.js"></script>
 
 <!-- Theme framework -->
@@ -99,23 +98,21 @@
 <title><tiles:insertAttribute name="title" ignore="true" /></title>
 </head>
 <body id="home">
+	<sj:dialog id="indicator" autoOpen="false" modal="true"
+		resizable="false">
+		<div id="loading" class="center hide">
+			<p>Chargement en cours...</p>
+			<img src="/FlotAuto/jsp/img/loading.gif" />
+		</div>
+	</sj:dialog>
 	<div id="header">
 		<tiles:insertAttribute name="header" />
 	</div>
 	<div class="container-fluid" id="content">
-		<sj:dialog id="indicator" autoOpen="false" modal="true"
-			resizable="false">
-			<div id="loading" class="center hide">
-				<p>Chargement en cours...</p>
-				<img src="/FlotAuto/jsp/img/loading.gif" />
-			</div>
-		</sj:dialog>
 		<tiles:insertAttribute name="body" />
 	</div>
-	<!-- 
-		<div id="footer">
-			<tiles:insertAttribute name="footer" />
-		</div>
-	 -->
+	<!-- 	<div id="footer"> -->
+	<%-- 		<tiles:insertAttribute name="footer" /> --%>
+	<!-- 	</div> -->
 </body>
 </html>

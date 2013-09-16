@@ -17,8 +17,6 @@ import javax.persistence.TemporalType;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
-import net.sas.model.enums.AcquisitionType;
-
 @Entity
 public class Acquisition {
 	

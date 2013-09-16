@@ -7,8 +7,6 @@ import javax.persistence.OneToOne;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
-import net.sas.model.enums.ComponentType;
-
 @Entity
 public class ExpensePart extends Expense {
 

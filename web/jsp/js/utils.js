@@ -2,6 +2,11 @@ function setActiveTab(tabName){
 	document.getElementById(tabName).classList.add('active');
 }
 
-function scrollTop(document){
-	document.load().scrollTop(80);
-}
+$.subscribe('onBeforeLoading', function(event, data) {
+	$("#loading").removeClass('hide');
+	$("#indicator").dialog('open');
+});
+
+$.subscribe('onCompleteLoading', function(event, data) {
+	$("#indicator").dialog('close');
+});

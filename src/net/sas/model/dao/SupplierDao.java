@@ -3,7 +3,7 @@ package net.sas.model.dao;
 import java.util.List;
 
 import net.sas.model.bo.Supplier;
-import net.sas.model.enums.SupplierType;
+import net.sas.model.bo.SupplierType;
 
 @SuppressWarnings("unchecked")
 public class SupplierDao extends GenericDao<Supplier> {

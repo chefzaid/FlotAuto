@@ -3,8 +3,8 @@ package net.sas.model.dao;
 import java.util.List;
 
 import net.sas.model.bo.Component;
+import net.sas.model.bo.ComponentType;
 import net.sas.model.bo.Supplier;
-import net.sas.model.enums.ComponentType;
 
 @SuppressWarnings("unchecked")
 public class ComponentDao extends GenericDao<Component> {
