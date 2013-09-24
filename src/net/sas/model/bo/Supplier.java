@@ -20,7 +20,7 @@ public class Supplier {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
 	@Column(unique=true, nullable=false)
-	private String compnayName;
+	private String companyName;
 	@Enumerated(EnumType.STRING)
 	private SupplierType type;
 	@OneToOne(orphanRemoval=true)
@@ -39,11 +39,11 @@ public class Supplier {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getCompnayName() {
-		return compnayName;
+	public String getCompanyName() {
+		return companyName;
 	}
-	public void setCompnayName(String compnayName) {
-		this.compnayName = compnayName;
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
 	}
 	public SupplierType getType() {
 		return type;

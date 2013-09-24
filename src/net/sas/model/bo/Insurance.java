@@ -27,12 +27,11 @@ public class Insurance {
 	private Vehicle vehicle;
 	private String insurer;
 	@Column(unique=true, nullable=false)
-	private String key;
+	private String policyNumber;
 	@Temporal(TemporalType.DATE)
 	private Date beginDate;
 	@Temporal(TemporalType.DATE)
 	private Date endDate;
-	private String notes;
 	
 	public Integer getId() {
 		return id;
@@ -52,11 +51,11 @@ public class Insurance {
 	public void setInsurer(String insurer) {
 		this.insurer = insurer;
 	}
-	public String getKey() {
-		return key;
+	public String getPolicyNumber() {
+		return policyNumber;
 	}
-	public void setKey(String key) {
-		this.key = key;
+	public void setPolicyNumber(String policyNumber) {
+		this.policyNumber = policyNumber;
 	}
 	public Date getBeginDate() {
 		return beginDate;
@@ -69,11 +68,5 @@ public class Insurance {
 	}
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
-	}
-	public String getNotes() {
-		return notes;
-	}
-	public void setNotes(String notes) {
-		this.notes = notes;
 	}
 }

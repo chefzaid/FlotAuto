@@ -1,7 +1,5 @@
 package net.sas.model.bo;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,25 +7,26 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
 @Entity
-public class Warranty {
-	
+public class MaintenanceSchedule {
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
 	@Column(nullable=false)
-	@Temporal(TemporalType.DATE)
-	private Date beginDate;
+	private String description;
 	@OneToOne(orphanRemoval=true)
-	@JoinColumn(name="validity_id", unique=true)
+	@JoinColumn(name="cycle_id", unique=true)
 	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
-	private Cycle validity;
+	private Cycle cycle;
+	@OneToOne(orphanRemoval=true)
+	@JoinColumn(name="reminder_id", unique=true)
+	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
+	private Cycle reminder;
 	
 	public Integer getId() {
 		return id;
@@ -35,16 +34,22 @@ public class Warranty {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public Date getBeginDate() {
-		return beginDate;
+	public String getDescription() {
+		return description;
 	}
-	public void setBeginDate(Date beginDate) {
-		this.beginDate = beginDate;
+	public void setDescription(String description) {
+		this.description = description;
 	}
-	public Cycle getValidity() {
-		return validity;
+	public Cycle getCycle() {
+		return cycle;
 	}
-	public void setValidity(Cycle validity) {
-		this.validity = validity;
+	public void setCycle(Cycle cycle) {
+		this.cycle = cycle;
+	}
+	public Cycle getReminder() {
+		return reminder;
+	}
+	public void setReminder(Cycle reminder) {
+		this.reminder = reminder;
 	}
 }

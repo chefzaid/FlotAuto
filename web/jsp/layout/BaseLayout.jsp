@@ -1,6 +1,6 @@
+<!doctype html>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
-<!doctype html>
 <html>
 <head>
 <meta charset="utf8">
@@ -11,17 +11,6 @@
 <!-- Apple devices fullscreen -->
 <meta name="apple-mobile-web-app-status-bar-style"
 	content="black-translucent" />
-
-<!-- jQuery + Struts2-jquery-plugin-->
-<sj:head jqueryui="true" />
-<!-- jQuery UI -->
-<script src="/FlotAuto/jsp/js/plugins/jquery-ui/jquery.ui.core.min.js"></script>
-<script src="/FlotAuto/jsp/js/plugins/jquery-ui/jquery.ui.widget.min.js"></script>
-<script src="/FlotAuto/jsp/js/plugins/jquery-ui/jquery.ui.mouse.min.js"></script>
-<script
-	src="/FlotAuto/jsp/js/plugins/jquery-ui/jquery.ui.resizable.min.js"></script>
-<script src="/FlotAuto/jsp/js/plugins/jquery-ui/jquery.ui.spinner.js"></script>
-<script src="/FlotAuto/jsp/js/plugins/jquery-ui/jquery.ui.slider.js"></script>
 
 <!-- Bootstrap -->
 <link rel="stylesheet" href="/FlotAuto/jsp/css/bootstrap.min.css">
@@ -52,8 +41,20 @@
 <!-- Notify -->
 <link rel="stylesheet"
 	href="/FlotAuto/jsp/css/plugins/gritter/jquery.gritter.css">
+<!-- select2 -->
+<!-- <link rel="stylesheet" href="/FlotAuto/jsp/css/plugins/select2/select2.css"> -->
 
 
+<!-- jQuery / Struts2-jquery-plugin-->
+<sj:head jqueryui="true" />
+<!-- jQuery UI -->
+<script src="/FlotAuto/jsp/js/plugins/jquery-ui/jquery.ui.core.min.js"></script>
+<script src="/FlotAuto/jsp/js/plugins/jquery-ui/jquery.ui.widget.min.js"></script>
+<script src="/FlotAuto/jsp/js/plugins/jquery-ui/jquery.ui.mouse.min.js"></script>
+<script
+	src="/FlotAuto/jsp/js/plugins/jquery-ui/jquery.ui.resizable.min.js"></script>
+<script src="/FlotAuto/jsp/js/plugins/jquery-ui/jquery.ui.spinner.js"></script>
+<script src="/FlotAuto/jsp/js/plugins/jquery-ui/jquery.ui.slider.js"></script>
 <!-- Bootstrap -->
 <script src="/FlotAuto/jsp/js/bootstrap.min.js"></script>
 <!-- Bootbox -->
@@ -82,6 +83,8 @@
 	src="/FlotAuto/jsp/js/plugins/fileupload/bootstrap-fileupload.min.js"></script>
 <!-- Notify -->
 <script src="/FlotAuto/jsp/js/plugins/gritter/jquery.gritter.min.js"></script>
+<!-- select2 -->
+<!-- <script src="/FlotAuto/jsp/js/plugins/select2/select2.min.js"></script> -->
 
 <script src="/FlotAuto/jsp/js/utils.js"></script>
 
@@ -98,10 +101,26 @@
 <title><tiles:insertAttribute name="title" ignore="true" /></title>
 </head>
 <body id="home">
+	<div id="confirm" class="modal hide fade" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"
+				aria-hidden="true">×</button>
+			<h3 id="myModalLabel">Confirmation...</h3>
+		</div>
+		<div class="modal-body">
+			<p>Voulez-vous vraiment supprimer cette entrée ?</p>
+		</div>
+		<div class="modal-footer">
+			<button class="btn" data-dismiss="modal" aria-hidden="true">Non</button>
+			<button onClick="$.publish('confirmDelete');" class="btn btn-primary"
+				data-dismiss="modal">Oui</button>
+		</div>
+	</div>
 	<sj:dialog id="indicator" autoOpen="false" modal="true"
 		resizable="false">
 		<div id="loading" class="center hide">
-			<p>Chargement en cours...</p>
+			<p>Opération en cours...</p>
 			<img src="/FlotAuto/jsp/img/loading.gif" />
 		</div>
 	</sj:dialog>
@@ -109,6 +128,10 @@
 		<tiles:insertAttribute name="header" />
 	</div>
 	<div class="container-fluid" id="content">
+		<div id="success" class="alert alert-success center hide">
+			<button type="button" class="close" data-dismiss="alert">×</button>
+			<strong>Mise-à-jour effectuée avec succès !</strong>
+		</div>
 		<tiles:insertAttribute name="body" />
 	</div>
 	<!-- 	<div id="footer"> -->

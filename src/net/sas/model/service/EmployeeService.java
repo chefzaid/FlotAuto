@@ -13,11 +13,11 @@ public class EmployeeService {
 	private List<Employee> employees;
 	private Employee currentEmployee;
 	private Integer index;
-	
-	public EmployeeService(){
-		dao  = (EmployeeDao) ContextUtil.getInstance().getBean(
-				"employeeDao");
+
+	public EmployeeService() {
+		dao = (EmployeeDao) ContextUtil.getInstance().getBean("employeeDao");
 		employees = dao.read();
+		index = employees.size();
 	}
 
 	public void view(Integer index) {
@@ -30,7 +30,7 @@ public class EmployeeService {
 			employee.setPicture(ImageUtil.getImageBytes(image));
 		} else { // if updating employee, keep old image if it hasnt changed
 			Employee e = employees.get(index);
-			if (e != null) { // if existing employee
+			if (e != null) {
 				employee.setPicture(e.getPicture());
 			}
 		}
@@ -41,19 +41,22 @@ public class EmployeeService {
 		refresh();
 	}
 
-	public void delete(Integer id) {
-		dao.delete(id);
+	public void delete() {
+		dao.delete(currentEmployee);
+		previous();
 		refresh();
 	}
 
 	public void clear() {
-		currentEmployee = new Employee();
+		currentEmployee = null;
 	}
 
 	public void previous() {
 		index--;
-		if (index > 0) {
+		if (index >= 0) {
 			currentEmployee = employees.get(index);
+		} else {
+			index = 0;
 		}
 	}
 
@@ -61,6 +64,8 @@ public class EmployeeService {
 		index++;
 		if (index < employees.size()) {
 			currentEmployee = employees.get(index);
+		} else {
+			index = employees.size() - 1;
 		}
 	}
 

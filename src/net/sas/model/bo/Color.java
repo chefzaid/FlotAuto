@@ -3,8 +3,9 @@ package net.sas.model.bo;
 public enum Color {
 	
 	BLACK("Noir"),
-	BLUE("Bleu"),
 	WHITE("Blanc"),
+	BLUE("Bleu"),
+	GREY("Gris"),
 	RED("Rouge"),
 	GREEN("Vert"),
 	YELLOW("Jaune");

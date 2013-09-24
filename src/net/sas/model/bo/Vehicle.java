@@ -1,7 +1,5 @@
 package net.sas.model.bo;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -12,7 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.Cascade;
@@ -24,22 +21,21 @@ public class Vehicle {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
-	@Column(unique=true, nullable=false)
-	private String registration;
-	@Column(unique=true, nullable=false)
-	private String chassisNumber;
-	@Lob
-	private byte[] image;
 	@Column(nullable=false)
 	private String brand;
 	@Column(nullable=false)
 	private String model;
 	private Integer year;
 	@Enumerated(EnumType.STRING)
-	private Color color;
-	@Enumerated(EnumType.STRING)
 	private VehicleType type;
-	private boolean active;
+	@Enumerated(EnumType.STRING)
+	private Color color;
+	@Lob
+	private byte[] picture;
+	@Column(unique=true, nullable=false)
+	private String registrationNumber;
+	@Column(unique=true, nullable=false)
+	private String chassisNumber;
 	@ManyToOne
 	@JoinColumn(name="supplier_id")
 	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
@@ -52,15 +48,14 @@ public class Vehicle {
 	@JoinColumn(name="tax_id", unique=true)
 	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
 	private VehicleTax tax;
-	@OneToMany(mappedBy="vehicle", orphanRemoval=true)
-	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE}) 
-	private List<Insurance> insurances;
-	@OneToMany(mappedBy="vehicle", orphanRemoval=true)
-	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE}) 
-	private List<TechnicalCheck> technicalChecks;
-	@OneToMany(mappedBy="vehicle", orphanRemoval=true)
-	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE}) 
-	private List<VehicleHistory> history;
+	@OneToOne(orphanRemoval=true)
+	@JoinColumn(name="insurance_id", unique=true)
+	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
+	private Insurance insurance;
+	@OneToOne(orphanRemoval=true)
+	@JoinColumn(name="technicalCheck_id", unique=true)
+	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
+	private TechnicalCheck technicalCheck;
 	private String specs;
 	private String notes;
 	
@@ -69,24 +64,6 @@ public class Vehicle {
 	}
 	public void setId(Integer id) {
 		this.id = id;
-	}
-	public String getRegistration() {
-		return registration;
-	}
-	public void setRegistration(String registration) {
-		this.registration = registration;
-	}
-	public String getChassisNumber() {
-		return chassisNumber;
-	}
-	public void setChassisNumber(String chassisNumber) {
-		this.chassisNumber = chassisNumber;
-	}
-	public byte[] getImage() {
-		return image;
-	}
-	public void setImage(byte[] image) {
-		this.image = image;
 	}
 	public String getBrand() {
 		return brand;
@@ -106,23 +83,35 @@ public class Vehicle {
 	public void setYear(Integer year) {
 		this.year = year;
 	}
-	public Color getColor() {
-		return color;
-	}
-	public void setColor(Color color) {
-		this.color = color;
-	}
 	public VehicleType getType() {
 		return type;
 	}
 	public void setType(VehicleType type) {
 		this.type = type;
 	}
-	public boolean isActive() {
-		return active;
+	public Color getColor() {
+		return color;
 	}
-	public void setActive(boolean active) {
-		this.active = active;
+	public void setColor(Color color) {
+		this.color = color;
+	}
+	public byte[] getPicture() {
+		return picture;
+	}
+	public void setPicture(byte[] picture) {
+		this.picture = picture;
+	}
+	public String getRegistrationNumber() {
+		return registrationNumber;
+	}
+	public void setRegistrationNumber(String registrationNumber) {
+		this.registrationNumber = registrationNumber;
+	}
+	public String getChassisNumber() {
+		return chassisNumber;
+	}
+	public void setChassisNumber(String chassisNumber) {
+		this.chassisNumber = chassisNumber;
 	}
 	public Supplier getSupplier() {
 		return supplier;
@@ -142,23 +131,17 @@ public class Vehicle {
 	public void setTax(VehicleTax tax) {
 		this.tax = tax;
 	}
-	public List<Insurance> getInsurances() {
-		return insurances;
+	public Insurance getInsurance() {
+		return insurance;
 	}
-	public void setInsurances(List<Insurance> insurances) {
-		this.insurances = insurances;
+	public void setInsurance(Insurance insurance) {
+		this.insurance = insurance;
 	}
-	public List<TechnicalCheck> getTechnicalChecks() {
-		return technicalChecks;
+	public TechnicalCheck getTechnicalCheck() {
+		return technicalCheck;
 	}
-	public void setTechnicalChecks(List<TechnicalCheck> technicalChecks) {
-		this.technicalChecks = technicalChecks;
-	}
-	public List<VehicleHistory> getHistory() {
-		return history;
-	}
-	public void setHistory(List<VehicleHistory> history) {
-		this.history = history;
+	public void setTechnicalCheck(TechnicalCheck technicalCheck) {
+		this.technicalCheck = technicalCheck;
 	}
 	public String getSpecs() {
 		return specs;

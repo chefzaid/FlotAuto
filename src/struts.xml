@@ -11,10 +11,9 @@
 		<result-types>
 			<result-type name="tiles"
 				class="org.apache.struts2.views.tiles.TilesResult" />
-			<result-type name="image"
-				class="net.sas.util.ImageBytesResult" />
+			<result-type name="image" class="net.sas.util.ImageBytesResult" />
 		</result-types>
- 
+
 		<action name="ImageAction" class="net.sas.util.ImageAction">
 			<result name="success" type="image"></result>
 		</action>
@@ -24,40 +23,36 @@
 		<action name="list" class="net.sas.controller.EmployeeAction">
 			<result name="input" type="tiles">/employee.tiles</result>
 		</action>
-		<action name="view" class="net.sas.controller.EmployeeAction"
-			method="view">
+		<action name="clear" class="net.sas.controller.EmployeeAction"
+			method="clear">
 			<result name="input" type="tiles">/employee.tiles</result>
 		</action>
-		<action name="delete" class="net.sas.controller.EmployeeAction"
-			method="delete">
+		<action name="view" class="net.sas.controller.EmployeeAction"
+			method="view">
 			<result name="input" type="tiles">/employee.tiles</result>
 		</action>
 		<action name="save" class="net.sas.controller.EmployeeAction"
 			method="save">
 			<result name="input" type="tiles">/employee.tiles</result>
 		</action>
-		<action name="clear" class="net.sas.controller.EmployeeAction"
-			method="clear">
+		<action name="delete" class="net.sas.controller.EmployeeAction"
+			method="delete">
 			<result name="input" type="tiles">/employee.tiles</result>
 		</action>
-		
 		<action name="previous" class="net.sas.controller.EmployeeAction"
 			method="previous">
 			<result name="input" type="tiles">/employee.tiles</result>
 		</action>
-		
 		<action name="next" class="net.sas.controller.EmployeeAction"
 			method="next">
 			<result name="input" type="tiles">/employee.tiles</result>
 		</action>
-		
 		<action name="first" class="net.sas.controller.EmployeeAction"
 			method="first">
 			<result name="input" type="tiles">/employee.tiles</result>
 		</action>
-		
 		<action name="last" class="net.sas.controller.EmployeeAction"
-			method="clear">
+			method="last">
 			<result name="input" type="tiles">/employee.tiles</result>
 		</action>
 
@@ -67,8 +62,78 @@
 	</package>
 
 	<package name="vehicle" extends="app" namespace="/vehicle">
-		<action name="vehicle">
-			<result type="tiles">/vehicle.tiles</result>
+		<action name="list" class="net.sas.controller.VehicleAction">
+			<result name="input" type="tiles">/vehicle.tiles</result>
+		</action>
+		<action name="clear" class="net.sas.controller.VehicleAction"
+			method="clear">
+			<result name="input" type="tiles">/vehicle.tiles</result>
+		</action>
+		<action name="view" class="net.sas.controller.VehicleAction"
+			method="view">
+			<result name="input" type="tiles">/vehicle.tiles</result>
+		</action>
+		<action name="save" class="net.sas.controller.VehicleAction"
+			method="save">
+			<result name="input" type="tiles">/vehicle.tiles</result>
+		</action>
+		<action name="delete" class="net.sas.controller.VehicleAction"
+			method="delete">
+			<result name="input" type="tiles">/vehicle.tiles</result>
+		</action>
+		<action name="previous" class="net.sas.controller.VehicleAction"
+			method="previous">
+			<result name="input" type="tiles">/vehicle.tiles</result>
+		</action>
+		<action name="next" class="net.sas.controller.VehicleAction"
+			method="next">
+			<result name="input" type="tiles">/vehicle.tiles</result>
+		</action>
+		<action name="first" class="net.sas.controller.VehicleAction"
+			method="first">
+			<result name="input" type="tiles">/vehicle.tiles</result>
+		</action>
+		<action name="last" class="net.sas.controller.VehicleAction"
+			method="last">
+			<result name="input" type="tiles">/vehicle.tiles</result>
+		</action>
+	</package>
+
+	<package name="supplier" extends="app" namespace="/supplier">
+		<action name="list" class="net.sas.controller.SupplierAction">
+			<result name="input" type="tiles">/supplier.tiles</result>
+		</action>
+		<action name="clear" class="net.sas.controller.SupplierAction"
+			method="clear">
+			<result name="input" type="tiles">/supplier.tiles</result>
+		</action>
+		<action name="view" class="net.sas.controller.SupplierAction"
+			method="view">
+			<result name="input" type="tiles">/supplier.tiles</result>
+		</action>
+		<action name="save" class="net.sas.controller.SupplierAction"
+			method="save">
+			<result name="input" type="tiles">/supplier.tiles</result>
+		</action>
+		<action name="delete" class="net.sas.controller.SupplierAction"
+			method="delete">
+			<result name="input" type="tiles">/supplier.tiles</result>
+		</action>
+		<action name="previous" class="net.sas.controller.SupplierAction"
+			method="previous">
+			<result name="input" type="tiles">/supplier.tiles</result>
+		</action>
+		<action name="next" class="net.sas.controller.SupplierAction"
+			method="next">
+			<result name="input" type="tiles">/supplier.tiles</result>
+		</action>
+		<action name="first" class="net.sas.controller.SupplierAction"
+			method="first">
+			<result name="input" type="tiles">/supplier.tiles</result>
+		</action>
+		<action name="last" class="net.sas.controller.SupplierAction"
+			method="last">
+			<result name="input" type="tiles">/supplier.tiles</result>
 		</action>
 	</package>
 </struts>

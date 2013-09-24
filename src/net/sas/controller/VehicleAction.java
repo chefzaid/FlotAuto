@@ -3,85 +3,89 @@ package net.sas.controller;
 import java.io.File;
 import java.util.List;
 
-import net.sas.model.bo.Employee;
-import net.sas.model.service.EmployeeService;
+import net.sas.model.bo.Supplier;
+import net.sas.model.bo.Vehicle;
+import net.sas.model.service.VehicleService;
 
 import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ModelDriven;
 
-public class EmployeeAction implements Action, ModelDriven<Employee> {
+public class VehicleAction implements Action, ModelDriven<Vehicle> {
 
 	private File image;
-	private static EmployeeService employeeService = new EmployeeService();
-	private Employee employee = new Employee();
+	private static VehicleService vehicleService = new VehicleService();
+	private Vehicle vehicle = new Vehicle();
 
 	@Override
-	public Employee getModel() {
-		return employee;
+	public Vehicle getModel() {
+		return vehicle;
 	}
 	
 	@Override
 	public String execute() {
-		employeeService = new EmployeeService();
+		vehicleService  = new VehicleService();
 		return Action.INPUT;
 	}
 
 	public String view() {
 		Integer index = Integer.parseInt(ServletActionContext.getRequest()
 				.getParameter("index"));
-		employeeService.view(index);
+		vehicleService.view(index);
 		return Action.INPUT;
 	}
 
 	public String save() {
-		employeeService.save(employee, image);
+		vehicleService.save(vehicle, image);
 		return Action.INPUT;
 	}
 
 	public String delete() {
-		employeeService.delete();
+		vehicleService.delete();
 		return Action.INPUT;
 	}
 
 	public String clear() {
-		employeeService.clear();
+		vehicleService.clear();
 		return Action.INPUT;
 	}
 
 	public String previous() {
-		employeeService.previous();
+		vehicleService.previous();
 		return Action.INPUT;
 	}
 
 	public String next() {
-		employeeService.next();
+		vehicleService.next();
 		return Action.INPUT;
 	}
 
 	public String first() {
-		employeeService.first();
+		vehicleService.first();
 		return Action.INPUT;
 	}
 
 	public String last() {
-		employeeService.last();
+		vehicleService.last();
 		return Action.INPUT;
 	}
 
-	public List<Employee> getEmployees() {
-		return employeeService.getEmployees();
+	public List<Vehicle> getVehicles() {
+		return vehicleService.getVehicles();
 	}
 
-	public Employee getCurrentEmployee() {
-		return employeeService.getCurrentEmployee();
+	public Vehicle getCurrentVehicle() {
+		return vehicleService.getCurrentVehicle();
+	}
+	
+	public List<Supplier> getSuppliers() {
+		return vehicleService.getSuppliers();
 	}
 
 	public File getImage() {
 		return image;
 	}
-
 	public void setImage(File image) {
 		this.image = image;
 	}

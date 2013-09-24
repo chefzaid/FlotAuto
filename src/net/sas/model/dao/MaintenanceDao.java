@@ -4,7 +4,7 @@ import java.util.List;
 
 import net.sas.model.bo.Component;
 import net.sas.model.bo.Maintenance;
-import net.sas.model.bo.MaintenanceProgram;
+import net.sas.model.bo.MaintenanceSchedule;
 import net.sas.model.bo.Vehicle;
 
 @SuppressWarnings("unchecked")
@@ -19,8 +19,8 @@ public class MaintenanceDao extends GenericDao<Maintenance> {
 	}
 
 	public List<Maintenance> findByMaintenanceProgram(String description) {
-		MaintenanceProgramDao dao = new MaintenanceProgramDao();
-		MaintenanceProgram mp = dao.findByDescription(description);
+		MaintenanceScheduleDao dao = new MaintenanceScheduleDao();
+		MaintenanceSchedule mp = dao.findByDescription(description);
 		return template.find(searchQuery + " maintenanceProgram_id =?", mp.getId());
 	}
 }

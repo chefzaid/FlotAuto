@@ -9,11 +9,6 @@
 		<put-attribute name="body" value="" />
 		<put-attribute name="footer" value="/jsp/layout/Footer.jsp" />
 	</definition>
-
-	<definition name="/vehicle.tiles" extends="baseLayout">
-		<put-attribute name="title" value="Véhicule" />
-		<put-attribute name="body" value="/jsp/forms/vehicle/vehicle.jsp" />
-	</definition>
 	
 	<definition name="/employee.tiles" extends="baseLayout">
 		<put-attribute name="title" value="FlotAuto>Employé - Informations générales" />
@@ -22,5 +17,15 @@
 	<definition name="/employeeHistory.tiles" extends="baseLayout">
 		<put-attribute name="title" value="FlotAuto>Employé - Véhicules conduits" />
 		<put-attribute name="body" value="/jsp/forms/employee/history.jsp" />
+	</definition>
+	
+	<definition name="/vehicle.tiles" extends="baseLayout">
+		<put-attribute name="title" value="FlotAuto>Véhicule - Informations générales" />
+		<put-attribute name="body" value="/jsp/forms/vehicle/vehicle.jsp" />
+	</definition>
+	
+	<definition name="/supplier.tiles" extends="baseLayout">
+		<put-attribute name="title" value="FlotAuto>Fournisseur - Informations générales" />
+		<put-attribute name="body" value="/jsp/forms/supplier/supplier.jsp" />
 	</definition>
 </tiles-definitions>

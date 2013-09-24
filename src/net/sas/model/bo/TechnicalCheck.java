@@ -30,11 +30,13 @@ public class TechnicalCheck {
 	@Temporal(TemporalType.DATE)
 	private Date visitDate;
 	@Temporal(TemporalType.DATE)
-	private Date nextVisitDate;
+	private Date expireDate;
+	private String Observations;
 	@OneToOne(orphanRemoval=true)
 	@JoinColumn(name="reminder_id", unique=true)
 	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
 	private Cycle reminder;
+	
 	
 	public Integer getId() {
 		return id;
@@ -54,11 +56,17 @@ public class TechnicalCheck {
 	public void setVisitDate(Date visitDate) {
 		this.visitDate = visitDate;
 	}
-	public Date getNextVisitDate() {
-		return nextVisitDate;
+	public Date getExpireDate() {
+		return expireDate;
 	}
-	public void setNextVisitDate(Date nextVisitDate) {
-		this.nextVisitDate = nextVisitDate;
+	public void setExpireDate(Date expireDate) {
+		this.expireDate = expireDate;
+	}
+	public String getObservations() {
+		return Observations;
+	}
+	public void setObservations(String observations) {
+		Observations = observations;
 	}
 	public Cycle getReminder() {
 		return reminder;

@@ -31,7 +31,7 @@ public class Maintenance {
 	@ManyToOne
 	@JoinColumn(name="program_id")
 	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
-	private MaintenanceProgram program;
+	private MaintenanceSchedule program;
 	@Temporal(TemporalType.DATE)
 	private Date date;
 	
@@ -53,10 +53,10 @@ public class Maintenance {
 	public void setEmployeeInCharge(Employee employeeInCharge) {
 		this.employeeInCharge = employeeInCharge;
 	}
-	public MaintenanceProgram getProgram() {
+	public MaintenanceSchedule getProgram() {
 		return program;
 	}
-	public void setProgram(MaintenanceProgram program) {
+	public void setProgram(MaintenanceSchedule program) {
 		this.program = program;
 	}
 	public Date getDate() {

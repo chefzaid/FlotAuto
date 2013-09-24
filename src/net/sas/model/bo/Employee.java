@@ -34,28 +34,27 @@ public class Employee {
 	private String firstName;
 	@Temporal(TemporalType.DATE)
 	private Date birthDate;
-	@OneToOne(orphanRemoval = true)
-	@JoinColumn(name = "address_id", unique = true)
-	@Cascade(value = { CascadeType.SAVE_UPDATE, CascadeType.DELETE })
-	private Address address;
 	@Column(nullable = false)
-	private String phone;
-	private String email;
-	@Column(nullable = false)
-	private String cin;
-	@Column(nullable = false)
-	private String number;
+	@Temporal(TemporalType.DATE)
+	private Date hireDate;
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false)
 	private Occupation occupation;
 	@Column(nullable = false)
-	@Temporal(TemporalType.DATE)
-	private Date hireDate;
-	@Column(nullable = false)
 	private Double salary;
+	@Column(nullable = false)
+	private String phone;
+	private String email;
 	@Lob
 	private byte[] picture;
-	private String trainings;
+	@Column(nullable = false)
+	private String number;
+	@Column(nullable = false)
+	private String cin;
+	@OneToOne(orphanRemoval = true)
+	@JoinColumn(name = "address_id", unique = true)
+	@Cascade(value = { CascadeType.SAVE_UPDATE, CascadeType.DELETE })
+	private Address address;
 	@OneToOne(orphanRemoval = true)
 	@JoinColumn(name = "healthCheck_id", unique = true)
 	@Cascade(value = { CascadeType.SAVE_UPDATE, CascadeType.DELETE })
@@ -64,7 +63,7 @@ public class Employee {
 	@PrimaryKeyJoinColumn
 	@NotFound(action = NotFoundAction.IGNORE)
 	private DrivingLicense drivingLicense;
-	
+	private String trainings;
 	private String notes;
 	
 	public Integer getId() {
@@ -91,11 +90,23 @@ public class Employee {
 	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
 	}
-	public Address getAddress() {
-		return address;
+	public Date getHireDate() {
+		return hireDate;
 	}
-	public void setAddress(Address address) {
-		this.address = address;
+	public void setHireDate(Date hireDate) {
+		this.hireDate = hireDate;
+	}
+	public Occupation getOccupation() {
+		return occupation;
+	}
+	public void setOccupation(Occupation occupation) {
+		this.occupation = occupation;
+	}
+	public Double getSalary() {
+		return salary;
+	}
+	public void setSalary(Double salary) {
+		this.salary = salary;
 	}
 	public String getPhone() {
 		return phone;
@@ -109,11 +120,11 @@ public class Employee {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getCin() {
-		return cin;
+	public byte[] getPicture() {
+		return picture;
 	}
-	public void setCin(String cin) {
-		this.cin = cin;
+	public void setPicture(byte[] picture) {
+		this.picture = picture;
 	}
 	public String getNumber() {
 		return number;
@@ -121,35 +132,17 @@ public class Employee {
 	public void setNumber(String number) {
 		this.number = number;
 	}
-	public Occupation getOccupation() {
-		return occupation;
+	public String getCin() {
+		return cin;
 	}
-	public void setOccupation(Occupation occupation) {
-		this.occupation = occupation;
+	public void setCin(String cin) {
+		this.cin = cin;
 	}
-	public Date getHireDate() {
-		return hireDate;
+	public Address getAddress() {
+		return address;
 	}
-	public void setHireDate(Date hireDate) {
-		this.hireDate = hireDate;
-	}
-	public Double getSalary() {
-		return salary;
-	}
-	public void setSalary(Double salary) {
-		this.salary = salary;
-	}
-	public byte[] getPicture() {
-		return picture;
-	}
-	public void setPicture(byte[] picture) {
-		this.picture = picture;
-	}
-	public String getTrainings() {
-		return trainings;
-	}
-	public void setTrainings(String trainings) {
-		this.trainings = trainings;
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 	public HealthCheck getHealthCheck() {
 		return healthCheck;
@@ -162,6 +155,12 @@ public class Employee {
 	}
 	public void setDrivingLicense(DrivingLicense drivingLicense) {
 		this.drivingLicense = drivingLicense;
+	}
+	public String getTrainings() {
+		return trainings;
+	}
+	public void setTrainings(String trainings) {
+		this.trainings = trainings;
 	}
 	public String getNotes() {
 		return notes;

@@ -5,18 +5,21 @@
 			rel="tooltip" data-placement="bottom" title="Toggle navigation"><i
 			class="icon-reorder"></i> </a>
 		<ul class='main-nav'>
-			<li  id="vehicle"><a href="../vehicle/list.action"> <i class="icon-home"></i> <span>Véhicule</span>
+			<li><a href="index.html"> <i class="icon-home"></i> <span>Dashboard</span>
 			</a></li>
-			<li id="employee"><a href="../employee/list.action"> <i class="icon-home"></i> <span>Employé</span>
+			<li id="vehicle"><a href="../vehicle/list.action"> <i
+					class="icon-home"></i> <span>Véhicule</span>
 			</a></li>
-			<li><a href="index.html"> <i class="icon-home"></i> <span>Fournisseur</span>
+			<li id="employee"><a href="../employee/list.action"> <i
+					class="icon-home"></i> <span>Employé</span>
 			</a></li>
 			<li><a href="index.html"> <i class="icon-home"></i> <span>Pièce</span>
 			</a></li>
 			<li><a href="index.html"> <i class="icon-home"></i> <span>Entretien</span>
 			</a></li>
-			<li><a href="index.html"> <i
-					class="icon-home"></i> <span>Dashboard</span> </a></li>
+			<li id="supplier"><a href="../supplier/list.action"> <i
+					class="icon-home"></i> <span>Fournisseur</span>
+			</a></li>
 		</ul>
 		<div class="user">
 			<ul class="icon-nav">
@@ -58,7 +61,8 @@
 			</ul>
 			<div class="dropdown">
 				<a href="#" class='dropdown-toggle' data-toggle="dropdown">John
-					Doe <img src="/FlotAuto/jsp/img/demo/user-avatar.jpg" alt=""> </a>
+					Doe <img src="/FlotAuto/jsp/img/demo/user-avatar.jpg" alt="">
+				</a>
 				<ul class="dropdown-menu pull-right">
 					<li><a href="more-userprofile.html">Edit profile</a></li>
 					<li><a href="#">Account settings</a></li>

@@ -1,6 +1,8 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
-<script type="text/javascript">setActiveTab('employee');</script>
+<script type="text/javascript">
+	setActiveTab('employee');
+</script>
 
 <div id="left">
 	<form action="http://www.eakroko.de/flat/search-results.html"
@@ -20,16 +22,16 @@
 		<ul class="subnav-menu">
 			<li><a href="../employee/list.action">Général</a></li>
 			<li><a href="../employee/history.action">Véhicules conduits</a></li>
-			<li><a href="#">Accidents commis</a></li>
-			<li><a href="#">Fichiers joints</a></li>
+			<li><a href="../employee/accidents.action">Accidents commis</a></li>
+			<li><a href="../employee/files.action">Fichiers joints</a></li>
 		</ul>
 	</div>
 </div>
 <div id="main">
 	<div class="container-fluid">
 		<div class="row-fluid">
-			<s:form method="POST" enctype="multipart/form-data"
-				cssClass='form-horizontal form-column'>
+			<s:form id="employeeForm" method="POST" enctype="multipart/form-data"
+				cssClass='form-horizontal form-column' action="save.action">
 				<div class="span12">
 					<div class="box">
 						<div class="box-title">
@@ -60,10 +62,13 @@
 									<label for="occupation" class="control-label">Occupation
 										:</label>
 									<div class="controls">
-										<s:select name="occupation" id="occupation"
-											list="@net.sas.model.bo.Occupation@values()"
-											listValue="getStatus()" headerKey="-1" headerValue="%{''}"
-											cssClass="sinput-large" value="#{currentEmployee.occupation}" />
+										<div class="input-large">
+											<s:select name="occupation" id="occupation"
+												list="@net.sas.model.bo.Occupation@values()"
+												listValue="getStatus()" headerKey="-1" headerValue="%{''}"
+												cssClass="chosen-select"
+												value="#{currentEmployee.occupation}" />
+										</div>
 									</div>
 								</div>
 								<div class="control-group">
@@ -117,19 +122,21 @@
 							</div>
 							<div class="span6">
 								<div class="control-group">
-									<label for="picture" class="control-label">Photo :</label>
+									<label for="image" class="control-label">Photo :</label>
 									<div class="controls">
 										<div class="fileupload fileupload-new"
 											data-provides="fileupload">
 											<div class="fileupload-new thumbnail"
 												style="width: 200px; height: 150px;">
 												<s:if test="#{currentEmployee.picture != null}">
-													<img src="/FlotAuto/ImageAction?id=${currentEmployee.id}" />
+													<img
+														src="/FlotAuto/ImageAction?entity=employee&id=${currentEmployee.id}" />
 												</s:if>
 												<s:else>
 													<img src="/FlotAuto/jsp/img/no_image.gif" />
 												</s:else>
 											</div>
+
 											<div class="fileupload-preview fileupload-exists thumbnail"
 												style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
 											<div>
@@ -196,10 +203,10 @@
 							</h3>
 
 						</div>
-						<%-- 						<s:if test="%{currentEmployee.drivingLicense == null}"> --%>
-						<!-- 							<h6 class="center">Employé sans permis ! Veuillez en saisir -->
-						<!-- 								un, s'il vient de l'obtenir.</h6> -->
-						<%-- 						</s:if> --%>
+						<s:if test="%{currentEmployee.drivingLicense == null}">
+							<h6 class="center">Employé sans permis ! Veuillez en saisir
+								un, s'il l'a.</h6>
+						</s:if>
 						<div class="box-content nopadding">
 							<div class="span6">
 								<div class="control-group">
@@ -321,45 +328,39 @@
 						</div>
 					</div>
 				</div>
-				<div class="form-actions">
-					<div class="center">
-						<s:url id="first" value="first.action" />
-						<sj:a onClick="$(document).load().scrollTop(80);" href="%{first}"
-							targets="home" cssClass="btn btn-primary"
-							onBeforeTopics="onBeforeLoading"
-							onCompleteTopics="onCompleteLoading">&lt;&lt;</sj:a>
-						<s:url id="previous" value="previous.action" />
-						<sj:a onClick="$(document).load().scrollTop(80);"
-							href="%{previous}" targets="home" cssClass="btn btn-primary"
-							onBeforeTopics="onBeforeLoading"
-							onCompleteTopics="onCompleteLoading">&lt;</sj:a>
+				<div class="form-actions center">
+					<s:url id="first" value="first.action" />
+					<sj:a href="%{first}" targets="home" cssClass="btn btn-primary"
+						onBeforeTopics="onBeforeLoading"
+						onCompleteTopics="onCompleteLoading">&lt;&lt;</sj:a>
+					<s:url id="previous" value="previous.action" />
+					<sj:a href="%{previous}" targets="home" cssClass="btn btn-primary"
+						onBeforeTopics="onBeforeLoading"
+						onCompleteTopics="onCompleteLoading">&lt;</sj:a>
 
-						<s:url id="clear" value="clear.action" />
-						<sj:a onClick="$(document).load().scrollTop(80);" href="%{clear}"
-							targets="home" cssClass="btn" onBeforeTopics="onBeforeLoading"
-							onCompleteTopics="onCompleteLoading">Nouveau</sj:a>
+					<s:url id="clear" value="clear.action" />
+					<sj:a href="%{clear}" targets="home" cssClass="btn"
+						onBeforeTopics="onBeforeLoading"
+						onCompleteTopics="onCompleteLoading">Nouveau</sj:a>
 
-						<!-- to enhance, not satisfied -->
-						<a href="#modal-1" class="notify" data-notify-title="Succès"
-							data-notify-message="Employé enregistré !"> <s:submit 
-								value="Enregistrer" cssClass="btn btn-success" action="save" /></a>
+					<sj:submit value="Enregistrer" targets="home"
+						cssClass="btn btn-success" onBeforeTopics="onBeforeLoading"
+						onCompleteTopics="onCompleteLoading"
+						onSuccessTopics="onAfterLoading" />
 
-						<a href="#modal-1" class="notify" data-notify-title="Succès"
-							data-notify-message="Employé supprimé !"><s:submit
-								value="Supprimer" cssClass="btn btn-danger" action="delete" /></a>
-						<!-- to enhance, not satisfied -->
+					<s:url id="delete" value="delete.action" />
+					<sj:a cssClass="hide" targets="home" href="%{delete}"
+						listenTopics="confirmDelete" onSuccessTopics="onAfterLoading" />
+					<a href="#confirm" class="btn btn-danger" data-toggle="modal">Supprimer</a>
 
-						<s:url id="next" value="next.action" />
-						<sj:a onClick="$(document).load().scrollTop(80);" href="%{next}"
-							targets="home" cssClass="btn btn-primary"
-							onBeforeTopics="onBeforeLoading"
-							onCompleteTopics="onCompleteLoading">&gt;</sj:a>
-						<s:url id="last" value="last.action" />
-						<sj:a onClick="$(document).load().scrollTop(80);" href="%{last}"
-							targets="home" cssClass="btn btn-primary"
-							onBeforeTopics="onBeforeLoading"
-							onCompleteTopics="onCompleteLoading">&gt;&gt;</sj:a>
-					</div>
+					<s:url id="next" value="next.action" />
+					<sj:a href="%{next}" targets="home" cssClass="btn btn-primary"
+						onBeforeTopics="onBeforeLoading"
+						onCompleteTopics="onCompleteLoading">&gt;</sj:a>
+					<s:url id="last" value="last.action" />
+					<sj:a href="%{last}" targets="home" cssClass="btn btn-primary"
+						onBeforeTopics="onBeforeLoading"
+						onCompleteTopics="onCompleteLoading">&gt;&gt;</sj:a>
 				</div>
 			</s:form>
 		</div>
@@ -380,10 +381,10 @@
 									<th>Prénom</th>
 									<th>Nom</th>
 									<th>Occupation</th>
-									<th class='hidden-350'>Date emabauche</th>
-									<th class='hidden-1024'>Phone</th>
-									<th class='hidden-480'>Email</th>
-									<th class='hidden-480'>Options</th>
+									<th>Date emabauche</th>
+									<th>Phone</th>
+									<th>Email</th>
+									<th>-</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -393,27 +394,19 @@
 										<td><s:property value="firstName" /></td>
 										<td><s:property value="lastName" /></td>
 										<td><s:property value="occupation.status" /></td>
-										<td class='hidden-1024'><s:date name="hireDate"
-												format="dd/MM/yyyy" /></td>
-										<td class='hidden-350'><s:property value="phone" /></td>
-										<td class='hidden-480'><s:property value="email" /></td>
-										<td class='hidden-480'><s:url id="view"
-												value="view.action">
+										<td><s:date name="hireDate" format="dd/MM/yyyy" /></td>
+										<td><s:property value="phone" /></td>
+										<td><s:property value="email" /></td>
+										<td><s:url id="view" value="view.action">
 												<s:param name="index">
 													<s:property value="#employee.index" />
 												</s:param>
-											</s:url> <sj:a onClick="$(document).load().scrollTop(80);"
-												href="%{view}" targets="home" cssClass="btn" rel="tooltip"
-												title="Afficher" onBeforeTopics="onBeforeLoading"
+											</s:url> <sj:a href="%{view}" targets="home" cssClass="btn"
+												rel="tooltip" title="Afficher"
+												onBeforeTopics="onBeforeLoading"
 												onCompleteTopics="onCompleteLoading">
 												<i class="icon-search"></i>
-											</sj:a> <a href="#modal-1" class="btn notify"
-											data-notify-title="Succès"
-											data-notify-message="Employé supprimé !"
-											onClick="if (confirm('Voulez vous vraiment supprimer cet enregistrement ?')) 
-				window.location='delete.action?id=<s:property value='id'/>'; return false"
-											class="btn" rel="tooltip" title="Supprimer"><i
-												class="icon-remove"></i></a></td>
+											</sj:a></td>
 									</tr>
 								</s:iterator>
 							</tbody>

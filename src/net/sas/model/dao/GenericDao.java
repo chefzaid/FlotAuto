@@ -17,8 +17,8 @@ public abstract class GenericDao<T> {
 		template.update(obj);
 	}
 
-	public void delete(Integer id) {
-		template.delete(id);
+	public void delete(T obj) {
+		template.delete(obj);
 	}
 
 	public void createOrUpdate(T obj) {
@@ -33,42 +33,6 @@ public abstract class GenericDao<T> {
 		return template.get(entity, id);
 	}
 
-//	public T getPreviousEntry(Integer id) {
-//		DetachedCriteria criteria = DetachedCriteria.forClass(entity);
-//		criteria.add(Restrictions.lt("id", id));
-//		criteria.addOrder(Order.desc("id"));
-//		return getEntry(criteria, id);
-//	}
-//
-//	public T getNextEntry(Integer id) {
-//		DetachedCriteria criteria = DetachedCriteria.forClass(entity);
-//		criteria.add(Restrictions.gt("id", id));
-//		criteria.addOrder(Order.asc("id"));
-//		return getEntry(criteria, id);
-//	}
-//
-//	public T getFirstEntry() {
-//		DetachedCriteria criteria = DetachedCriteria.forClass(entity);
-//		criteria.addOrder(Order.asc("id"));
-//		return getEntry(criteria);
-//	}
-//
-//	public T getLastEntry() {
-//		DetachedCriteria criteria = DetachedCriteria.forClass(entity);
-//		criteria.addOrder(Order.desc("id"));
-//		return getEntry(criteria);
-//	}
-	
-//	private T getEntry(DetachedCriteria criteria, Integer... id) {
-//		T entry = null;
-//	if (!template.findByCriteria(criteria, 0, 1).isEmpty()) {
-//		entry = (T) template.findByCriteria(criteria, 0, 1).get(0);
-//	} else if (id[0] != null) {
-//		entry = findById(id[0]);
-//	}
-//		return entry;
-//	}
-	
 	public void setTemplate(HibernateTemplate template) {
 		this.template = template;
 	}
