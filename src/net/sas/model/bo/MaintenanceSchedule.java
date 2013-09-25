@@ -22,7 +22,7 @@ public class MaintenanceSchedule {
 	@OneToOne(orphanRemoval=true)
 	@JoinColumn(name="cycle_id", unique=true)
 	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
-	private Cycle cycle;
+	private Cycle frequency;
 	@OneToOne(orphanRemoval=true)
 	@JoinColumn(name="reminder_id", unique=true)
 	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
@@ -40,11 +40,11 @@ public class MaintenanceSchedule {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public Cycle getCycle() {
-		return cycle;
+	public Cycle getFrequency() {
+		return frequency;
 	}
-	public void setCycle(Cycle cycle) {
-		this.cycle = cycle;
+	public void setFrequency(Cycle frequency) {
+		this.frequency = frequency;
 	}
 	public Cycle getReminder() {
 		return reminder;

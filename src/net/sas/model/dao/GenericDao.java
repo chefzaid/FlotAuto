@@ -4,10 +4,15 @@ import java.util.List;
 
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
-public abstract class GenericDao<T> {
+public class GenericDao<T> {
 
+	private Class<T> entity;
 	protected HibernateTemplate template;
-	protected Class<T> entity;
+	protected String searchQuery = "from " + entity + " where ";
+	
+	public GenericDao(Class<T> entity){
+		this.entity = entity;
+	}
 
 	public void create(T obj) {
 		template.save(obj);
@@ -35,9 +40,5 @@ public abstract class GenericDao<T> {
 
 	public void setTemplate(HibernateTemplate template) {
 		this.template = template;
-	}
-
-	public void setEntity(Class<T> entity) {
-		this.entity = entity;
 	}
 }

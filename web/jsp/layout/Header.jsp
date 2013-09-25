@@ -3,22 +3,22 @@
 	<div class="container-fluid">
 		<a href="#" id="brand">FlotAuto</a> <a href="#" class="toggle-nav"
 			rel="tooltip" data-placement="bottom" title="Toggle navigation"><i
-			class="icon-reorder"></i> </a>
+			class="icon-reorder"></i></a>
 		<ul class='main-nav'>
-			<li><a href="index.html"> <i class="icon-home"></i> <span>Dashboard</span>
-			</a></li>
+			<li id="dashboard"><a href="../dashboard/overall.action"><i
+					class="icon-home"></i> <span>Dashboard</span> </a></li>
 			<li id="vehicle"><a href="../vehicle/list.action"> <i
-					class="icon-home"></i> <span>Véhicule</span>
+					class="icon-home"></i> <span>Véhicules</span>
 			</a></li>
 			<li id="employee"><a href="../employee/list.action"> <i
-					class="icon-home"></i> <span>Employé</span>
+					class="icon-home"></i> <span>Employés</span>
 			</a></li>
-			<li><a href="index.html"> <i class="icon-home"></i> <span>Pièce</span>
-			</a></li>
-			<li><a href="index.html"> <i class="icon-home"></i> <span>Entretien</span>
-			</a></li>
+			<li id="maintenance"><a href="../maintenance/list.action"><i
+					class="icon-home"></i> <span>Maintenances</span> </a></li>
+			<li id="components"><a href="../component/list.action"><i
+					class="icon-home"></i> <span>Composants</span> </a></li>
 			<li id="supplier"><a href="../supplier/list.action"> <i
-					class="icon-home"></i> <span>Fournisseur</span>
+					class="icon-home"></i> <span>Fournisseurs</span>
 			</a></li>
 		</ul>
 		<div class="user">

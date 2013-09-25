@@ -33,7 +33,7 @@ public class Maintenance {
 	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
 	private MaintenanceSchedule program;
 	@Temporal(TemporalType.DATE)
-	private Date date;
+	private Date performDate;
 	
 	public Integer getId() {
 		return id;
@@ -59,10 +59,10 @@ public class Maintenance {
 	public void setProgram(MaintenanceSchedule program) {
 		this.program = program;
 	}
-	public Date getDate() {
-		return date;
+	public Date getPerformDate() {
+		return performDate;
 	}
-	public void setDate(Date date) {
-		this.date = date;
+	public void setPerformDate(Date performDate) {
+		this.performDate = performDate;
 	}
 }

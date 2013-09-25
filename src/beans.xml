@@ -39,19 +39,15 @@
 		abstract="true">
 		<property name="template" ref="hibernateTemplate" />
 	</bean>
-	<bean id="employeeDao" class="net.sas.model.dao.EmployeeDao"
-		parent="genericDao">
-		<property name="entity" value="net.sas.model.bo.Employee" />
+
+	<bean id="employeeDao" parent="genericDao">
+		<constructor-arg value="net.sas.model.bo.Employee" />
 	</bean>
-	<bean id="licenseDao" class="net.sas.model.dao.DrivingLicenseDao"
-		parent="genericDao">
-		<property name="entity" value="net.sas.model.bo.DrivingLicense" />
+	<bean id="vehicleDao" parent="genericDao">
+		<constructor-arg value="net.sas.model.bo.Vehicle" />
 	</bean>
-	<bean id="vehicleDao" class="net.sas.model.dao.VehicleDao" parent="genericDao">
-		<property name="entity" value="net.sas.model.bo.Vehicle" />
+	<bean id="supplierDao" parent="genericDao">
+		<constructor-arg value="net.sas.model.bo.Supplier" />
 	</bean>
-	<bean id="supplierDao" class="net.sas.model.dao.SupplierDao"
-		parent="genericDao">
-		<property name="entity" value="net.sas.model.bo.Supplier" />
-	</bean>
+
 </beans>

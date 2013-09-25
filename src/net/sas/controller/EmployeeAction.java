@@ -71,11 +71,11 @@ public class EmployeeAction implements Action, ModelDriven<Employee> {
 	}
 
 	public List<Employee> getEmployees() {
-		return employeeService.getEmployees();
+		return employeeService.getList();
 	}
 
 	public Employee getCurrentEmployee() {
-		return employeeService.getCurrentEmployee();
+		return employeeService.getCurrentEntry();
 	}
 
 	public File getImage() {

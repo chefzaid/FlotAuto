@@ -11,7 +11,6 @@ public class ImageBytesResult implements Result {
 	private static final long serialVersionUID = 1L;
 
 	public void execute(ActionInvocation invocation) throws Exception {
-		
 		ImageAction action = (ImageAction) invocation.getAction();
 		HttpServletResponse response = ServletActionContext.getResponse();
 		response.setContentType(action.getContentType());

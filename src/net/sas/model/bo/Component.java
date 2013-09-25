@@ -22,10 +22,10 @@ public class Component {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
-	@Enumerated(EnumType.STRING)
-	private ComponentType type;
 	@Column(nullable=false)
 	private String description;
+	@Enumerated(EnumType.STRING)
+	private ComponentType type;
 	private String brand;
 	@ManyToMany
 	@JoinTable (name="Supplier_Component", 
@@ -33,8 +33,9 @@ public class Component {
 			inverseJoinColumns={@JoinColumn(name="supplier_id")})
 	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE}) 
 	private List<Supplier> suppliers;
-	private Integer quantity;
+	private Integer stockQuantity;
 	private Double price;
+	private Warranty warranty;
 	private String reference;
 	
 	public Integer getId() {
@@ -67,17 +68,23 @@ public class Component {
 	public void setSuppliers(List<Supplier> suppliers) {
 		this.suppliers = suppliers;
 	}
-	public Integer getQuantity() {
-		return quantity;
+	public Integer getStockQuantity() {
+		return stockQuantity;
 	}
-	public void setQuantity(Integer quantity) {
-		this.quantity = quantity;
+	public void setStockQuantity(Integer stockQuantity) {
+		this.stockQuantity = stockQuantity;
 	}
 	public Double getPrice() {
 		return price;
 	}
 	public void setPrice(Double price) {
 		this.price = price;
+	}
+	public Warranty getWarranty() {
+		return warranty;
+	}
+	public void setWarranty(Warranty warranty) {
+		this.warranty = warranty;
 	}
 	public String getReference() {
 		return reference;

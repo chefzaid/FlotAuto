@@ -5,53 +5,8 @@
 </script>
 
 <div id="left">
-	<form action="http://www.eakroko.de/flat/search-results.html"
-		method="GET" class='search-form'>
-		<div class="search-pane">
-			<input type="text" name="search" placeholder="Rechercher...">
-			<button type="submit">
-				<i class="icon-search"></i>
-			</button>
-		</div>
-	</form>
-	<div class="subnav">
-		<div class="subnav-title">
-			<a href="#" class='toggle-subnav'><i class="icon-angle-down"></i><span>Informations</span>
-			</a>
-		</div>
-		<ul class="subnav-menu">
-			<li><a href="../vehicle/list.action">Général</a></li>
-			<li><a href="../vehicle/driver.action">Conducteurs</a></li>
-			<li><a href="../vehcile/acquisition.action">Achat/Location</a></li>
-		</ul>
-	</div>
-	<div class="subnav">
-		<div class="subnav-title">
-			<a href="#" class='toggle-subnav'><i class="icon-angle-down"></i><span>Maintenance</span>
-			</a>
-		</div>
-		<ul class="subnav-menu">
-			<li><a href="#">Programme d'entretien</a></li>
-			<li><a href="#">Ordre de travail</a></li>
-			<li><a href="#">Entretiens effectués</a></li>
-			<li><a href="#">Pièces</a></li>
-			<li><a href="#">Pleins d'essence</a></li>
-			<li><a href="#">Pneus</a></li>
-			<li><a href="#">Autres frais</a></li>
-			<li><a href="#">Odomètre</a></li>
-		</ul>
-	</div>
-	<div class="subnav">
-		<div class="subnav-title">
-			<a href="#" class='toggle-subnav'><i class="icon-angle-down"></i><span>Incidents</span>
-			</a>
-		</div>
-		<ul class="subnav-menu">
-			<li><a href="#">Pannes</a></li>
-			<li><a href="#">Infractions</a></li>
-			<li><a href="#">Accidents</a></li>
-		</ul>
-	</div>
+	<jsp:include page="../../includes/search.jsp" />
+	<jsp:include page="../../includes/menu_vehicle.jsp" />
 </div>
 <div id="main">
 	<div class="container-fluid">
@@ -371,7 +326,7 @@
 								</div>
 								<div class="control-group">
 									<label for="technicalCheck.reminder.frequence"
-										class="control-label">Rappel :</label>
+										class="control-label">Rappel (avant expiration) :</label>
 									<div class="controls">
 										<div class="span4">
 											<input type="hidden" name="technicalCheck.reminder.id"
@@ -379,7 +334,7 @@
 												value="${currentVehicle.technicalCheck.reminder.id}" /> <input
 												type="text" name="technicalCheck.reminder.frequence"
 												id="technicalCheck.reminder.frequence"
-												placeholder="Avant expir." class="span12"
+												placeholder="Valeur" class="span12"
 												value="${currentVehicle.technicalCheck.reminder.frequence}" />
 										</div>
 										<div class="span4">
@@ -396,40 +351,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="form-actions center">
-					<s:url id="first" value="first.action" />
-					<sj:a href="%{first}" targets="home" cssClass="btn btn-primary"
-						onBeforeTopics="onBeforeLoading"
-						onCompleteTopics="onCompleteLoading">&lt;&lt;</sj:a>
-					<s:url id="previous" value="previous.action" />
-					<sj:a href="%{previous}" targets="home" cssClass="btn btn-primary"
-						onBeforeTopics="onBeforeLoading"
-						onCompleteTopics="onCompleteLoading">&lt;</sj:a>
-
-					<s:url id="clear" value="clear.action" />
-					<sj:a href="%{clear}" targets="home" cssClass="btn"
-						onBeforeTopics="onBeforeLoading"
-						onCompleteTopics="onCompleteLoading">Nouveau</sj:a>
-
-					<sj:submit value="Enregistrer" targets="home"
-						cssClass="btn btn-success" onBeforeTopics="onBeforeLoading"
-						onCompleteTopics="onCompleteLoading"
-						onSuccessTopics="onAfterLoading" />
-
-					<s:url id="delete" value="delete.action" />
-					<sj:a cssClass="hide" targets="home" href="%{delete}"
-						listenTopics="confirmDelete" onSuccessTopics="onAfterLoading" />
-					<a href="#confirm" class="btn btn-danger" data-toggle="modal">Supprimer</a>
-
-					<s:url id="next" value="next.action" />
-					<sj:a href="%{next}" targets="home" cssClass="btn btn-primary"
-						onBeforeTopics="onBeforeLoading"
-						onCompleteTopics="onCompleteLoading">&gt;</sj:a>
-					<s:url id="last" value="last.action" />
-					<sj:a href="%{last}" targets="home" cssClass="btn btn-primary"
-						onBeforeTopics="onBeforeLoading"
-						onCompleteTopics="onCompleteLoading">&gt;&gt;</sj:a>
-				</div>
+				<jsp:include page="../../includes/form_actions.jsp" />
 			</s:form>
 		</div>
 		<div class="row-fluid">

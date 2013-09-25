@@ -69,11 +69,11 @@ public class SupplierAction implements Action, ModelDriven<Supplier> {
 	}
 
 	public List<Supplier> getSuppliers() {
-		return supplierService.getSuppliers();
+		return supplierService.getList();
 	}
 
 	public Supplier getCurrentSupplier() {
-		return supplierService.getCurrentSupplier();
+		return supplierService.getCurrentEntry();
 	}
 
 }

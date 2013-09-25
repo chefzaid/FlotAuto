@@ -39,7 +39,7 @@ public class Employee {
 	private Date hireDate;
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false)
-	private Occupation occupation;
+	private EmployeeOccupation occupation;
 	@Column(nullable = false)
 	private Double salary;
 	@Column(nullable = false)
@@ -96,10 +96,10 @@ public class Employee {
 	public void setHireDate(Date hireDate) {
 		this.hireDate = hireDate;
 	}
-	public Occupation getOccupation() {
+	public EmployeeOccupation getOccupation() {
 		return occupation;
 	}
-	public void setOccupation(Occupation occupation) {
+	public void setOccupation(EmployeeOccupation occupation) {
 		this.occupation = occupation;
 	}
 	public Double getSalary() {

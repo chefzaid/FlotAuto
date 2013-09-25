@@ -72,11 +72,11 @@ public class VehicleAction implements Action, ModelDriven<Vehicle> {
 	}
 
 	public List<Vehicle> getVehicles() {
-		return vehicleService.getVehicles();
+		return vehicleService.getList();
 	}
 
 	public Vehicle getCurrentVehicle() {
-		return vehicleService.getCurrentVehicle();
+		return vehicleService.getCurrentEntry();
 	}
 	
 	public List<Supplier> getSuppliers() {
