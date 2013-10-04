@@ -19,13 +19,14 @@
 <div id="main">
 	<div class="container-fluid">
 		<div class="row-fluid">
+			<jsp:include page="../../includes/success.jsp" />
 			<s:form id="supplierForm" method="POST" enctype="multipart/form-data"
 				cssClass='form-horizontal form-column' action="save.action">
 				<div class="span12">
 					<div class="box">
 						<div class="box-title">
 							<h3>
-								<i class="icon-edit"></i> Contact
+								<i class="icon-edit"></i> Fournisseur
 							</h3>
 						</div>
 						<div class="box-content nopadding">
@@ -43,13 +44,11 @@
 								</div>
 								<div class="control-group">
 									<label for="type" class="control-label">Type :</label>
-									<div class="controls">
-										<div class="input-large">
-											<s:select name="type" id="type"
-												list="@net.sas.model.bo.SupplierType@values()"
-												listValue="getStatus()" headerKey="-1" headerValue="%{''}"
-												cssClass="chosen-select" value="#{currentSupplier.type}" />
-										</div>
+									<div class="controls input-large">
+										<s:select name="type" id="type"
+											list="@net.sas.model.bo.SupplierType@values()"
+											listValue="getStatus()" headerKey="-1" headerValue="%{''}"
+											cssClass="chosen-select" value="#{currentSupplier.type}" />
 									</div>
 								</div>
 								<div class="control-group">
@@ -140,11 +139,11 @@
 									<th>Ville</th>
 									<th>Phone</th>
 									<th>Email</th>
-									<th>-</th>
+									<th>Options</th>
 								</tr>
 							</thead>
 							<tbody>
-								<s:iterator value="suppliers" status="supplier">
+								<s:iterator value="suppliers" status="entry">
 									<tr>
 										<td><s:property value="companyName" /></td>
 										<td><s:property value="type.status" /></td>
@@ -152,16 +151,7 @@
 										<td><s:property value="address.city" /></td>
 										<td><s:property value="phone" /></td>
 										<td><s:property value="email" /></td>
-										<td><s:url id="view" value="view.action">
-												<s:param name="index">
-													<s:property value="#supplier.index" />
-												</s:param>
-											</s:url> <sj:a href="%{view}" targets="home" cssClass="btn"
-												rel="tooltip" title="Afficher"
-												onBeforeTopics="onBeforeLoading"
-												onCompleteTopics="onCompleteLoading">
-												<i class="icon-search"></i>
-											</sj:a></td>
+										<td><jsp:include page="../../includes/table_options.jsp" /></td>
 									</tr>
 								</s:iterator>
 							</tbody>

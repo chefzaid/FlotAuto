@@ -9,23 +9,40 @@
 		<put-attribute name="body" value="" />
 		<put-attribute name="footer" value="/jsp/layout/Footer.jsp" />
 	</definition>
-	
+
 	<definition name="/employee.tiles" extends="baseLayout">
-		<put-attribute name="title" value="FlotAuto>Employé - Informations générales" />
+		<put-attribute name="title" value="FlotAuto>Employés - Général" />
 		<put-attribute name="body" value="/jsp/forms/employee/employee.jsp" />
 	</definition>
 	<definition name="/employeeHistory.tiles" extends="baseLayout">
-		<put-attribute name="title" value="FlotAuto>Employé - Véhicules conduits" />
+		<put-attribute name="title"
+			value="FlotAuto>Employé - Véhicules conduits" />
 		<put-attribute name="body" value="/jsp/forms/employee/history.jsp" />
 	</definition>
-	
+
 	<definition name="/vehicle.tiles" extends="baseLayout">
-		<put-attribute name="title" value="FlotAuto>Véhicule - Informations générales" />
+		<put-attribute name="title" value="FlotAuto>Véhicules - Général" />
 		<put-attribute name="body" value="/jsp/forms/vehicle/vehicle.jsp" />
 	</definition>
-	
+
 	<definition name="/supplier.tiles" extends="baseLayout">
-		<put-attribute name="title" value="FlotAuto>Fournisseur - Informations générales" />
+		<put-attribute name="title" value="FlotAuto>Fournisseurs - Général" />
 		<put-attribute name="body" value="/jsp/forms/supplier/supplier.jsp" />
+	</definition>
+	
+	<definition name="/component.tiles" extends="baseLayout">
+		<put-attribute name="title" value="FlotAuto>Maintenance - Composants" />
+		<put-attribute name="body"
+			value="/jsp/forms/maintenance/component.jsp" />
+	</definition>
+
+	<definition name="/maintenance.tiles" extends="baseLayout">
+		<put-attribute name="title" value="FlotAuto>Maintenance - Général" />
+		<put-attribute name="body"
+			value="/jsp/forms/maintenance/maintenance.jsp" />
+	</definition>
+	<definition name="/expense.tiles" extends="baseLayout">
+		<put-attribute name="title" value="FlotAuto>Maintenance - Dépenses" />
+		<put-attribute name="body" value="/jsp/forms/maintenance/expense.jsp" />
 	</definition>
 </tiles-definitions>

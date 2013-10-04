@@ -6,12 +6,14 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
@@ -27,7 +29,7 @@ public class Component {
 	@Enumerated(EnumType.STRING)
 	private ComponentType type;
 	private String brand;
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable (name="Supplier_Component", 
 			joinColumns={@JoinColumn(name="component_id")},
 			inverseJoinColumns={@JoinColumn(name="supplier_id")})
@@ -35,6 +37,9 @@ public class Component {
 	private List<Supplier> suppliers;
 	private Integer stockQuantity;
 	private Double price;
+	@OneToOne(orphanRemoval=true)
+	@JoinColumn(name="warranty_id", unique=true)
+	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
 	private Warranty warranty;
 	private String reference;
 	

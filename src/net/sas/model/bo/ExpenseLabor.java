@@ -11,14 +11,14 @@ import org.hibernate.annotations.CascadeType;
 public class ExpenseLabor extends Expense{
 	
 	@OneToOne(orphanRemoval=true)
-	@JoinColumn(name="workOrder_id", unique=true)
+	@JoinColumn(name="employee_id", unique=true)
 	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
-	private Labor workOrder;
+	private Employee employee;
 
-	public Labor getWorkOrder() {
-		return workOrder;
+	public Employee getEmployee() {
+		return employee;
 	}
-	public void setWorkOrder(Labor workOrder) {
-		this.workOrder = workOrder;
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
 	}
 }

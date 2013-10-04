@@ -4,9 +4,9 @@
 			</a>
 		</div>
 		<ul class="subnav-menu">
-			<li><a href="../vehicle/list.action">Général</a></li>
-			<li><a href="../vehicle/driver.action">Conducteurs</a></li>
-			<li><a href="../vehcile/acquisition.action">Achat/Location</a></li>
+			<li><a href="/FlotAuto/vehicle/list.action">Général</a></li>
+			<li><a href="/FlotAuto/vehicle/driver.action">Conducteurs</a></li>
+			<li><a href="/FlotAuto/vehcile/acquisition.action">Achat/Location</a></li>
 		</ul>
 	</div>
 	<div class="subnav">
@@ -15,9 +15,10 @@
 			</a>
 		</div>
 		<ul class="subnav-menu">
-			<li><a href="../vehcile/maintenance.action">Entretiens effectués</a></li>
-			<li><a href="../vehcile/gas.action">Pleins d'essence</a></li>
-			<li><a href="../vehcile/expense.action">Autre dépenses</a></li>
+			<li><a href="/FlotAuto/vehcile/schedule.action">Entretiens à effectuer</a></li>
+			<li><a href="/FlotAuto/vehcile/maintenance.action">Entretiens effectués</a></li>
+			<li><a href="/FlotAuto/vehcile/gas.action">Pleins d'essence</a></li>
+			<li><a href="/FlotAuto/vehcile/odometer.action">Odomètre</a></li>
 		</ul>
 	</div>
 	<div class="subnav">

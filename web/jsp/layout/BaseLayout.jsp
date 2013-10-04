@@ -128,10 +128,6 @@
 		<tiles:insertAttribute name="header" />
 	</div>
 	<div class="container-fluid" id="content">
-		<div id="success" class="alert alert-success center hide">
-			<button type="button" class="close" data-dismiss="alert">×</button>
-			<strong>Mise-à-jour effectuée avec succès !</strong>
-		</div>
 		<tiles:insertAttribute name="body" />
 	</div>
 	<!-- 	<div id="footer"> -->

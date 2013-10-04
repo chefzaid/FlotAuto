@@ -1,4 +1,4 @@
-<form action="http://www.eakroko.de/flat/search-results.html"
+<form action="http://www.google.com"
 	method="GET" class='search-form'>
 	<div class="search-pane">
 		<input type="text" name="search" placeholder="Rechercher...">

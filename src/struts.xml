@@ -136,4 +136,51 @@
 			<result name="input" type="tiles">/supplier.tiles</result>
 		</action>
 	</package>
+
+	<package name="maintenance" extends="app" namespace="/maintenance">
+		<action name="list">
+			<result name="success" type="tiles">/maintenance.tiles</result>
+		</action>
+		<action name="expense">
+			<result name="success" type="tiles">/expense.tiles</result>
+		</action>
+	</package>
+
+	<package name="component" extends="app" namespace="/maintenance/component">
+		<action name="list" class="net.sas.controller.ComponentAction">
+			<result name="input" type="tiles">/component.tiles</result>
+		</action>
+		<action name="clear" class="net.sas.controller.ComponentAction"
+			method="clear">
+			<result name="input" type="tiles">/component.tiles</result>
+		</action>
+		<action name="view" class="net.sas.controller.ComponentAction"
+			method="view">
+			<result name="input" type="tiles">/component.tiles</result>
+		</action>
+		<action name="save" class="net.sas.controller.ComponentAction"
+			method="save">
+			<result name="input" type="tiles">/component.tiles</result>
+		</action>
+		<action name="delete" class="net.sas.controller.ComponentAction"
+			method="delete">
+			<result name="input" type="tiles">/component.tiles</result>
+		</action>
+		<action name="previous" class="net.sas.controller.ComponentAction"
+			method="previous">
+			<result name="input" type="tiles">/component.tiles</result>
+		</action>
+		<action name="next" class="net.sas.controller.ComponentAction"
+			method="next">
+			<result name="input" type="tiles">/component.tiles</result>
+		</action>
+		<action name="first" class="net.sas.controller.ComponentAction"
+			method="first">
+			<result name="input" type="tiles">/component.tiles</result>
+		</action>
+		<action name="last" class="net.sas.controller.ComponentAction"
+			method="last">
+			<result name="input" type="tiles">/component.tiles</result>
+		</action>
+	</package>
 </struts>

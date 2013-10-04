@@ -11,6 +11,7 @@
 <div id="main">
 	<div class="container-fluid">
 		<div class="row-fluid">
+			<jsp:include page="../../includes/success.jsp" />
 			<s:form id="employeeForm" method="POST"
 				cssClass='form-horizontal form-column' action="select.action">
 				<div class="span12">
@@ -129,25 +130,16 @@
 									<th>Matricule</th>
 									<th>Marque</th>
 									<th>Modèle</th>
-									<th>-</th>
+									<th>Options</th>
 								</tr>
 							</thead>
 							<tbody>
-								<s:iterator value="employees" status="employee">
+								<s:iterator value="employees" status="entry">
 									<tr>
 										<td><s:property value="number" /></td>
 										<td><s:property value="brand" /></td>
 										<td><s:property value="model" /></td>
-										<td><s:url id="view" value="view.action">
-												<s:param name="index">
-													<s:property value="#employee.index" />
-												</s:param>
-											</s:url> <sj:a href="%{view}" targets="home" cssClass="btn"
-												rel="tooltip" title="Afficher"
-												onBeforeTopics="onBeforeLoading"
-												onCompleteTopics="onCompleteLoading">
-												<i class="icon-search"></i>
-											</sj:a></td>
+										<td><jsp:include page="../../includes/table_options.jsp" /></td>
 									</tr>
 								</s:iterator>
 							</tbody>

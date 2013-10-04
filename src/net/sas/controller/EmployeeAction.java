@@ -78,10 +78,6 @@ public class EmployeeAction implements Action, ModelDriven<Employee> {
 		return employeeService.getCurrentEntry();
 	}
 
-	public File getImage() {
-		return image;
-	}
-
 	public void setImage(File image) {
 		this.image = image;
 	}

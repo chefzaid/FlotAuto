@@ -14,5 +14,5 @@ $.subscribe('onCompleteLoading', function(event, data) {
 
 $.subscribe('onAfterLoading', function(event, data) {
 	$("#success").removeClass('hide');
-	$("#success").fadeOut(3000 );
+	$("#success").fadeOut(4000);
 });

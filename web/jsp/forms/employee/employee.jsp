@@ -11,13 +11,14 @@
 <div id="main">
 	<div class="container-fluid">
 		<div class="row-fluid">
+			<jsp:include page="../../includes/success.jsp" />
 			<s:form id="employeeForm" method="POST" enctype="multipart/form-data"
 				cssClass='form-horizontal form-column' action="save.action">
 				<div class="span12">
 					<div class="box">
 						<div class="box-title">
 							<h3>
-								<i class="icon-edit"></i> Contact
+								<i class="icon-edit"></i> Employé
 							</h3>
 						</div>
 						<div class="box-content nopadding">
@@ -42,14 +43,12 @@
 								<div class="control-group">
 									<label for="occupation" class="control-label">Occupation
 										:</label>
-									<div class="controls">
-										<div class="input-large">
-											<s:select name="occupation" id="occupation"
-												list="@net.sas.model.bo.EmployeeOccupation@values()"
-												listValue="getStatus()" headerKey="-1" headerValue="%{''}"
-												cssClass="chosen-select"
-												value="#{currentEmployee.occupation}" />
-										</div>
+									<div class="controls input-large">
+										<s:select name="occupation" id="occupation"
+											list="@net.sas.model.bo.EmployeeOccupation@values()"
+											listValue="getStatus()" headerKey="-1" headerValue="%{''}"
+											cssClass="chosen-select"
+											value="#{currentEmployee.occupation}" />
 									</div>
 								</div>
 								<div class="control-group">
@@ -57,8 +56,8 @@
 									<div class="controls">
 										<div class="input-append">
 											<input type="text" name="salary" id="salary"
-												placeholder="12 345.67" class='input-medium'
-												value="${currentEmployee.salary}" /> <span class="add-on">DH</span>
+												placeholder="123.45" class='input-medium'
+												value="${currentEmployee.salary}" /> <span class="add-on">Dh/hr</span>
 										</div>
 									</div>
 								</div>
@@ -332,11 +331,11 @@
 									<th>Date emabauche</th>
 									<th>Phone</th>
 									<th>Email</th>
-									<th>-</th>
+									<th>Options</th>
 								</tr>
 							</thead>
 							<tbody>
-								<s:iterator value="employees" status="employee">
+								<s:iterator value="employees" status="entry">
 									<tr>
 										<td><s:property value="number" /></td>
 										<td><s:property value="firstName" /></td>
@@ -345,16 +344,7 @@
 										<td><s:date name="hireDate" format="dd/MM/yyyy" /></td>
 										<td><s:property value="phone" /></td>
 										<td><s:property value="email" /></td>
-										<td><s:url id="view" value="view.action">
-												<s:param name="index">
-													<s:property value="#employee.index" />
-												</s:param>
-											</s:url> <sj:a href="%{view}" targets="home" cssClass="btn"
-												rel="tooltip" title="Afficher"
-												onBeforeTopics="onBeforeLoading"
-												onCompleteTopics="onCompleteLoading">
-												<i class="icon-search"></i>
-											</sj:a></td>
+										<td><jsp:include page="../../includes/table_options.jsp" /></td>
 									</tr>
 								</s:iterator>
 							</tbody>

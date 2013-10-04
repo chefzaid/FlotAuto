@@ -11,13 +11,14 @@
 <div id="main">
 	<div class="container-fluid">
 		<div class="row-fluid">
+			<jsp:include page="../../includes/success.jsp" />
 			<s:form id="vehicleForm" method="POST" enctype="multipart/form-data"
 				cssClass='form-horizontal form-column' action="save.action">
 				<div class="span12">
 					<div class="box">
 						<div class="box-title">
 							<h3>
-								<i class="icon-edit"></i> Caractéristiques
+								<i class="icon-edit"></i> Véhicule
 							</h3>
 						</div>
 						<div class="box-content nopadding">
@@ -49,36 +50,30 @@
 								</div>
 								<div class="control-group">
 									<label for="type" class="control-label">Type :</label>
-									<div class="controls">
-										<div class="input-large">
-											<s:select name="type" id="type"
-												list="@net.sas.model.bo.VehicleType@values()"
-												listValue="getStatus()" headerKey="-1" headerValue="%{''}"
-												cssClass="chosen-select" value="#{currentVehicle.type}" />
-										</div>
+									<div class="controls input-large">
+										<s:select name="type" id="type"
+											list="@net.sas.model.bo.VehicleType@values()"
+											listValue="getStatus()" headerKey="-1" headerValue="%{''}"
+											cssClass="chosen-select" value="#{currentVehicle.type}" />
 									</div>
 								</div>
 								<div class="control-group">
 									<label for="color" class="control-label">Couleur :</label>
-									<div class="controls">
-										<div class="input-large">
-											<s:select name="color" id="color"
-												list="@net.sas.model.bo.Color@values()"
-												listValue="getStatus()" headerKey="-1" headerValue="%{''}"
-												cssClass="chosen-select" value="#{currentVehicle.color}" />
-										</div>
+									<div class="controls input-large">
+										<s:select name="color" id="color"
+											list="@net.sas.model.bo.Color@values()"
+											listValue="getStatus()" headerKey="-1" headerValue="%{''}"
+											cssClass="chosen-select" value="#{currentVehicle.color}" />
 									</div>
 								</div>
 								<div class="control-group">
-									<label for="supplier" class="control-label">Fournisseur
+									<label for="supplierString" class="control-label">Fournisseur
 										:</label>
-									<div class="controls">
-										<div class="input-large">
-											<s:select name="supplier" id="supplier" list="suppliers"
-												listValue="companyName" listKey="id" headerKey="-1"
-												headerValue="%{''}" cssClass="chosen-select"
-												value="#{currentVehicle.supplier.id}" />
-										</div>
+									<div class="controls input-large">
+										<s:select name="supplierString" id="supplierString"
+											list="suppliers" listValue="companyName" listKey="id"
+											headerKey="-1" headerValue="%{''}" cssClass="chosen-select"
+											value="#{currentVehicle.supplier.id}" />
 									</div>
 								</div>
 								<div class="control-group">
@@ -160,8 +155,10 @@
 									<label for="warranty.beginDate" class="control-label">Date
 										début :</label>
 									<div class="controls">
-										<input type="text" name="warranty.beginDate"
-											id="warranty.beginDate" class="input-large datepick"
+										<input type="hidden" name="warranty.id" id="warranty.id"
+											value="${currentVehicle.warranty.id}" /> <input type="text"
+											name="warranty.beginDate" id="warranty.beginDate"
+											class="input-large datepick"
 											value="<s:date name="currentVehicle.warranty.beginDate"
 												format="dd/MM/yyyy" />" />
 									</div>
@@ -177,7 +174,7 @@
 												id="warranty.validity.id"
 												value="${currentVehicle.warranty.validity.id}" /> <input
 												type="text" name="warranty.validity.frequence"
-												id="warranty.validity.frequence" placeholder="Fréquence"
+												id="warranty.validity.frequence" placeholder="Valeur"
 												class="span12"
 												value="${currentVehicle.warranty.validity.frequence}" />
 										</div>
@@ -333,8 +330,8 @@
 												id="technicalCheck.reminder.id"
 												value="${currentVehicle.technicalCheck.reminder.id}" /> <input
 												type="text" name="technicalCheck.reminder.frequence"
-												id="technicalCheck.reminder.frequence"
-												placeholder="Valeur" class="span12"
+												id="technicalCheck.reminder.frequence" placeholder="Valeur"
+												class="span12"
 												value="${currentVehicle.technicalCheck.reminder.frequence}" />
 										</div>
 										<div class="span4">
@@ -373,11 +370,11 @@
 									<th>Type</th>
 									<th>Fournisseur</th>
 									<th>Matricule</th>
-									<th>-</th>
+									<th>Options</th>
 								</tr>
 							</thead>
 							<tbody>
-								<s:iterator value="vehicles" status="vehicle">
+								<s:iterator value="vehicles" status="entry">
 									<tr>
 										<td><s:property value="brand" /></td>
 										<td><s:property value="model" /></td>
@@ -385,16 +382,7 @@
 										<td><s:property value="type.status" /></td>
 										<td><s:property value="supplier.companyName" /></td>
 										<td><s:property value="registrationNumber" /></td>
-										<td><s:url id="view" value="view.action">
-												<s:param name="index">
-													<s:property value="#vehicle.index" />
-												</s:param>
-											</s:url> <sj:a href="%{view}" targets="home" cssClass="btn"
-												rel="tooltip" title="Afficher"
-												onBeforeTopics="onBeforeLoading"
-												onCompleteTopics="onCompleteLoading">
-												<i class="icon-search"></i>
-											</sj:a></td>
+										<td><jsp:include page="../../includes/table_options.jsp" /></td>
 									</tr>
 								</s:iterator>
 							</tbody>

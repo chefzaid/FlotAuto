@@ -6,7 +6,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.Formula;
 
 @Entity
@@ -16,7 +20,11 @@ public abstract class Expense {
 	@Id
 	@GeneratedValue(strategy=GenerationType.TABLE)
 	protected Integer id;
-	protected Integer quantity;
+	@ManyToOne
+	@JoinColumn(name="maintenance_id")
+	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
+	protected Maintenance maintenance;
+	protected Double quantity;
 	@Formula("quantity*unitPrice")
 	protected Double totalPrice; //derived property
 	
@@ -26,10 +34,10 @@ public abstract class Expense {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public Integer getQuantity() {
+	public Double getQuantity() {
 		return quantity;
 	}
-	public void setQuantity(Integer quantity) {
+	public void setQuantity(Double quantity) {
 		this.quantity = quantity;
 	}
 	public Double getTotalPrice() {

@@ -49,5 +49,8 @@
 	<bean id="supplierDao" parent="genericDao">
 		<constructor-arg value="net.sas.model.bo.Supplier" />
 	</bean>
+	<bean id="componentDao" parent="genericDao">
+		<constructor-arg value="net.sas.model.bo.Component" />
+	</bean>
 
 </beans>

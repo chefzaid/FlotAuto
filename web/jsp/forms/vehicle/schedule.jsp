@@ -11,6 +11,7 @@
 <div id="main">
 	<div class="container-fluid">
 		<div class="row-fluid">
+			<jsp:include page="../../includes/success.jsp" />
 			<s:form id="vehicleForm" method="POST" enctype="multipart/form-data"
 				cssClass='form-horizontal form-column' action="save.action">
 				<div class="span12">

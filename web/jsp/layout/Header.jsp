@@ -5,19 +5,19 @@
 			rel="tooltip" data-placement="bottom" title="Toggle navigation"><i
 			class="icon-reorder"></i></a>
 		<ul class='main-nav'>
-			<li id="dashboard"><a href="../dashboard/overall.action"><i
+			<li id="dashboard"><a href="/FlotAuto/dashboard/overall.action"><i
 					class="icon-home"></i> <span>Dashboard</span> </a></li>
-			<li id="vehicle"><a href="../vehicle/list.action"> <i
+			<li id="vehicle"><a href="/FlotAuto/vehicle/list.action"> <i
 					class="icon-home"></i> <span>Véhicules</span>
 			</a></li>
-			<li id="employee"><a href="../employee/list.action"> <i
+			<li id="employee"><a href="/FlotAuto/employee/list.action"> <i
 					class="icon-home"></i> <span>Employés</span>
 			</a></li>
-			<li id="maintenance"><a href="../maintenance/list.action"><i
-					class="icon-home"></i> <span>Maintenances</span> </a></li>
-			<li id="components"><a href="../component/list.action"><i
-					class="icon-home"></i> <span>Composants</span> </a></li>
-			<li id="supplier"><a href="../supplier/list.action"> <i
+			<li id="maintenance"><a href="/FlotAuto/maintenance/list.action"><i
+					class="icon-home"></i> <span>Maintenance</span> </a></li>
+			<li id="order"><a href="/FlotAuto/order/list.action"><i
+					class="icon-home"></i> <span>Ordres de travail</span> </a></li>
+			<li id="supplier"><a href="/FlotAuto/supplier/list.action"> <i
 					class="icon-home"></i> <span>Fournisseurs</span>
 			</a></li>
 		</ul>
