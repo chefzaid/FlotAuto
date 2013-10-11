@@ -1,11 +1,8 @@
 package net.sas.model.bo;
 
 public enum ExpenseType {
-	
-	PART("Pièce"), 
-	EQUIPMENT("Matériel"), 
-	LABOR("Main d'oeuvre"), 
-	WORK_ORDER("Ordre de travail"), 
+	COMPONENT("Composant"), 
+	LABOR("Main d'oeuvre"),
 	OTHER("Autre");
 	
 	private String status;

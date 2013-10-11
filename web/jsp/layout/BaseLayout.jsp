@@ -86,7 +86,7 @@
 <!-- select2 -->
 <!-- <script src="/FlotAuto/jsp/js/plugins/select2/select2.min.js"></script> -->
 
-<script src="/FlotAuto/jsp/js/utils.js"></script>
+<script src="/FlotAuto/jsp/js/app_common.js"></script>
 
 <!-- Theme framework -->
 <script src="/FlotAuto/jsp/js/eakroko.min.js"></script>

@@ -82,4 +82,8 @@ public abstract class GenericService<T> {
 	public T getCurrentEntry() {
 		return currentEntry;
 	}
+	
+	public T findById(Integer id){
+		return dao.findById(id);
+	}
 }

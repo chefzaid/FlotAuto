@@ -27,6 +27,10 @@ public class ComponentAction implements Action, ModelDriven<Component> {
 		componentService = new ComponentService();
 		return Action.INPUT;
 	}
+	
+	public String list() {
+		return execute();
+	}
 
 	public String view() {
 		Integer index = Integer.parseInt(ServletActionContext.getRequest()

@@ -21,4 +21,8 @@ public class ExpenseLabor extends Expense{
 	public void setEmployee(Employee employee) {
 		this.employee = employee;
 	}
+	
+	public ExpenseType getType() {
+		return ExpenseType.LABOR;
+	}
 }

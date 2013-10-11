@@ -30,7 +30,7 @@ public class Maintenance {
 	@JoinColumn(name="reminder_id", unique=true)
 	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
 	private Cycle reminder;
-	@OneToMany(mappedBy="maintenance", orphanRemoval=true)
+	@OneToMany(orphanRemoval=true)
 	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
 	private List<Expense> expenses;
 	

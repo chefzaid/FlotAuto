@@ -29,6 +29,10 @@ public class VehicleAction implements Action, ModelDriven<Vehicle> {
 		vehicleService  = new VehicleService();
 		return Action.INPUT;
 	}
+	
+	public String list() {
+		return execute();
+	}
 
 	public String view() {
 		Integer index = Integer.parseInt(ServletActionContext.getRequest()

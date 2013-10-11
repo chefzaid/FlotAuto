@@ -27,6 +27,10 @@ public class EmployeeAction implements Action, ModelDriven<Employee> {
 		employeeService = new EmployeeService();
 		return Action.INPUT;
 	}
+	
+	public String list() {
+		return execute();
+	}
 
 	public String view() {
 		Integer index = Integer.parseInt(ServletActionContext.getRequest()

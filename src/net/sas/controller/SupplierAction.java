@@ -25,6 +25,10 @@ public class SupplierAction implements Action, ModelDriven<Supplier> {
 		supplierService = new SupplierService();
 		return Action.INPUT;
 	}
+	
+	public String list() {
+		return execute();
+	}
 
 	public String view() {
 		Integer index = Integer.parseInt(ServletActionContext.getRequest()
