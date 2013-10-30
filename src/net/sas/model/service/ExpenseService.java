@@ -21,29 +21,27 @@ public class ExpenseService extends GenericService<Expense> {
 
 	@Override
 	public void save(Expense e) {
-		saveExpenseOther("", 0.0, 0.0);
+		saveExpenseOther("", 0.0, 0);
 	}
 
-	public void saveExpenseComponent(Integer componentId, Double quantity) {
+	public void saveExpenseComponent(Integer componentId, Integer quantity) {
 		Component c = new ComponentService().findById(componentId);
 
 		ExpenseComponent ec = new ExpenseComponent();
 		ec.setComponent(c);
 		ec.setQuantity(quantity);
-		ec.setTotalCost(quantity * c.getPrice());
 
 		new ExpenseService("expenseComponentDao");
 		dao.createOrUpdate(ec);
 		refresh();
 	}
 
-	public void saveExpenseLabor(Integer employeeId, Double quantity) {
+	public void saveExpenseLabor(Integer employeeId, Integer quantity) {
 		Employee emp = new EmployeeService().findById(employeeId);
 
 		ExpenseLabor el = new ExpenseLabor();
 		el.setEmployee(emp);
 		el.setQuantity(quantity);
-		el.setTotalCost(quantity * emp.getSalary());
 
 		new ExpenseService("expenseLaborDao");
 		dao.createOrUpdate(el);
@@ -51,12 +49,11 @@ public class ExpenseService extends GenericService<Expense> {
 	}
 
 	public void saveExpenseOther(String description, Double cost,
-			Double quantity) {
+			Integer quantity) {
 		ExpenseOther eo = new ExpenseOther();
 		eo.setDescription(description);
 		eo.setCost(cost);
 		eo.setQuantity(quantity);
-		eo.setTotalCost(quantity * cost);
 
 		new ExpenseService("expenseOtherDao");
 		dao.createOrUpdate(eo);

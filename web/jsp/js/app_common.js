@@ -13,6 +13,7 @@ $.subscribe('onBeforeLoading', function(event, data) {
 
 $.subscribe('onCompleteLoading', function(event, data) {
 	$("#indicator").dialog('close');
+	
 });
 
 //Success Toast

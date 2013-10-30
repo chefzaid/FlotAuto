@@ -23,7 +23,7 @@ public class ExpenseOther extends Expense {
 		this.description = description;
 	}
 	
-	public ExpenseType getType() {
+	public ExpenseType getType(){
 		return ExpenseType.OTHER;
 	}
 }

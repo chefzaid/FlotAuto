@@ -9,19 +9,13 @@ function showInput(){
 	$("#" + str.toLowerCase()).removeClass('hide');
 };
 
-//Update price in Expense.jsp
-function updatePrice(elemId){
-	//get current component id, then get the corresponding hidden field price
+//Update cost in Expense.jsp
+function updateCost(field, elemId){
+	//get current element id, then get the corresponding cost value (hidden)
 	var id = $("#" + elemId).val();
-	var cost = $("#price_" + id).val();
+	var cost = $("#" + field +"_" + id).val();
 	$("#cost").val(cost);
-};
-//Update salary in Expense.jsp
-function updateSalary(elemId){
-	//get current employee id, then get the corresponding hidden field salary
-	var id = $("#" + elemId).val();
-	var cost = $("#salary_" + id).val();
-	$("#cost").val(cost);
+	$("#quantity").trigger("onchange");
 };
 
 //Update total cost in Expense.jsp
@@ -30,3 +24,9 @@ function updateTotalCost(elemId){
 	var qtty = $("#quantity").val();
 	$("#totalCost").val(cost * qtty);
 };
+
+//Trigger change events
+$.subscribe('triggerChange', function(event, data) {
+	$("#expenseType").trigger("onchange");
+	$("#quantity").trigger("onchange");
+});

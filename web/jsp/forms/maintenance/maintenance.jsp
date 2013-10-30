@@ -24,11 +24,11 @@
 						<div class="box-content nopadding">
 							<div class="span6">
 								<div class="control-group">
-									<label for="firstName" class="control-label">Prénom :</label>
+									<label for="firstName" class="control-label">XXXX :</label>
 									<div class="controls">
 										<input type="hidden" name="id" id="id"
 											value="${currentEmployee.id}" /> <input type="text"
-											name="firstName" id="firstName" placeholder="Prénom"
+											name="firstName" id="firstName" placeholder="xxxx"
 											class="input-large" value="${currentEmployee.firstName}" />
 									</div>
 								</div>

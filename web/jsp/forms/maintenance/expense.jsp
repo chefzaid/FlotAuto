@@ -49,12 +49,11 @@
 											</s:iterator>
 											<s:select name="componentId" id="componentId"
 												list="allComponents"
-												listValue="description + ' - ' + brand + ' (ref: ' + reference + ') : ' + type.status"
+												listValue="label + ' - ' + brand + ' (ref: ' + reference + ') : ' + type.status"
 												listKey="id" headerKey="-1" headerValue="%{''}"
 												cssClass="chosen-select"
 												value="#{currentExpense.component.id}"
-												onChange='updatePrice(id);' />
-
+												onChange="updateCost('price', id);" />
 										</div>
 									</div>
 									<div id="labor" class="hide">
@@ -73,7 +72,7 @@
 												listKey="id" headerKey="-1" headerValue="%{''}"
 												cssClass="chosen-select"
 												value="#{currentExpense.employee.id}"
-												onChange="updateSalary(id);" />
+												onChange="updateCost('salary', id);" />
 										</div>
 									</div>
 									<div id="other" class="hide">
@@ -93,7 +92,7 @@
 									<label for="cost" class="control-label">Coût unitaire :</label>
 									<div class="controls">
 										<div class="input-append">
-											<s:textfield name="cost" id="cost" placeholder="123.45"
+											<s:textfield name="cost" id="cost" placeholder="123.45 (Prix | Salaire)"
 												cssClass='input-medium' value="%{currentExpense.cost}" />
 											<span class="add-on">Dh</span>
 										</div>
@@ -104,9 +103,10 @@
 									<div class="controls">
 										<div class="input-append">
 											<input type="text" name="quantity" id="quantity"
-												placeholder="123.45" class='input-medium'
+												placeholder="123 (Unités | Heures)" class='input-medium'
 												value="${currentExpense.quantity}"
-												onKeyUp="updateTotalCost()" /><span class="add-on">Uts</span>
+												onKeyUp="updateTotalCost()" onChange="updateTotalCost()" /><span
+												class="add-on">Uts</span>
 										</div>
 									</div>
 								</div>
@@ -117,8 +117,7 @@
 										<div class="input-append">
 											<input type="text" name="totalCost" id="totalCost"
 												placeholder="123.45" class='input-medium'
-												disabled="disabled" value="${currentExpense.totalCost}" />
-											<span class="add-on">Dh</span>
+												disabled="disabled" /> <span class="add-on">Dh</span>
 										</div>
 									</div>
 								</div>
@@ -143,7 +142,7 @@
 							<thead>
 								<tr>
 									<th>Type</th>
-									<th>Label</th>
+									<th>Description</th>
 									<th>Prix unitaire</th>
 									<th>Quantité</th>
 									<th>Prix total</th>
@@ -154,13 +153,12 @@
 								<s:iterator value="expenses" status="entry">
 									<tr>
 										<td><s:property value="type.status" /></td>
-										<td><s:if test="#entry.type.status=='Autre'">
-
-											</s:if></td>
-										<td></td>
-										<td><s:property value="quantity" /></td>
+										<td><s:property value="description" /></td>
 										<td><s:property value="cost" /></td>
-										<td><jsp:include page="../../includes/table_options.jsp" /></td>
+										<td><s:property value="quantity" /></td>
+										<td><s:property value="cost * quantity" /></td>
+										<td><jsp:include
+												page="../../includes/table_options_expense.jsp" /></td>
 									</tr>
 								</s:iterator>
 							</tbody>

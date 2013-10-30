@@ -31,7 +31,7 @@ public class ComponentTest extends TestCase {
 				"componentDao");
 		c = new Component();
 
-		c.setDescription("manahjd");
+		c.setLabel("manahjd");
 		c.setBrand("pwdodp");
 		c.setType(ComponentType.PART);
 		c.setPrice(244.00);

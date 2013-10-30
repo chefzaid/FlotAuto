@@ -24,14 +24,14 @@
 						<div class="box-content nopadding">
 							<div class="span6">
 								<div class="control-group">
-									<label for="description" class="control-label">Description
+									<label for="label" class="control-label">Description
 										:</label>
 									<div class="controls">
 										<input type="hidden" name="id" id="id"
 											value="${currentComponent.id}" /> <input type="text"
-											name="description" id="description"
+											name="label" id="label"
 											placeholder="Label du composant" class="input-large"
-											value="${currentComponent.description}" />
+											value="${currentComponent.label}" />
 									</div>
 								</div>
 								<div class="control-group">
@@ -162,7 +162,7 @@
 							class="table table-nomargin table-striped dataTable dataTable-colvis">
 							<thead>
 								<tr>
-									<th>Descritption</th>
+									<th>Label</th>
 									<th>Type</th>
 									<th>Marque</th>
 									<th>Prix</th>
@@ -174,7 +174,7 @@
 							<tbody>
 								<s:iterator value="components" status="entry">
 									<tr>
-										<td><s:property value="description" /></td>
+										<td><s:property value="label" /></td>
 										<td><s:property value="type.status" /></td>
 										<td><s:property value="brand" /></td>
 										<td><s:property value="price" /></td>

@@ -25,7 +25,7 @@ public class Component {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
 	@Column(nullable=false)
-	private String description;
+	private String label;
 	@Enumerated(EnumType.STRING)
 	private ComponentType type;
 	private String brand;
@@ -55,11 +55,11 @@ public class Component {
 	public void setType(ComponentType type) {
 		this.type = type;
 	}
-	public String getDescription() {
-		return description;
+	public String getLabel() {
+		return label;
 	}
-	public void setDescription(String description) {
-		this.description = description;
+	public void setLabel(String label) {
+		this.label = label;
 	}
 	public String getBrand() {
 		return brand;

@@ -21,7 +21,7 @@ public class ExpenseAction implements Action {
 	private Integer employeeId;
 	private String description;
 	private Double cost;
-	private Double quantity;
+	private Integer quantity;
 	private Double totalCost;
 
 	@Override
@@ -141,11 +141,11 @@ public class ExpenseAction implements Action {
 		this.cost = cost;
 	}
 
-	public Double getQuantity() {
+	public Integer getQuantity() {
 		return quantity;
 	}
 
-	public void setQuantity(Double quantity) {
+	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
 
