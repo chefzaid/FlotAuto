@@ -25,7 +25,7 @@ public class Warranty {
 	@Temporal(TemporalType.DATE)
 	private Date beginDate;
 	@OneToOne(orphanRemoval=true)
-	@JoinColumn(name="validity_id", unique=true)
+	@JoinColumn(name="validity_id")
 	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
 	private Cycle validity;
 	

@@ -69,7 +69,7 @@
 										<div class="input-append">
 											<input type="text" name="price" id="price"
 												placeholder="123.45" class='input-medium'
-												value="${currentComponent.price}" /> <span class="add-on">Dh/unité</span>
+												value="${currentComponent.price}" /> <span class="add-on">Dh/uté</span>
 										</div>
 									</div>
 								</div>
@@ -162,8 +162,8 @@
 							class="table table-nomargin table-striped dataTable dataTable-colvis">
 							<thead>
 								<tr>
-									<th>Label</th>
 									<th>Type</th>
+									<th>Label</th>
 									<th>Marque</th>
 									<th>Prix</th>
 									<th>Stock</th>
@@ -174,8 +174,8 @@
 							<tbody>
 								<s:iterator value="components" status="entry">
 									<tr>
-										<td><s:property value="label" /></td>
 										<td><s:property value="type.status" /></td>
+										<td><s:property value="label" /></td>
 										<td><s:property value="brand" /></td>
 										<td><s:property value="price" /></td>
 										<td><s:property value="stockQuantity" /></td>

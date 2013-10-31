@@ -12,7 +12,7 @@ public class ExpenseComponent extends Expense {
 
 	@OneToOne(orphanRemoval = true)
 	@JoinColumn(name = "component_id", unique = true)
-	@Cascade(value = { CascadeType.SAVE_UPDATE, CascadeType.DELETE })
+	@Cascade(value = { CascadeType.SAVE_UPDATE})
 	private Component component;
 
 	public Component getComponent() {
@@ -28,8 +28,8 @@ public class ExpenseComponent extends Expense {
 	}
 
 	public String getDescription() {
-		return component.getLabel() + " - " + component.getBrand() + " (ref: "
-				+ component.getReference() + ") : "
+		return component.getBrand() + " " + component.getLabel() + " ["
+				+ component.getReference() + "] - "
 				+ component.getType().getStatus();
 	}
 

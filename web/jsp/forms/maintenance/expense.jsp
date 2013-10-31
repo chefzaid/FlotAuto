@@ -49,7 +49,7 @@
 											</s:iterator>
 											<s:select name="componentId" id="componentId"
 												list="allComponents"
-												listValue="label + ' - ' + brand + ' (ref: ' + reference + ') : ' + type.status"
+												listValue="brand + ' ' + label + ' [' + reference + '] - ' + type.status"
 												listKey="id" headerKey="-1" headerValue="%{''}"
 												cssClass="chosen-select"
 												value="#{currentExpense.component.id}"
@@ -66,9 +66,9 @@
 													id='salary_<s:property value="#entry.id" />'
 													value='<s:property value="#entry.salary" />' />
 											</s:iterator>
-											<s:select name="employeetd" id="employeetd"
+											<s:select name="employeeId" id="employeeId"
 												list="allEmployees"
-												listValue="lastName + ' ' + firstName + ' (num: ' + number + ') : ' + occupation.status"
+												listValue="lastName + ' ' + firstName + ' [' + number + '] - ' + occupation.status"
 												listKey="id" headerKey="-1" headerValue="%{''}"
 												cssClass="chosen-select"
 												value="#{currentExpense.employee.id}"
@@ -92,7 +92,8 @@
 									<label for="cost" class="control-label">Coût unitaire :</label>
 									<div class="controls">
 										<div class="input-append">
-											<s:textfield name="cost" id="cost" placeholder="123.45 (Prix | Salaire)"
+											<s:textfield name="cost" id="cost"
+												placeholder="123.45 (Prix | Salaire)"
 												cssClass='input-medium' value="%{currentExpense.cost}" />
 											<span class="add-on">Dh</span>
 										</div>

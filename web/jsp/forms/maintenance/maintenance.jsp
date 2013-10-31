@@ -18,18 +18,75 @@
 					<div class="box">
 						<div class="box-title">
 							<h3>
-								<i class="icon-edit"></i> Contact
+								<i class="icon-edit"></i> Programme de maintenance
 							</h3>
 						</div>
 						<div class="box-content nopadding">
 							<div class="span6">
 								<div class="control-group">
-									<label for="firstName" class="control-label">XXXX :</label>
+									<label for="description" class="control-label">Description
+										:</label>
 									<div class="controls">
 										<input type="hidden" name="id" id="id"
-											value="${currentEmployee.id}" /> <input type="text"
-											name="firstName" id="firstName" placeholder="xxxx"
-											class="input-large" value="${currentEmployee.firstName}" />
+											value="${currentMaintenance.id}" /> <input type="text"
+											name="description" id="description"
+											placeholder="Description du programme" class="input-xxlarge"
+											value="${currentMaintenance.description}" />
+									</div>
+								</div>
+								<div class="control-group">
+									<label for="expenseList" class="control-label">Dépenses
+										:</label>
+									<div class="controls  input-xxlarge">
+										<s:select name="expenseList" id="expenseList"
+											list="allExpenses"
+											listValue="type.status + ' [' + quantity + '] : ' + description"
+											listKey="id" headerKey="-1" headerValue="%{''}"
+											cssClass="chosen-select" multiple="true"
+											value="%{currentMaintenance.expenses.{id}}" />
+									</div>
+								</div>
+							</div>
+							<div class="span6">
+								<div class="control-group">
+									<label for="frequency.frequence" class="control-label">Fréquence
+										:</label>
+									<div class="controls">
+										<div class="span4">
+											<input type="hidden" name="frequency.id"
+												id="frequency.frequence.id"
+												value="${currentMaintenance.frequency.id}" /> <input
+												type="text" name="frequency.frequence"
+												id="frequency.frequence" placeholder="Valeur" class="span12"
+												value="${currentMaintenance.frequency.frequence}" />
+										</div>
+										<div class="span4">
+											<s:select name="frequency.unit" id="frequency.unit"
+												list="@net.sas.model.bo.MeasureUnit@values()"
+												listValue="getStatus()" headerKey="-1"
+												headerValue="%{'Unité'}" cssClass="chosen-select"
+												value="#{currentMaintenance.frequency.unit}" />
+										</div>
+									</div>
+								</div>
+								<div class="control-group">
+									<label for="reminder.frequence" class="control-label">Rappel
+										:</label>
+									<div class="controls">
+										<div class="span4">
+											<input type="hidden" name="reminder.id" id="reminder.id"
+												value="${currentMaintenance.reminder.id}" /> <input
+												type="text" name="reminder.frequence"
+												id="reminder.frequence" placeholder="Valeur" class="span12"
+												value="${currentMaintenance.reminder.frequence}" />
+										</div>
+										<div class="span4">
+											<s:select name="reminder.unit" id="reminder.unit"
+												list="@net.sas.model.bo.MeasureUnit@values()"
+												listValue="getStatus()" headerKey="-1"
+												headerValue="%{'Unité'}" cssClass="chosen-select"
+												value="#{currentMaintenance.reminder.unit}" />
+										</div>
 									</div>
 								</div>
 							</div>
@@ -44,7 +101,7 @@
 				<div class="box box-color box-bordered">
 					<div class="box-title">
 						<h3>
-							<i class="icon-table"></i> Employés
+							<i class="icon-table"></i> Programmes
 						</h3>
 					</div>
 					<div class="box-content nopadding">
@@ -52,36 +109,23 @@
 							class="table table-nomargin table-striped dataTable dataTable-colvis">
 							<thead>
 								<tr>
-									<th>Matricule</th>
-									<th>Prénom</th>
-									<th>Nom</th>
-									<th>Occupation</th>
-									<th>Date emabauche</th>
-									<th>Phone</th>
-									<th>Email</th>
+									<th>Programme</th>
+									<th>Dépenses</th>
+									<th>Fréquence</th>
 									<th>-</th>
 								</tr>
 							</thead>
 							<tbody>
-								<s:iterator value="employees" status="employee">
+								<s:iterator value="maintenances" status="entry">
 									<tr>
-										<td><s:property value="number" /></td>
-										<td><s:property value="firstName" /></td>
-										<td><s:property value="lastName" /></td>
-										<td><s:property value="occupation.status" /></td>
-										<td><s:date name="hireDate" format="dd/MM/yyyy" /></td>
-										<td><s:property value="phone" /></td>
-										<td><s:property value="email" /></td>
-										<td><s:url id="view" value="view.action">
-												<s:param name="index">
-													<s:property value="#employee.index" />
-												</s:param>
-											</s:url> <sj:a href="%{view}" targets="home" cssClass="btn"
-												rel="tooltip" title="Afficher"
-												onBeforeTopics="onBeforeLoading"
-												onCompleteTopics="onCompleteLoading">
-												<i class="icon-search"></i>
-											</sj:a></td>
+										<td><s:property value="description" /></td>
+										<td><s:iterator value="expenses" var="expense">
+												<s:property
+													value="#expense.type.status + ' [' + #expense.quantity + '] : ' + #expense.description" />
+												<br />
+											</s:iterator></td>
+										<td><s:property value="frequency.frequence + ' ' + frequency.unit.status" /></td>
+										<td><jsp:include page="../../includes/table_options.jsp" /></td>
 									</tr>
 								</s:iterator>
 							</tbody>

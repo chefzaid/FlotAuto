@@ -30,7 +30,7 @@ public class Component {
 	private ComponentType type;
 	private String brand;
 	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable (name="Supplier_Component", 
+	@JoinTable (name="Component_Supplier", 
 			joinColumns={@JoinColumn(name="component_id")},
 			inverseJoinColumns={@JoinColumn(name="supplier_id")})
 	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE}) 
@@ -38,7 +38,7 @@ public class Component {
 	private Integer stockQuantity;
 	private Double price;
 	@OneToOne(orphanRemoval=true)
-	@JoinColumn(name="warranty_id", unique=true)
+	@JoinColumn(name="warranty_id")
 	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
 	private Warranty warranty;
 	private String reference;

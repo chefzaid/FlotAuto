@@ -12,7 +12,7 @@ public class ExpenseLabor extends Expense {
 
 	@OneToOne(orphanRemoval = true)
 	@JoinColumn(name = "employee_id", unique = true)
-	@Cascade(value = { CascadeType.SAVE_UPDATE, CascadeType.DELETE })
+	@Cascade(value = { CascadeType.SAVE_UPDATE})
 	private Employee employee;
 
 	public Employee getEmployee() {
@@ -28,8 +28,8 @@ public class ExpenseLabor extends Expense {
 	}
 
 	public String getDescription() {
-		return employee.getLastName() + " " + employee.getFirstName()
-				+ " (num: " + employee.getNumber() + ") : "
+		return employee.getLastName() + " " + employee.getFirstName() + " ["
+				+ employee.getNumber() + "] - "
 				+ employee.getOccupation().getStatus();
 	}
 
