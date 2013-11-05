@@ -64,4 +64,18 @@
 			<result name="input" type="tiles">/expense.tiles</result>
 		</action>
 	</package>
+	
+	<package name="workorder" extends="app" namespace="/workorder">
+		<action name="*" class="net.sas.controller.WorkOrderAction"
+			method="{0}">
+			<result name="input" type="tiles">/workorder.tiles</result>
+		</action>
+	</package>
+	
+	<package name="dashboard" extends="app" namespace="/dashboard">
+		<action name="*" class="net.sas.controller.OverallAction"
+			method="{0}">
+			<result name="input" type="tiles">/overall.tiles</result>
+		</action>
+	</package>
 </struts>

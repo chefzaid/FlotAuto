@@ -258,10 +258,12 @@
 									</div>
 								</div>
 								<div class="control-group">
-									<label for="notes" class="control-label">Observations :</label>
+									<label for="healthCheck.observations" class="control-label">Observations
+										:</label>
 									<div class="controls">
 										<textarea name="healthCheck.observations"
-											placeholder="Rapport santé..." id="notes" class="input-large">${currentEmployee.healthCheck.observations}</textarea>
+											id="healthCheck.observations" placeholder="Rapport santé..."
+											class="input-large">${currentEmployee.healthCheck.observations}</textarea>
 									</div>
 								</div>
 							</div>

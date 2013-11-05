@@ -29,12 +29,6 @@
 		<put-attribute name="title" value="FlotAuto>Fournisseurs - Général" />
 		<put-attribute name="body" value="/jsp/forms/supplier/supplier.jsp" />
 	</definition>
-	
-	<definition name="/component.tiles" extends="baseLayout">
-		<put-attribute name="title" value="FlotAuto>Maintenance - Composants" />
-		<put-attribute name="body"
-			value="/jsp/forms/maintenance/component.jsp" />
-	</definition>
 
 	<definition name="/maintenance.tiles" extends="baseLayout">
 		<put-attribute name="title" value="FlotAuto>Maintenance - Général" />
@@ -44,5 +38,20 @@
 	<definition name="/expense.tiles" extends="baseLayout">
 		<put-attribute name="title" value="FlotAuto>Maintenance - Dépenses" />
 		<put-attribute name="body" value="/jsp/forms/maintenance/expense.jsp" />
+	</definition>
+	<definition name="/component.tiles" extends="baseLayout">
+		<put-attribute name="title" value="FlotAuto>Maintenance - Composants" />
+		<put-attribute name="body"
+			value="/jsp/forms/maintenance/component.jsp" />
+	</definition>
+
+	<definition name="/workorder.tiles" extends="baseLayout">
+		<put-attribute name="title" value="FlotAuto>Ordres de travail" />
+		<put-attribute name="body" value="/jsp/forms/workorder/workorder.jsp" />
+	</definition>
+
+	<definition name="/overall.tiles" extends="baseLayout">
+		<put-attribute name="title" value="FlotAuto>Tableau de bord" />
+		<put-attribute name="body" value="/jsp/forms/dashboard/overall.jsp" />
 	</definition>
 </tiles-definitions>

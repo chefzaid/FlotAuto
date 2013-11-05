@@ -38,7 +38,7 @@ public class Vehicle {
 	private String chassisNumber;
 	@ManyToOne
 	@JoinColumn(name="supplier_id")
-	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
+	@Cascade (value={CascadeType.SAVE_UPDATE})
 	private Supplier supplier;
 	@OneToOne(orphanRemoval=true)
 	@JoinColumn(name="warranty_id", unique=true)

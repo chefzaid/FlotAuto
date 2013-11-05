@@ -1,20 +1,26 @@
 package net.sas.model.bo;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 @Entity
 public class WorkOrder {
@@ -22,20 +28,28 @@ public class WorkOrder {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
+	private String description;
 	@ManyToOne
 	@JoinColumn(name="vehicle_id")
-	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
+	@Cascade (value={CascadeType.SAVE_UPDATE})
 	private Vehicle vehicle;
 	@ManyToOne
 	@JoinColumn(name="employeeRequesting_id")
-	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
+	@Cascade (value={CascadeType.SAVE_UPDATE})
 	private Employee employeeRequesting;
-	@ManyToOne
-	@JoinColumn(name="employeeInCharge_id")
-	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
-	private Employee employeeInCharge;
-	@OneToOne
-	private Maintenance maintenance;
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(name = "WorkOrder_Employees", 
+		joinColumns = { @JoinColumn(name = "workorder_id") }, 
+		inverseJoinColumns = { @JoinColumn(name = "employee_id") })
+	@Cascade(value = { CascadeType.SAVE_UPDATE})
+	private List<Employee> employeesInCharge;
+	@ManyToMany(fetch = FetchType.EAGER)
+	@Fetch(value = FetchMode.SUBSELECT) // used to fix a bug in hibernate
+	@JoinTable(name = "WorkOrder_Maintenance", 
+		joinColumns = { @JoinColumn(name = "workorder_id") }, 
+		inverseJoinColumns = { @JoinColumn(name = "maintenance_id") })
+	@Cascade(value = { CascadeType.SAVE_UPDATE})
+	private List<Maintenance> maintenances;
 	private Date createDate;
 	private Date requireDate;
 	@OneToOne(orphanRemoval=true)
@@ -54,6 +68,12 @@ public class WorkOrder {
 	public void setId(Integer id) {
 		this.id = id;
 	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
 	public Vehicle getVehicle() {
 		return vehicle;
 	}
@@ -66,17 +86,17 @@ public class WorkOrder {
 	public void setEmployeeRequesting(Employee employeeRequesting) {
 		this.employeeRequesting = employeeRequesting;
 	}
-	public Employee getEmployeeInCharge() {
-		return employeeInCharge;
+	public List<Employee> getEmployeesInCharge() {
+		return employeesInCharge;
 	}
-	public void setEmployeeInCharge(Employee employeeInCharge) {
-		this.employeeInCharge = employeeInCharge;
+	public void setEmployeesInCharge(List<Employee> employeesInCharge) {
+		this.employeesInCharge = employeesInCharge;
 	}
-	public Maintenance getMaintenance() {
-		return maintenance;
+	public List<Maintenance> getMaintenances() {
+		return maintenances;
 	}
-	public void setMaintenance(Maintenance maintenance) {
-		this.maintenance = maintenance;
+	public void setMaintenances(List<Maintenance> maintenances) {
+		this.maintenances = maintenances;
 	}
 	public Date getCreateDate() {
 		return createDate;

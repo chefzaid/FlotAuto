@@ -15,7 +15,7 @@
 			</a></li>
 			<li id="maintenance"><a href="/FlotAuto/maintenance/list.action"><i
 					class="icon-home"></i> <span>Maintenance</span> </a></li>
-			<li id="order"><a href="/FlotAuto/order/list.action"><i
+			<li id="workorder"><a href="/FlotAuto/workorder/list.action"><i
 					class="icon-home"></i> <span>Ordres de travail</span> </a></li>
 			<li id="supplier"><a href="/FlotAuto/supplier/list.action">
 					<i class="icon-home"></i> <span>Fournisseurs</span>

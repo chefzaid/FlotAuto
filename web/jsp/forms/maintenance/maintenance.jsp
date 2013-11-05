@@ -12,7 +12,7 @@
 	<div class="container-fluid">
 		<div class="row-fluid">
 			<jsp:include page="../../includes/success.jsp" />
-			<s:form id="employeeForm" method="POST" enctype="multipart/form-data"
+			<s:form id="maintenanceForm" method="POST" enctype="multipart/form-data"
 				cssClass='form-horizontal form-column' action="save.action">
 				<div class="span12">
 					<div class="box">

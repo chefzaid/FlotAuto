@@ -26,7 +26,7 @@ public class Odometer {
 	@Column(nullable=false)
 	private Integer counter;
 	private Date readDate;
-	private String notes;
+	private String observations;
 	
 	public Integer getId() {
 		return id;
@@ -52,10 +52,10 @@ public class Odometer {
 	public void setReadDate(Date readDate) {
 		this.readDate = readDate;
 	}
-	public String getNotes() {
-		return notes;
+	public String getObservations() {
+		return observations;
 	}
-	public void setNotes(String notes) {
-		this.notes = notes;
-	}	
+	public void setObservations(String observations) {
+		this.observations = observations;
+	}
 }

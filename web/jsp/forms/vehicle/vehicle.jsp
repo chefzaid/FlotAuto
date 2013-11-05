@@ -391,18 +391,18 @@
 					</div>
 				</div>
 				<!-- generate reports -->
-				<div class="center">
-					<d:table name="vehicles" id="v" export="true" requestURI=""
-						class="hide">
-						<d:column title="Marque">${v.brand}</d:column>
-						<d:column title="Modèle">${v.model}</d:column>
-						<d:column title="Année">${v.year}</d:column>
-						<d:column title="Type">${v.type.status}</d:column>
-						<d:column title="Fournisseur">${v.supplier.companyName}</d:column>
-						<d:column title="Matricule">${v.registrationNumber}</d:column>
-						<d:setProperty name="export.pdf" value="true" />
-					</d:table>
-				</div>
+<%-- 				<div class="center"> --%>
+<%-- 					<d:table name="vehicles" id="v" export="true" requestURI="" --%>
+<%-- 						class="hide"> --%>
+<%-- 						<d:column title="Marque">${v.brand}</d:column> --%>
+<%-- 						<d:column title="Modèle">${v.model}</d:column> --%>
+<%-- 						<d:column title="Année">${v.year}</d:column> --%>
+<%-- 						<d:column title="Type">${v.type.status}</d:column> --%>
+<%-- 						<d:column title="Fournisseur">${v.supplier.companyName}</d:column> --%>
+<%-- 						<d:column title="Matricule">${v.registrationNumber}</d:column> --%>
+<%-- 						<d:setProperty name="export.pdf" value="true" /> --%>
+<%-- 					</d:table> --%>
+<%-- 				</div> --%>
 				<!-- /generate reports -->
 			</div>
 		</div>

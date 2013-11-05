@@ -1,10 +1,10 @@
 package net.sas.model.bo;
 
 public enum MeasureUnit {
-	DAY("Jour"), 
-	WEEK("Semaine"), 
-	MONTH("Mois"), 
-	KILOMETER("Kilomètre");
+	DAY("jours"), 
+	WEEK("semaines"), 
+	MONTH("mois"), 
+	KILOMETER("kilomètres");
 	
 	private String status;
 	
