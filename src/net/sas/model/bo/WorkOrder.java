@@ -54,7 +54,7 @@ public class WorkOrder {
 	private Date requireDate;
 	@OneToOne(orphanRemoval=true)
 	@JoinColumn(name="odometer_id", unique=true)
-	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
+	@Cascade (value={CascadeType.ALL})
 	private Odometer odometer;
 	@Enumerated(EnumType.STRING)
 	private WorkOrderProgress progress;

@@ -76,10 +76,10 @@
 									</div>
 								</div>
 								<div class="control-group">
-									<label for="maintenancesList" class="control-label">Maitnenances
+									<label for="maintenanceList" class="control-label">Maitnenances
 										:</label>
 									<div class="controls  input-large">
-										<s:select name="maintenancesList" id="maintenancesList"
+										<s:select name="maintenanceList" id="maintenanceList"
 											list="allMaintenances" listValue="description" listKey="id"
 											headerKey="-1" headerValue="%{''}" cssClass="chosen-select"
 											multiple="true" value="%{currentWorkOrder.maintenances.{id}}" />
@@ -99,12 +99,21 @@
 								</div>
 								<div class="control-group">
 									<label for="requireDate" class="control-label">Date
-										requise :</label>
+										dû :</label>
 									<div class="controls">
 										<input type="text" name="requireDate" id="requireDate"
 											class="input-large datepick"
 											value="<s:date name="currentWorkOrder.requireDate"
 												format="dd/MM/yyyy" />" />
+									</div>
+								</div>
+								<div class="control-group">
+									<label for="progress" class="control-label">Progrès :</label>
+									<div class="controls input-large">
+										<s:select name="progress" id="progress"
+											list="@net.sas.model.bo.WorkOrderProgress@values()"
+											listValue="getStatus()" headerKey="-1" headerValue="%{''}"
+											cssClass="chosen-select" value="#{currentWorkOrder.progress}" />
 									</div>
 								</div>
 								<div class="control-group">
@@ -120,7 +129,7 @@
 									<label for="notes" class="control-label">Notes :</label>
 									<div class="controls">
 										<textarea name="notes" id="notes" placeholder="..."
-											class="input-large">${currentEmployee.notes}</textarea>
+											class="input-large">${currentWorkOrder.notes}</textarea>
 									</div>
 								</div>
 							</div>
@@ -192,26 +201,24 @@
 							class="table table-nomargin table-striped dataTable dataTable-colvis">
 							<thead>
 								<tr>
-									<th>Matricule</th>
-									<th>Prénom</th>
-									<th>Nom</th>
-									<th>Occupation</th>
-									<th>Date emabauche</th>
-									<th>Phone</th>
-									<th>Email</th>
-									<th>Options</th>
+									<th>Description</th>
+									<th>Véhicule</th>
+									<th>Employés chargés</th>
+									<th>Maintenances</th>
+									<th>Date dû</th>
+									<th>Progrès</th>
+									<th>-</th>
 								</tr>
 							</thead>
 							<tbody>
 								<s:iterator value="workOrders" status="entry">
 									<tr>
-										<td><s:property value="number" /></td>
-										<td><s:property value="firstName" /></td>
-										<td><s:property value="lastName" /></td>
-										<td><s:property value="occupation.status" /></td>
-										<td><s:date name="hireDate" format="dd/MM/yyyy" /></td>
-										<td><s:property value="phone" /></td>
-										<td><s:property value="email" /></td>
+										<td><s:property value="description" /></td>
+										<td><s:property value="vehicle" /></td>
+										<td><s:property value="employeesInCharge" /></td>
+										<td><s:property value="maintenances" /></td>
+										<td><s:date name="requireDate" format="dd/MM/yyyy" /></td>
+										<td><s:property value="progress" /></td>
 										<td><jsp:include page="../../includes/table_options.jsp" /></td>
 									</tr>
 								</s:iterator>

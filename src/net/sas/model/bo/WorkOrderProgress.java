@@ -4,7 +4,7 @@ public enum WorkOrderProgress {
 	
 	PENDING("En attente"), 
 	IN_PROGRESS("En cours"), 
-	CLOSED("Fermé");
+	CLOSED("Terminé");
 	
 	private String status;
 	

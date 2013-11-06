@@ -17,7 +17,7 @@ public class VehicleAction implements Action, ModelDriven<Vehicle> {
 	private File image;
 	private static VehicleService vehicleService = new VehicleService();
 	private Vehicle vehicle = new Vehicle();
-	private String supplierString;
+	private String supplierId;
 	
 	@Override
 	public Vehicle getModel() {
@@ -42,7 +42,7 @@ public class VehicleAction implements Action, ModelDriven<Vehicle> {
 	}
 
 	public String save() {
-		vehicleService.save(vehicle, supplierString, image);
+		vehicleService.save(vehicle, supplierId, image);
 		return Action.INPUT;
 	}
 
@@ -92,7 +92,7 @@ public class VehicleAction implements Action, ModelDriven<Vehicle> {
 		this.image = image;
 	}
 
-	public void setSupplierString(String supplierString) {
-		this.supplierString = supplierString;
+	public void setSupplierId(String supplierId) {
+		this.supplierId = supplierId;
 	}
 }

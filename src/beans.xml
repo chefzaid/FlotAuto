@@ -67,5 +67,8 @@
 	<bean id="maintenanceDao" parent="genericDao">
 		<constructor-arg value="net.sas.model.bo.Maintenance" />
 	</bean>
+	<bean id="workOrderDao" parent="genericDao">
+		<constructor-arg value="net.sas.model.bo.WorkOrder" />
+	</bean>
 
 </beans>

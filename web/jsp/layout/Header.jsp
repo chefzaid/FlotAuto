@@ -6,19 +6,19 @@
 			class="icon-reorder"></i></a>
 		<ul class='main-nav'>
 			<li id="dashboard"><a href="/FlotAuto/dashboard/overall.action"><i
-					class="icon-home"></i> <span>Dashboard</span> </a></li>
+					class="icon-home"></i> <span>Tableau</span> </a></li>
 			<li id="vehicle"><a href="/FlotAuto/vehicle/list.action"> <i
-					class="icon-home"></i> <span>Véhicules</span>
+					class="icon-home"></i> <span>Véhicule</span>
 			</a></li>
 			<li id="employee"><a href="/FlotAuto/employee/list.action">
-					<i class="icon-home"></i> <span>Employés</span>
+					<i class="icon-home"></i> <span>Employé</span>
 			</a></li>
 			<li id="maintenance"><a href="/FlotAuto/maintenance/list.action"><i
 					class="icon-home"></i> <span>Maintenance</span> </a></li>
 			<li id="workorder"><a href="/FlotAuto/workorder/list.action"><i
-					class="icon-home"></i> <span>Ordres de travail</span> </a></li>
+					class="icon-home"></i> <span>Ordre de travail</span> </a></li>
 			<li id="supplier"><a href="/FlotAuto/supplier/list.action">
-					<i class="icon-home"></i> <span>Fournisseurs</span>
+					<i class="icon-home"></i> <span>Fournisseur</span>
 			</a></li>
 		</ul>
 		<div class="user">

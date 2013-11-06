@@ -43,6 +43,8 @@
 	href="/FlotAuto/jsp/css/plugins/gritter/jquery.gritter.css">
 <!-- select2 -->
 <!-- <link rel="stylesheet" href="/FlotAuto/jsp/css/plugins/select2/select2.css"> -->
+<!-- icheck -->
+<!-- <link rel="stylesheet" href="/FlotAuto/jsp/css/plugins/icheck/all.css"> -->
 
 
 <!-- jQuery / Struts2-jquery-plugin-->
@@ -85,6 +87,8 @@
 <script src="/FlotAuto/jsp/js/plugins/gritter/jquery.gritter.min.js"></script>
 <!-- select2 -->
 <!-- <script src="/FlotAuto/jsp/js/plugins/select2/select2.min.js"></script> -->
+<!-- icheck -->
+<!-- <script src="/FlotAuto/jsp/js/plugins/icheck/jquery.icheck.min.js"></script> -->
 
 <script src="/FlotAuto/jsp/js/app_common.js"></script>
 
