@@ -17,8 +17,8 @@ public class WorkOrderAction implements Action, ModelDriven<WorkOrder> {
 
 	private static WorkOrderService workOrderService = new WorkOrderService();
 	private WorkOrder workOrder = new WorkOrder();
-	private String vehicleId;
-	private String employeeRequestingId;
+	private Integer vehicleId;
+	private Integer employeeRequestingId;
 	private String employeesInChargeList;
 	private String maintenanceList;
 
@@ -99,35 +99,15 @@ public class WorkOrderAction implements Action, ModelDriven<WorkOrder> {
 		return workOrderService.getAllMaintenances();
 	}
 
-	/* ------------------------- get/set ------------------------- */
-	public String getVehicleId() {
-		return vehicleId;
-	}
-
-	public void setVehicleId(String vehicleId) {
+	public void setVehicleId(Integer vehicleId) {
 		this.vehicleId = vehicleId;
 	}
-
-	public String getEmployeeRequestingId() {
-		return employeeRequestingId;
-	}
-
-	public void setEmployeeRequestingId(String employeeRequestingId) {
+	public void setEmployeeRequestingId(Integer employeeRequestingId) {
 		this.employeeRequestingId = employeeRequestingId;
 	}
-
-	public String getEmployeesInChargeList() {
-		return employeesInChargeList;
-	}
-
 	public void setEmployeesInChargeList(String employeesInChargeList) {
 		this.employeesInChargeList = employeesInChargeList;
 	}
-
-	public String getMaintenanceList() {
-		return maintenanceList;
-	}
-
 	public void setMaintenanceList(String maintenanceList) {
 		this.maintenanceList = maintenanceList;
 	}

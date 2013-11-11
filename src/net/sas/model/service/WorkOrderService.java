@@ -17,22 +17,24 @@ public class WorkOrderService extends GenericService<WorkOrder> {
 
 	@Override
 	public void save(WorkOrder wo) {
-		save(wo, "", "", "", "");
+		save(wo, 0, 0, "", "");
 	}
 
-	public void save(WorkOrder wo, String vehicleId,
-			String employeeRequestingId, String employeesInChargeList,
+	public void save(WorkOrder wo, Integer vehicleId,
+			Integer employeeRequestingId, String employeesInChargeList,
 			String maintenanceList) {
-		Vehicle vehicle = extractVehicle(vehicleId);
-		Employee employeeRequesting = extractEmployee(employeeRequestingId);
+		Vehicle vehicle = new VehicleService().findById(vehicleId);
+		Employee employeeRequesting = new EmployeeService().findById(employeeRequestingId);
 		List<Employee> employeesInCharge = extractEmployees(employeesInChargeList);
 		List<Maintenance> maintenances = extractMaintenances(maintenanceList);
-
+	
 		wo.setVehicle(vehicle);
 		wo.setEmployeeRequesting(employeeRequesting);
 		wo.setEmployeesInCharge(employeesInCharge);
 		wo.setMaintenances(maintenances);
+		wo.getOdometer().setVehicle(vehicle);
 		dao.createOrUpdate(wo);
+		
 		refresh();
 	}
 
@@ -68,17 +70,5 @@ public class WorkOrderService extends GenericService<WorkOrder> {
 			maintenances.add(m);
 		}
 		return maintenances;
-	}
-
-	private Employee extractEmployee(String employeeId) {
-		System.out.println(employeeId);
-		Integer id = Integer.parseInt(employeeId);
-		return new EmployeeService().findById(id);
-	}
-
-	private Vehicle extractVehicle(String vehicleId) {
-		System.out.println(vehicleId);
-		Integer id = Integer.parseInt(vehicleId);
-		return new VehicleService().findById(id);
 	}
 }

@@ -15,10 +15,10 @@ public class VehicleService extends GenericService<Vehicle> {
 	
 	@Override
 	public void save(Vehicle vehicle) {
-		save(vehicle, "", null);
+		save(vehicle, 0, null);
 	}
 
-	public void save(Vehicle vehicle, String supplierId, File image) {
+	public void save(Vehicle vehicle, Integer supplierId, File image) {
 		if (image != null) {
 			vehicle.setPicture(ImageUtil.getImageBytes(image));
 		} else { // if updating vehicle, keep old image if it hasnt changed
@@ -27,7 +27,9 @@ public class VehicleService extends GenericService<Vehicle> {
 				vehicle.setPicture(v.getPicture());
 			}
 		}
-		vehicle.setSupplier(extractSupplier(supplierId));
+		Supplier s = new SupplierService().findById(supplierId);
+		
+		vehicle.setSupplier(s);
 		vehicle.getInsurance().setVehicle(vehicle);
 		vehicle.getTax().setVehicle(vehicle);
 		vehicle.getTechnicalCheck().setVehicle(vehicle);
@@ -38,10 +40,5 @@ public class VehicleService extends GenericService<Vehicle> {
 	
 	public List<Supplier> getSuppliers() {
 		return new SupplierService().getList();
-	}
-	
-	private Supplier extractSupplier(String supplierId){
-		Integer id = Integer.parseInt(supplierId);
-		return new SupplierService().findById(id);
 	}
 }

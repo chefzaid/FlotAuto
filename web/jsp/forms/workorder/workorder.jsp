@@ -39,50 +39,54 @@
 										<input type="hidden" name="id" id="id"
 											value="${currentWorkOrder.id}" /> <input type="text"
 											name="description" id="description"
-											placeholder="Description de la tâche" class="input-large"
+											placeholder="Description de la tâche" class="input-xlarge"
 											value="${currentWorkOrder.description}" />
 									</div>
 								</div>
 								<div class="control-group">
 									<label for="vehicleId" class="control-label">Véhicule :</label>
-									<div class="controls  input-large">
+									<div class="controls  input-xxlarge">
 										<s:select name="vehicleId" id="vehicleId" list="allVehicles"
-											listValue="brand" listKey="id" headerKey="-1"
-											headerValue="%{''}" cssClass="chosen-select"
+											listValue="brand + ' ' + model + ' ' + year + ' [' + registrationNumber + '] - ' + type.status"
+											listKey="id" headerKey="-1" headerValue="%{''}"
+											cssClass="chosen-select"
 											value="%{currentWorkOrder.vehicle.id}" />
 									</div>
 								</div>
 								<div class="control-group">
 									<label for="employeeRequestingId" class="control-label">Employé
 										demandant :</label>
-									<div class="controls  input-large">
+									<div class="controls  input-xxlarge">
 										<s:select name="employeeRequestingId"
 											id="employeeRequestingId" list="allEmployees"
-											listValue="lastName + ' ' + firstName" listKey="id"
-											headerKey="-1" headerValue="%{''}" cssClass="chosen-select"
+											listValue="lastName + ' ' + firstName + ' [' + number + '] - ' + occupation.status"
+											listKey="id" headerKey="-1" headerValue="%{''}"
+											cssClass="chosen-select"
 											value="%{currentWorkOrder.employeeRequesting.id}" />
 									</div>
 								</div>
-								<div class="control-group">
-									<label for="employeesInChargeList" class="control-label">Employés
-										en charge :</label>
-									<div class="controls  input-large">
-										<s:select name="employeesInChargeList"
-											id="employeesInChargeList" list="allEmployees"
-											listValue="lastName + ' ' + firstName" listKey="id"
-											headerKey="-1" headerValue="%{''}" cssClass="chosen-select"
-											multiple="true"
-											value="%{currentWorkOrder.employeesInCharge.{id}}" />
-									</div>
-								</div>
+<!-- 								<div class="control-group"> -->
+<!-- 									<label for="employeesInChargeList" class="control-label">Employés -->
+<!-- 										en charge :</label> -->
+<!-- 									<div class="controls  input-xxlarge"> -->
+<%-- 										<s:select name="employeesInChargeList" --%>
+<%-- 											id="employeesInChargeList" list="allEmployees" --%>
+<%-- 											listValue="lastName + ' ' + firstName + ' [' + number + '] - ' + occupation.status" --%>
+<%-- 											listKey="id" headerKey="-1" headerValue="%{''}" --%>
+<%-- 											cssClass="chosen-select" multiple="true" --%>
+<%-- 											value="%{currentWorkOrder.employeesInCharge.{id}}" /> --%>
+<!-- 									</div> -->
+<!-- 								</div> -->
 								<div class="control-group">
 									<label for="maintenanceList" class="control-label">Maitnenances
 										:</label>
-									<div class="controls  input-large">
+									<div class="controls  input-xxlarge">
 										<s:select name="maintenanceList" id="maintenanceList"
-											list="allMaintenances" listValue="description" listKey="id"
-											headerKey="-1" headerValue="%{''}" cssClass="chosen-select"
-											multiple="true" value="%{currentWorkOrder.maintenances.{id}}" />
+											list="allMaintenances"
+											listValue="description + ' ' + expenses.{type.status + ' [' + quantity + '] : ' + description}"
+											listKey="id" headerKey="-1" headerValue="%{''}"
+											cssClass="chosen-select" multiple="true"
+											value="%{currentWorkOrder.maintenances.{id}}" />
 									</div>
 								</div>
 							</div>
@@ -98,8 +102,8 @@
 									</div>
 								</div>
 								<div class="control-group">
-									<label for="requireDate" class="control-label">Date
-										dû :</label>
+									<label for="requireDate" class="control-label">Date dû
+										:</label>
 									<div class="controls">
 										<input type="text" name="requireDate" id="requireDate"
 											class="input-large datepick"
@@ -150,11 +154,8 @@
 										<div class="input-append">
 											<input type="hidden" name="odometer.id" id="odometer.id"
 												value="${currentWorkOrder.odometer.id}" /> <input
-												type="hidden" name="odometer.vehicle.id"
-												id="odometer.vehicle.id"
-												value="${currentWorkOrder.vehicle.id}" /> <input
 												type="text" name="odometer.counter" id="odometer.counter"
-												placeholder="123 456 Km" class="input-medium"
+												placeholder="123 456" class="input-medium"
 												value="${currentWorkOrder.odometer.counter}" /><span
 												class="add-on">Km</span>
 										</div>
@@ -203,7 +204,7 @@
 								<tr>
 									<th>Description</th>
 									<th>Véhicule</th>
-									<th>Employés chargés</th>
+<!-- 									<th>Employés chargés</th> -->
 									<th>Maintenances</th>
 									<th>Date dû</th>
 									<th>Progrès</th>
@@ -214,11 +215,25 @@
 								<s:iterator value="workOrders" status="entry">
 									<tr>
 										<td><s:property value="description" /></td>
-										<td><s:property value="vehicle" /></td>
-										<td><s:property value="employeesInCharge" /></td>
-										<td><s:property value="maintenances" /></td>
+										<td><s:property
+												value="vehicle.brand + ' ' + vehicle.model + ' ' + vehicle.year + ' [' + vehicle.registrationNumber + '] - ' + vehicle.type.status" /></td>
+<%-- 										<td><s:iterator value="employeesInCharge" var="employee"> --%>
+<%-- 												<s:property --%>
+<%-- 													value="#employee.lastName + ' ' + #employee.firstName + ' [' + #employee.number + '] - ' + #employee.occupation.status" /> --%>
+<!-- 												<br /> -->
+<%-- 											</s:iterator></td> --%>
+										<td><s:iterator value="maintenances" var="maintenance">
+												<s:property value="#maintenance.description" />
+												<b>. Dépenses :</b>
+												<br />
+												<s:iterator value="#maintenance.expenses" var="expense">
+													<s:property
+														value="#expense.type.status + ' [' + #expense.quantity + '] : ' + #expense.description" />
+													<br />
+												</s:iterator>
+											</s:iterator></td>
 										<td><s:date name="requireDate" format="dd/MM/yyyy" /></td>
-										<td><s:property value="progress" /></td>
+										<td><s:property value="progress.status" /></td>
 										<td><jsp:include page="../../includes/table_options.jsp" /></td>
 									</tr>
 								</s:iterator>

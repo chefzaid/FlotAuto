@@ -9,6 +9,6 @@
 <sj:a href="%{view}" targets="home" cssClass="btn" rel="tooltip"
 	title="Afficher" onBeforeTopics="onBeforeLoading"
 	onCompleteTopics="onCompleteLoading"
-	onSuccessTopics="triggerChange"> <!-- used only for expense.jsp -->
+	onSuccessTopics="triggerChange"> <!-- used only in expense.jsp -->
 	<i class="icon-search"></i>
 </sj:a>

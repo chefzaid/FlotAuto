@@ -31,24 +31,20 @@ public class WorkOrder {
 	private String description;
 	@ManyToOne
 	@JoinColumn(name="vehicle_id")
-	@Cascade (value={CascadeType.SAVE_UPDATE})
 	private Vehicle vehicle;
 	@ManyToOne
 	@JoinColumn(name="employeeRequesting_id")
-	@Cascade (value={CascadeType.SAVE_UPDATE})
 	private Employee employeeRequesting;
-	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name = "WorkOrder_Employees", 
-		joinColumns = { @JoinColumn(name = "workorder_id") }, 
-		inverseJoinColumns = { @JoinColumn(name = "employee_id") })
-	@Cascade(value = { CascadeType.SAVE_UPDATE})
-	private List<Employee> employeesInCharge;
+//	@ManyToMany(fetch = FetchType.EAGER)
+//	@JoinTable(name = "WorkOrder_Employees", 
+//		joinColumns = { @JoinColumn(name = "workorder_id") }, 
+//		inverseJoinColumns = { @JoinColumn(name = "employee_id") })
+//	private List<Employee> employeesInCharge;
 	@ManyToMany(fetch = FetchType.EAGER)
 	@Fetch(value = FetchMode.SUBSELECT) // used to fix a bug in hibernate
 	@JoinTable(name = "WorkOrder_Maintenance", 
 		joinColumns = { @JoinColumn(name = "workorder_id") }, 
 		inverseJoinColumns = { @JoinColumn(name = "maintenance_id") })
-	@Cascade(value = { CascadeType.SAVE_UPDATE})
 	private List<Maintenance> maintenances;
 	private Date createDate;
 	private Date requireDate;
@@ -86,12 +82,12 @@ public class WorkOrder {
 	public void setEmployeeRequesting(Employee employeeRequesting) {
 		this.employeeRequesting = employeeRequesting;
 	}
-	public List<Employee> getEmployeesInCharge() {
-		return employeesInCharge;
-	}
-	public void setEmployeesInCharge(List<Employee> employeesInCharge) {
-		this.employeesInCharge = employeesInCharge;
-	}
+//	public List<Employee> getEmployeesInCharge() {
+//		return employeesInCharge;
+//	}
+//	public void setEmployeesInCharge(List<Employee> employeesInCharge) {
+//		this.employeesInCharge = employeesInCharge;
+//	}
 	public List<Maintenance> getMaintenances() {
 		return maintenances;
 	}
