@@ -25,12 +25,10 @@ public class WorkOrderService extends GenericService<WorkOrder> {
 			String maintenanceList) {
 		Vehicle vehicle = new VehicleService().findById(vehicleId);
 		Employee employeeRequesting = new EmployeeService().findById(employeeRequestingId);
-		List<Employee> employeesInCharge = extractEmployees(employeesInChargeList);
 		List<Maintenance> maintenances = extractMaintenances(maintenanceList);
 	
 		wo.setVehicle(vehicle);
 		wo.setEmployeeRequesting(employeeRequesting);
-		wo.setEmployeesInCharge(employeesInCharge);
 		wo.setMaintenances(maintenances);
 		wo.getOdometer().setVehicle(vehicle);
 		dao.createOrUpdate(wo);
@@ -48,17 +46,6 @@ public class WorkOrderService extends GenericService<WorkOrder> {
 
 	public List<Maintenance> getAllMaintenances() {
 		return new MaintenanceService().getList();
-	}
-
-	private List<Employee> extractEmployees(String employeeList) {
-		StringTokenizer st = new StringTokenizer(employeeList, ", ");
-		List<Employee> employees = new ArrayList<Employee>();
-		while (st.hasMoreTokens()) {
-			Integer id = Integer.parseInt(st.nextToken());
-			Employee e = new EmployeeService().findById(id);
-			employees.add(e);
-		}
-		return employees;
 	}
 
 	private List<Maintenance> extractMaintenances(String maintenanceList) {

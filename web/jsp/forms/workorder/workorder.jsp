@@ -65,18 +65,6 @@
 											value="%{currentWorkOrder.employeeRequesting.id}" />
 									</div>
 								</div>
-<!-- 								<div class="control-group"> -->
-<!-- 									<label for="employeesInChargeList" class="control-label">Employés -->
-<!-- 										en charge :</label> -->
-<!-- 									<div class="controls  input-xxlarge"> -->
-<%-- 										<s:select name="employeesInChargeList" --%>
-<%-- 											id="employeesInChargeList" list="allEmployees" --%>
-<%-- 											listValue="lastName + ' ' + firstName + ' [' + number + '] - ' + occupation.status" --%>
-<%-- 											listKey="id" headerKey="-1" headerValue="%{''}" --%>
-<%-- 											cssClass="chosen-select" multiple="true" --%>
-<%-- 											value="%{currentWorkOrder.employeesInCharge.{id}}" /> --%>
-<!-- 									</div> -->
-<!-- 								</div> -->
 								<div class="control-group">
 									<label for="maintenanceList" class="control-label">Maitnenances
 										:</label>
@@ -217,11 +205,6 @@
 										<td><s:property value="description" /></td>
 										<td><s:property
 												value="vehicle.brand + ' ' + vehicle.model + ' ' + vehicle.year + ' [' + vehicle.registrationNumber + '] - ' + vehicle.type.status" /></td>
-<%-- 										<td><s:iterator value="employeesInCharge" var="employee"> --%>
-<%-- 												<s:property --%>
-<%-- 													value="#employee.lastName + ' ' + #employee.firstName + ' [' + #employee.number + '] - ' + #employee.occupation.status" /> --%>
-<!-- 												<br /> -->
-<%-- 											</s:iterator></td> --%>
 										<td><s:iterator value="maintenances" var="maintenance">
 												<s:property value="#maintenance.description" />
 												<b>. Dépenses :</b>

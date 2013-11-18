@@ -5,6 +5,7 @@
 	http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	id="WebApp_ID" version="3.0">
 	<display-name>FlotAuto</display-name>
+	
 	<listener>
 		<listener-class>org.apache.struts2.tiles.StrutsTilesListener</listener-class>
 	</listener>
@@ -12,7 +13,32 @@
 		<param-name>tilesDefinitions</param-name>
 		<param-value>/WEB-INF/tiles.xml</param-value>
 	</context-param>
+	
+	<!-- Spring Security Listener -->
+	<listener>
+	    <listener-class>
+	        org.springframework.web.context.ContextLoaderListener
+	    </listener-class>
+	</listener>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/flotauto-security.xml</param-value>
+	</context-param>    
+	<!-- /Spring Security Listener -->
 
+	<!-- Spring Security Filter (must be the first filter declared) -->
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>
+			org.springframework.web.filter.DelegatingFilterProxy
+		</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!-- /Spring Security Filter -->
+	
 	<!-- DisplayTag Export Filter -->
 <!-- 	<filter> -->
 <!-- 		<filter-name>ResponseOverrideFilter</filter-name> -->
@@ -30,12 +56,14 @@
 
 	<filter>
 		<filter-name>struts2</filter-name>
-		<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+		<filter-class>org.apache.struts2.dispatcher.FilterDispatcher</filter-class>
+		<!-- <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class> -->
 	</filter>
 	<filter-mapping>
 		<filter-name>struts2</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
+
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>

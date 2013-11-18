@@ -17,6 +17,10 @@
 		<action name="ImageAction" class="net.sas.util.ImageAction">
 			<result name="success" type="image"></result>
 		</action>
+		
+		<action name="login">
+			<result name="success">/jsp/forms/login/login.jsp</result>
+		</action>
 	</package>
 
 	<package name="employee" extends="app" namespace="/employee">
