@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html>
 <head>
@@ -10,7 +11,6 @@
 <meta names="apple-mobile-web-app-status-bar-style"
 	content="black-translucent" />
 
-
 <!-- Bootstrap -->
 <link rel="stylesheet" href="/FlotAuto/jsp/css/bootstrap.min.css">
 <!-- Bootstrap responsive -->
@@ -20,7 +20,6 @@
 <link rel="stylesheet" href="/FlotAuto/jsp/css/style.css">
 <!-- Color CSS -->
 <link rel="stylesheet" href="/FlotAuto/jsp/css/themes.css">
-
 
 <!-- jQuery -->
 <script src="/FlotAuto/jsp/js/jquery.min.js"></script>
@@ -33,9 +32,9 @@
 <!-- Apple devices Homescreen icon -->
 <link rel="apple-touch-icon-precomposed"
 	href="/FlotAuto/jsp/img/apple-touch-icon-precomposed.png" />
-
+	
+<title>FlotAuto>Authentification...</title>
 </head>
-
 <body class='login'>
 	<div class="wrapper">
 		<h1>
@@ -44,17 +43,28 @@
 		</h1>
 		<div class="login-body">
 			<h2>Authentification...</h2>
-			<form action="login.action" method='post'>
+			<form action='<c:url value="/j_spring_security_check" />' method='post'>
+				<p>
+					<c:if test="${not empty param.error}">
+						<font color="red"> Erreur lors de la connexion, raison : <br />
+							${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}
+						</font>
+					</c:if>
+				</p>
 				<div class="email">
-					<input type="text" name='username' placeholder="Nom d'utilisateur"
-						class='input-block-level'>
+					<input type="text" name='j_username'
+						placeholder="Nom d'utilisateur" class='input-block-level'>
 				</div>
 				<div class="pw">
-					<input type="password" name="password" placeholder="Mot de passe"
+					<input type="password" name="j_password" placeholder="Mot de passe"
 						class='input-block-level'>
 				</div>
+				<div class="checkbox">
+					<input type="checkbox" name="_spring_security_remember_me" /> Se
+					souvenir de moi.
+				</div>
 				<div class="submit">
-					<input type="submit" value="Connexion" class='btn btn-primary'>
+					<input type="submit" value="Connexion" class='btn btn-success'>
 				</div>
 			</form>
 			<div class="forget">

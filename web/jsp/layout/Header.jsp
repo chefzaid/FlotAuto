@@ -1,4 +1,4 @@
-
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <div id="navigation">
 	<div class="container-fluid">
 		<a href="#" id="brand">FlotAuto</a> <a href="#" class="toggle-nav"
@@ -60,13 +60,14 @@
 						class="icon-lock"></i> </a></li>
 			</ul>
 			<div class="dropdown">
-				<a href="#" class='dropdown-toggle' data-toggle="dropdown">Utilisateur
+				<sec:authentication var="user" property="principal" />
+				<a href="#" class='dropdown-toggle' data-toggle="dropdown">${principal.username}
 					<img src="/FlotAuto/jsp/img/demo/user-avatar.jpg" alt="">
 				</a>
 				<ul class="dropdown-menu pull-right">
 					<li><a href="more-userprofile.html">Profil</a></li>
 					<li><a href="#">Compte</a></li>
-					<li><a href="more-login.html">Déconnexion</a></li>
+					<li><a href="/FlotAuto/j_spring_security_logout">Déconnexion</a></li>
 				</ul>
 			</div>
 		</div>
