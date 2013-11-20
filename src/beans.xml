@@ -52,14 +52,17 @@
 	<bean id="componentDao" parent="genericDao">
 		<constructor-arg value="net.sas.model.bo.Component" />
 	</bean>
+	<bean id="lubricantDao" parent="genericDao">
+		<constructor-arg value="net.sas.model.bo.Lubricant" />
+	</bean>
 	<bean id="expenseOtherDao" parent="genericDao">
 		<constructor-arg value="net.sas.model.bo.ExpenseOther" />
 	</bean>
 	<bean id="expenseComponentDao" parent="genericDao">
 		<constructor-arg value="net.sas.model.bo.ExpenseComponent" />
 	</bean>
-	<bean id="expenseLaborDao" parent="genericDao">
-		<constructor-arg value="net.sas.model.bo.ExpenseLabor" />
+	<bean id="expenseLubricantDao" parent="genericDao">
+		<constructor-arg value="net.sas.model.bo.ExpenseLubricant" />
 	</bean>
 	<bean id="expenseDao" parent="genericDao">
 		<constructor-arg value="net.sas.model.bo.Expense" />

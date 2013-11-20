@@ -44,6 +44,11 @@
 		<put-attribute name="body"
 			value="/jsp/forms/maintenance/component.jsp" />
 	</definition>
+	<definition name="/lubricant.tiles" extends="baseLayout">
+		<put-attribute name="title" value="FlotAuto>Maintenance - Lubrifiants" />
+		<put-attribute name="body"
+			value="/jsp/forms/maintenance/lubricant.jsp" />
+	</definition>
 
 	<definition name="/workorder.tiles" extends="baseLayout">
 		<put-attribute name="title" value="FlotAuto>Ordres de travail" />

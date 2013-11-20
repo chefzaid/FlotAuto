@@ -17,7 +17,7 @@
 		<action name="ImageAction" class="net.sas.util.ImageAction">
 			<result name="success" type="image"></result>
 		</action>
-		
+
 		<action name="login">
 			<result name="success">/jsp/forms/login/login.jsp</result>
 		</action>
@@ -62,20 +62,27 @@
 		</action>
 	</package>
 
+	<package name="lubricant" extends="app" namespace="/maintenance/lubricant">
+		<action name="*" class="net.sas.controller.LubricantAction"
+			method="{0}">
+			<result name="input" type="tiles">/lubricant.tiles</result>
+		</action>
+	</package>
+
 	<package name="expense" extends="app" namespace="/maintenance/expense">
 		<action name="*" class="net.sas.controller.ExpenseAction"
 			method="{0}">
 			<result name="input" type="tiles">/expense.tiles</result>
 		</action>
 	</package>
-	
+
 	<package name="workorder" extends="app" namespace="/workorder">
 		<action name="*" class="net.sas.controller.WorkOrderAction"
 			method="{0}">
 			<result name="input" type="tiles">/workorder.tiles</result>
 		</action>
 	</package>
-	
+
 	<package name="dashboard" extends="app" namespace="/dashboard">
 		<action name="*" class="net.sas.controller.OverallAction"
 			method="{0}">

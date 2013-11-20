@@ -40,11 +40,11 @@
 									<div id="component" class="hide">
 										<label for="componentId" class="control-label">Composant
 											:</label>
-										<div class="controls input-xlarge">
+										<div class="controls input-xxlarge">
 											<s:iterator value="allComponents" var="entry">
 												<input type="hidden"
-													name='price_<s:property value="#entry.id" />'
-													id='price_<s:property value="#entry.id" />'
+													name='cprice_<s:property value="#entry.id" />'
+													id='cprice_<s:property value="#entry.id" />'
 													value='<s:property value="#entry.price" />' />
 											</s:iterator>
 											<s:select name="componentId" id="componentId"
@@ -53,26 +53,26 @@
 												listKey="id" headerKey="-1" headerValue="%{''}"
 												cssClass="chosen-select"
 												value="#{currentExpense.component.id}"
-												onChange="updateCost('price', id);" />
+												onChange="updateCost('cprice', id);" />
 										</div>
 									</div>
-									<div id="labor" class="hide">
-										<label for="employeeId" class="control-label">Employé
+									<div id="lubricant" class="hide">
+										<label for="lubricantId" class="control-label">Lubrifiant
 											:</label>
-										<div class="controls input-xlarge">
-											<s:iterator value="allEmployees" var="entry">
+										<div class="controls input-xxlarge">
+											<s:iterator value="allLubricants" var="entry">
 												<input type="hidden"
-													name='salary_<s:property value="#entry.id" />'
-													id='salary_<s:property value="#entry.id" />'
-													value='<s:property value="#entry.salary" />' />
+													name='lprice_<s:property value="#entry.id" />'
+													id='lprice_<s:property value="#entry.id" />'
+													value='<s:property value="#entry.price" />' />
 											</s:iterator>
-											<s:select name="employeeId" id="employeeId"
-												list="allEmployees"
-												listValue="lastName + ' ' + firstName + ' [' + number + '] - ' + occupation.status"
+											<s:select name="lubricantId" id="lubricantId"
+												list="allLubricants"
+												listValue="brand + ' ' + label + ' [' + reference + '] - ' + type.status"
 												listKey="id" headerKey="-1" headerValue="%{''}"
 												cssClass="chosen-select"
-												value="#{currentExpense.employee.id}"
-												onChange="updateCost('salary', id);" />
+												value="#{currentExpense.lubricant.id}"
+												onChange="updateCost('lprice', id);" />
 										</div>
 									</div>
 									<div id="other" class="hide">
@@ -92,9 +92,10 @@
 									<label for="cost" class="control-label">Coût unitaire :</label>
 									<div class="controls">
 										<div class="input-append">
-											<s:textfield name="cost" id="cost"
-												placeholder="123.45 (Prix | Salaire)"
-												cssClass='input-medium' value="%{currentExpense.cost}" />
+											<input type="text" name="cost" id="cost"
+												placeholder="123.45"
+												class='input-medium' value="${currentExpense.cost}"
+												disabled="disabled" />
 											<span class="add-on">Dh</span>
 										</div>
 									</div>
@@ -104,7 +105,7 @@
 									<div class="controls">
 										<div class="input-append">
 											<input type="text" name="quantity" id="quantity"
-												placeholder="123 (Unités | Heures)" class='input-medium'
+												placeholder="123" class='input-medium'
 												value="${currentExpense.quantity}"
 												onKeyUp="updateTotalCost()" onChange="updateTotalCost()" /><span
 												class="add-on">Uts</span>

@@ -15,12 +15,6 @@ public abstract class Expense {
 	@GeneratedValue(strategy=GenerationType.TABLE)
 	protected Integer id;
 	protected Integer quantity;
-//	@ManyToOne
-//	@JoinColumn(name = "maintenance_id")
-//	@Cascade(value = { CascadeType.SAVE_UPDATE, CascadeType.DELETE })
-//	protected Maintenance maintenance;
-//	@Formula("quantity*unitCost")
-//	protected transient Double totalCost; //derived property
 	
 	public Integer getId() {
 		return id;

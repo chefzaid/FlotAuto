@@ -3,9 +3,9 @@ package net.sas.controller;
 import java.util.List;
 
 import net.sas.model.bo.Component;
-import net.sas.model.bo.Employee;
 import net.sas.model.bo.Expense;
 import net.sas.model.bo.ExpenseType;
+import net.sas.model.bo.Lubricant;
 import net.sas.model.service.ExpenseService;
 
 import org.apache.struts2.ServletActionContext;
@@ -18,7 +18,7 @@ public class ExpenseAction implements Action {
 
 	private String expenseType;
 	private Integer componentId;
-	private Integer employeeId;
+	private Integer lubricantId;
 	private String description;
 	private Double cost;
 	private Integer quantity;
@@ -42,11 +42,10 @@ public class ExpenseAction implements Action {
 	}
 
 	public String save() {
-		System.out.println(expenseType);
 		if (expenseType.equals(ExpenseType.COMPONENT.toString())) {
 			expenseService.saveExpenseComponent(componentId, quantity);
-		} else if (expenseType.equals(ExpenseType.LABOR.toString())) {
-			expenseService.saveExpenseLabor(employeeId, quantity);
+		} else if (expenseType.equals(ExpenseType.LUBRICANT.toString())) {
+			expenseService.saveExpenseLubricant(lubricantId, quantity);
 		} else {
 			expenseService.saveExpenseOther(description, cost, quantity);
 		}
@@ -91,8 +90,8 @@ public class ExpenseAction implements Action {
 		return expenseService.getCurrentEntry();
 	}
 
-	public List<Employee> getAllEmployees() {
-		return expenseService.getAllEmployees();
+	public List<Lubricant> getAllLubricants() {
+		return expenseService.getAllLubricants();
 	}
 
 	public List<Component> getAllComponents() {
@@ -117,12 +116,12 @@ public class ExpenseAction implements Action {
 		this.componentId = componentId;
 	}
 
-	public Integer getEmployeeId() {
-		return employeeId;
+	public Integer getLubricantId() {
+		return lubricantId;
 	}
 
-	public void setEmployeeId(Integer employeeId) {
-		this.employeeId = employeeId;
+	public void setLubricantId(Integer lubricantId) {
+		this.lubricantId = lubricantId;
 	}
 
 	public String getDescription() {

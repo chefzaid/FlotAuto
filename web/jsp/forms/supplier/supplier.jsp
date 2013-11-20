@@ -56,8 +56,7 @@
 									<div class="controls">
 										<input type="text" name="phone" id="phone"
 											class="input-large mask_phone"
-											value="${currentSupplier.phone}" /> <span class="help-block">Format
-											: (123) 456-7890</span>
+											value="${currentSupplier.phone}" />
 									</div>
 								</div>
 								<div class="control-group">
@@ -65,11 +64,8 @@
 									<div class="controls">
 										<input type="text" name="fax" id="fax"
 											class="input-large mask_phone" value="${currentSupplier.fax}" />
-										<span class="help-block">Format : (123) 456-7890</span>
 									</div>
 								</div>
-							</div>
-							<div class="span6">
 								<div class="control-group">
 									<label for="email" class="control-label">Email :</label>
 									<div class="controls">
@@ -78,6 +74,8 @@
 											value="${currentSupplier.email}" />
 									</div>
 								</div>
+							</div>
+							<div class="span6">
 								<div class="control-group">
 									<label for="address.address" class="control-label">Adresse
 										:</label>

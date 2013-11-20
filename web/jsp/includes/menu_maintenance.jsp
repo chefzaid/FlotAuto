@@ -7,5 +7,6 @@
 		<li ><a href="/FlotAuto/maintenance/list.action">Programmes Maintenance</a></li>
 		<li><a href="/FlotAuto/maintenance/expense/list.action">Dépenses</a></li>
 		<li><a href="/FlotAuto/maintenance/component/list.action">Composants</a></li>
+		<li><a href="/FlotAuto/maintenance/lubricant/list.action">Lubrifiants</a></li>
 	</ul>
 </div>

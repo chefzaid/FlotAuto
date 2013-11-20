@@ -4,9 +4,19 @@ function showInput(){
 	var cbox = document.getElementById("expenseType");
 	var str = cbox.options[cbox.selectedIndex].value;
 	$("#component").addClass('hide');
-	$("#labor").addClass('hide');
+	$("#lubricant").addClass('hide');
 	$("#other").addClass('hide');
 	$("#" + str.toLowerCase()).removeClass('hide');
+	
+	if(str.toLowerCase() == "other"){
+		$("#cost").prop("disabled", false);
+	}else{
+		$("#cost").prop("disabled", true);
+	}
+	
+	$("#cost").val('');
+	$("#quantity").val('');
+	$("#totalCost").val('');
 };
 
 //Update cost in Expense.jsp
@@ -15,6 +25,7 @@ function updateCost(field, elemId){
 	var id = $("#" + elemId).val();
 	var cost = $("#" + field +"_" + id).val();
 	$("#cost").val(cost);
+	$("#quantity").val(1);
 	$("#quantity").trigger("onchange");
 };
 

@@ -3,11 +3,11 @@ package net.sas.model.service;
 import java.util.List;
 
 import net.sas.model.bo.Component;
-import net.sas.model.bo.Employee;
 import net.sas.model.bo.Expense;
 import net.sas.model.bo.ExpenseComponent;
-import net.sas.model.bo.ExpenseLabor;
+import net.sas.model.bo.ExpenseLubricant;
 import net.sas.model.bo.ExpenseOther;
+import net.sas.model.bo.Lubricant;
 
 public class ExpenseService extends GenericService<Expense> {
 
@@ -36,14 +36,14 @@ public class ExpenseService extends GenericService<Expense> {
 		refresh();
 	}
 
-	public void saveExpenseLabor(Integer employeeId, Integer quantity) {
-		Employee emp = new EmployeeService().findById(employeeId);
+	public void saveExpenseLubricant(Integer lubricantId, Integer quantity) {
+		Lubricant lub = new LubricantService().findById(lubricantId);
 
-		ExpenseLabor el = new ExpenseLabor();
-		el.setEmployee(emp);
+		ExpenseLubricant el = new ExpenseLubricant();
+		el.setLubricant(lub);
 		el.setQuantity(quantity);
 
-		new ExpenseService("expenseLaborDao");
+		new ExpenseService("expenseLubricantDao");
 		dao.createOrUpdate(el);
 		refresh();
 	}
@@ -64,7 +64,7 @@ public class ExpenseService extends GenericService<Expense> {
 		return new ComponentService().getList();
 	}
 
-	public List<Employee> getAllEmployees() {
-		return new EmployeeService().getList();
+	public List<Lubricant> getAllLubricants() {
+		return new LubricantService().getList();
 	}
 }

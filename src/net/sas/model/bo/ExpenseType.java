@@ -2,7 +2,7 @@ package net.sas.model.bo;
 
 public enum ExpenseType {
 	COMPONENT("Composant"), 
-	LABOR("Labeur"),
+	LUBRICANT("Lubrifiant"),
 	OTHER("Autre");
 	
 	private String status;

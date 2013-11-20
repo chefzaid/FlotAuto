@@ -35,6 +35,13 @@ public class WorkOrder {
 	@ManyToOne
 	@JoinColumn(name="employeeRequesting_id")
 	private Employee employeeRequesting;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @Fetch(value = FetchMode.SUBSELECT) // used to fix a bug in hibernate
+    @JoinTable(name = "WorkOrder_Employees", 
+            joinColumns = { @JoinColumn(name = "workorder_id") }, 
+            inverseJoinColumns = { @JoinColumn(name = "employee_id") })
+    @Cascade(value = { CascadeType.SAVE_UPDATE})
+    private List<Employee> employeesInCharge;
 	@ManyToMany(fetch = FetchType.EAGER)
 	@Fetch(value = FetchMode.SUBSELECT) // used to fix a bug in hibernate
 	@JoinTable(name = "WorkOrder_Maintenance", 
@@ -76,6 +83,12 @@ public class WorkOrder {
 	}
 	public void setEmployeeRequesting(Employee employeeRequesting) {
 		this.employeeRequesting = employeeRequesting;
+	}
+	public List<Employee> getEmployeesInCharge() {
+		return employeesInCharge;
+	}
+	public void setEmployeesInCharge(List<Employee> employeesInCharge) {
+		this.employeesInCharge = employeesInCharge;
 	}
 	public List<Maintenance> getMaintenances() {
 		return maintenances;
