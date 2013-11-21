@@ -11,7 +11,7 @@ import org.hibernate.annotations.CascadeType;
 public class ExpenseLubricant extends Expense {
 
 	@OneToOne(orphanRemoval = true)
-	@JoinColumn(name = "lubricant_id", unique = true)
+	@JoinColumn(name = "lubricant_id")
 	@Cascade(value = { CascadeType.SAVE_UPDATE })
 	private Lubricant lubricant;
 

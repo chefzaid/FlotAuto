@@ -11,7 +11,7 @@ import org.hibernate.annotations.CascadeType;
 public class ExpenseComponent extends Expense {
 
 	@OneToOne(orphanRemoval = true)
-	@JoinColumn(name = "component_id", unique = true)
+	@JoinColumn(name = "component_id")
 	@Cascade(value = { CascadeType.SAVE_UPDATE})
 	private Component component;
 

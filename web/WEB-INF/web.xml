@@ -67,4 +67,13 @@
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
+	
+	<error-page>
+		<error-code>403</error-code>
+		<location>/jsp/forms/auth/access_denied.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>404</error-code>
+		<location>/jsp/forms/auth/not_found.jsp</location>
+	</error-page>
 </web-app>

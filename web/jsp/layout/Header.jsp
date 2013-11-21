@@ -60,8 +60,7 @@
 						class="icon-lock"></i> </a></li>
 			</ul>
 			<div class="dropdown">
-				<sec:authentication var="user" property="principal" />
-				<a href="#" class='dropdown-toggle' data-toggle="dropdown">${principal.username}
+				<a href="#" class='dropdown-toggle' data-toggle="dropdown"><sec:authentication property="principal.username" /> 
 					<img src="/FlotAuto/jsp/img/demo/user-avatar.jpg" alt="">
 				</a>
 				<ul class="dropdown-menu pull-right">

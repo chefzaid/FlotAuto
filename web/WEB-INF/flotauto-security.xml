@@ -5,18 +5,17 @@
 http://www.springframework.org/schema/security
 http://www.springframework.org/schema/security/spring-security-3.1.xsd">
 
-	<http auto-config="true">
+	<http auto-config="true" >
 		<intercept-url pattern="/employee/**" access="ROLE_HR,ROLE_ADMIN" />
 		<intercept-url pattern="/vehicle/**" access="ROLE_TECH,ROLE_ADMIN" />
 		<intercept-url pattern="/maintenance/**" access="ROLE_TECH, ROLE_ADMIN" />
 		<intercept-url pattern="/workorder/**" access="ROLE_DRIVER,ROLE_ADMIN" />
 		<intercept-url pattern="/supplier/**" access="ROLE_ADMIN" />
-		<intercept-url pattern="/dashboard/overall.action"
-			access="ROLE_ANONYMOUS,ROLE_ADMIN" />
+		<intercept-url pattern="/dashboard/**" access="ROLE_ANONYMOUS,ROLE_ADMIN" />
 
-		<form-login login-page="/login/login.action"
-			default-target-url="/vehicle/list.action" authentication-failure-url="/login/login.action?error=true" />
-		<logout logout-success-url="/login/login.action" />
+		<form-login login-page="/login.action"
+			default-target-url="/vehicle/list.action" authentication-failure-url="/login.action?error=true" />
+		<logout logout-success-url="/login.action" />
 		<remember-me />
 	</http>
 
