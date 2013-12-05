@@ -18,7 +18,6 @@ public class ExpenseComponent extends Expense {
 	public Component getComponent() {
 		return component;
 	}
-
 	public void setComponent(Component component) {
 		this.component = component;
 	}
@@ -26,11 +25,8 @@ public class ExpenseComponent extends Expense {
 	public Double getCost() {
 		return component.getPrice();
 	}
-
-	public String getDescription() {
-		return component.getBrand() + " " + component.getLabel() + " ["
-				+ component.getReference() + "] - "
-				+ component.getType().getStatus();
+	public String getDetails() {
+		return component.getDetails();
 	}
 
 	public ExpenseType getType() {

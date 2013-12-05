@@ -1,5 +1,6 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
+<%@ taglib prefix="d" uri="http://displaytag.sf.net/el"%>
 <script type="text/javascript">
 	setActiveTab('maintenance');
 </script>
@@ -12,8 +13,9 @@
 	<div class="container-fluid">
 		<div class="row-fluid">
 			<jsp:include page="../../includes/success.jsp" />
-			<s:form id="maintenanceForm" method="POST" enctype="multipart/form-data"
-				cssClass='form-horizontal form-column' action="save.action">
+			<s:form id="maintenanceForm" method="POST"
+				enctype="multipart/form-data" cssClass='form-horizontal form-column'
+				action="save.action">
 				<div class="span12">
 					<div class="box">
 						<div class="box-title">
@@ -121,10 +123,11 @@
 										<td><s:property value="description" /></td>
 										<td><s:iterator value="expenses" var="expense">
 												<s:property
-													value="#expense.type.status + ' [' + #expense.quantity + '] : ' + #expense.description" />
+													value="#expense.type.status + ' [' + #expense.quantity + '] : ' + #expense.details" />
 												<br />
 											</s:iterator></td>
-										<td><s:property value="frequency.frequence + ' ' + frequency.unit.status" /></td>
+										<td><s:property
+												value="frequency.frequence + ' ' + frequency.unit.status" /></td>
 										<td><jsp:include page="../../includes/table_options.jsp" /></td>
 									</tr>
 								</s:iterator>
@@ -132,6 +135,21 @@
 						</table>
 					</div>
 				</div>
+				<!-- generate reports -->
+				<div class="center">
+					<d:table name="maintenances" id="m" export="true" requestURI=""
+						class="hide">
+						<d:column title="Programme">${m.description}</d:column>
+						<d:column title="Dépenses">${m.expenses}</d:column>
+						<d:column title="Fréquence">${m.frequency.frequence} ${m.frequency.unit.status}</d:column>
+						<d:setProperty name="export.pdf" value="true" />
+						<d:setProperty name="export.pdf.filename" value="maintenances.pdf" />
+						<d:setProperty name="export.xml.filename" value="maintenances.xml" />
+						<d:setProperty name="export.excel.filename" value="maintenances.xls" />
+						<d:setProperty name="export.csv.filename" value="maintenances.csv" />
+					</d:table>
+				</div>
+				<!-- /generate reports -->
 			</div>
 		</div>
 	</div>

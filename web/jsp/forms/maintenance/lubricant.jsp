@@ -1,5 +1,6 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
+<%@ taglib prefix="d" uri="http://displaytag.sf.net/el"%>
 <script type="text/javascript">
 	setActiveTab('maintenance');
 </script>
@@ -138,6 +139,24 @@
 						</table>
 					</div>
 				</div>
+				<!-- generate reports -->
+				<div class="center">
+					<d:table name="lubricants" id="l" export="true" requestURI=""
+						class="hide">
+						<d:column title="Type">${l.type.status}</d:column>
+						<d:column title="Label">${l.label}</d:column>
+						<d:column title="Marque">${l.brand}</d:column>
+						<d:column title="Prix">${l.price}</d:column>
+						<d:column title="Quantité Stock">${l.stockQuantity}</d:column>
+						<d:column title="Référence">${l.reference}</d:column>
+						<d:setProperty name="export.pdf" value="true" />
+						<d:setProperty name="export.pdf.filename" value="lubricants.pdf" />
+						<d:setProperty name="export.xml.filename" value="lubricants.xml" />
+						<d:setProperty name="export.excel.filename" value="lubricants.xls" />
+						<d:setProperty name="export.csv.filename" value="lubricants.csv" />
+					</d:table>
+				</div>
+				<!-- /generate reports -->
 			</div>
 		</div>
 	</div>

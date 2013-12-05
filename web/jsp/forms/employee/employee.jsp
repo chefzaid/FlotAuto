@@ -1,5 +1,6 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
+<%@ taglib prefix="d" uri="http://displaytag.sf.net/el"%>
 <script type="text/javascript">
 	setActiveTab('employee');
 </script>
@@ -353,6 +354,25 @@
 						</table>
 					</div>
 				</div>
+				<!-- generate reports -->
+				<div class="center">
+					<d:table name="employees" id="e" export="true" requestURI=""
+						class="hide">
+						<d:column title="Matricule">${e.number}</d:column>
+						<d:column title="Nom">${e.lastName}</d:column>
+						<d:column title="Prénom">${e.firstName}</d:column>
+						<d:column title="Occupation">${e.occupation.status}</d:column>
+						<d:column title="Date d'embauche">${e.hireDate}</d:column>
+						<d:column title="Phone">${e.phone}</d:column>
+						<d:column title="Email">${e.email}</d:column>
+						<d:setProperty name="export.pdf" value="true" />
+						<d:setProperty name="export.pdf.filename" value="employees.pdf" />
+						<d:setProperty name="export.xml.filename" value="employees.xml" />
+						<d:setProperty name="export.excel.filename" value="employees.xls" />
+						<d:setProperty name="export.csv.filename" value="employees.csv" />
+					</d:table>
+				</div>
+				<!-- /generate reports -->
 			</div>
 		</div>
 	</div>

@@ -49,7 +49,7 @@ public class WorkOrder {
 		inverseJoinColumns = { @JoinColumn(name = "maintenance_id") })
 	private List<Maintenance> maintenances;
 	private Date createDate;
-	private Date requireDate;
+	private Date dueDate;
 	@OneToOne(orphanRemoval=true)
 	@JoinColumn(name="odometer_id", unique=true)
 	@Cascade (value={CascadeType.ALL})
@@ -102,11 +102,11 @@ public class WorkOrder {
 	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
 	}
-	public Date getRequireDate() {
-		return requireDate;
+	public Date getDueDate() {
+		return dueDate;
 	}
-	public void setRequireDate(Date requireDate) {
-		this.requireDate = requireDate;
+	public void setDueDate(Date dueDate) {
+		this.dueDate = dueDate;
 	}
 	public Odometer getOdometer() {
 		return odometer;

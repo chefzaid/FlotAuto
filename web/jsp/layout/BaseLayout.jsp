@@ -133,9 +133,9 @@
 	</div>
 	<div class="container-fluid" id="content">
 		<tiles:insertAttribute name="body" />
+		<div id="footer">
+			<tiles:insertAttribute name="footer" />
+		</div>
 	</div>
-	<!-- 	<div id="footer"> -->
-	<%-- 		<tiles:insertAttribute name="footer" /> --%>
-	<!-- 	</div> -->
 </body>
 </html>

@@ -168,4 +168,8 @@ public class Employee {
 	public void setNotes(String notes) {
 		this.notes = notes;
 	}
+	
+	public String getDetails(){
+		return lastName + " " + firstName + " [" + number + "] - " + occupation.getStatus();
+	}
 }

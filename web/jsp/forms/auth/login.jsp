@@ -53,7 +53,8 @@
 				</p>
 				<div class="email">
 					<input type="text" name='j_username'
-						placeholder="Nom d'utilisateur" class='input-block-level'>
+						placeholder="Nom d'utilisateur" class="input-block-level"
+						autofocus="autofocus" >
 				</div>
 				<div class="pw">
 					<input type="password" name="j_password" placeholder="Mot de passe"

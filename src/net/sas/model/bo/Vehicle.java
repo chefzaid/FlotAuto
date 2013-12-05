@@ -155,4 +155,8 @@ public class Vehicle {
 	public void setNotes(String notes) {
 		this.notes = notes;
 	}
+	
+	public String getDetails(){
+		return brand + " " + model + " [" + registrationNumber + "] - " + type.getStatus();
+	}
 }

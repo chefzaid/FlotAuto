@@ -5158,3 +5158,7 @@ body.error .wrapper .input-append .btn:hover {
 .hide{
 	display: none;
 }
+
+.footer a{
+	color: gray;
+}

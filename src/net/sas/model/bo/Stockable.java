@@ -23,19 +23,19 @@ public abstract class Stockable {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.TABLE)
-	private Integer id;
+	protected Integer id;
 	@Column(nullable=false)
-	private String label;
-	private String brand;
+	protected String label;
+	protected String brand;
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable (name="Stockable_Supplier", 
 			joinColumns={@JoinColumn(name="stockable_id")},
 			inverseJoinColumns={@JoinColumn(name="supplier_id")})
 	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE}) 
-	private List<Supplier> suppliers;
-	private Integer stockQuantity;
-	private Double price;
-	private String reference;
+	protected List<Supplier> suppliers;
+	protected Integer stockQuantity;
+	protected Double price;
+	protected String reference;
 	
 	public Integer getId() {
 		return id;

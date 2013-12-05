@@ -13,8 +13,11 @@ public class Lubricant extends Stockable {
 	public LubricantType getType() {
 		return type;
 	}
-
 	public void setType(LubricantType type) {
 		this.type = type;
+	}
+	
+	public String getDetails(){
+		return brand + ' ' + label + " [" + reference + "] - " + type.getStatus();
 	}
 }

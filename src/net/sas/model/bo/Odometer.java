@@ -10,18 +10,14 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
-
 @Entity
 public class Odometer {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
-	@OneToOne(orphanRemoval = true)
-	@JoinColumn(name = "vehicle_id", unique = true)
-	@Cascade(value = { CascadeType.SAVE_UPDATE, CascadeType.DELETE })
+	@OneToOne
+	@JoinColumn(name = "vehicle_id")
 	private Vehicle vehicle;
 	@Column(nullable=false)
 	private Integer counter;

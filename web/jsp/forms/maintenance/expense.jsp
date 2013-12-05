@@ -1,5 +1,6 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
+<%@ taglib prefix="d" uri="http://displaytag.sf.net/el"%>
 <script type="text/javascript">
 	setActiveTab('maintenance');
 </script>
@@ -49,7 +50,7 @@
 											</s:iterator>
 											<s:select name="componentId" id="componentId"
 												list="allComponents"
-												listValue="brand + ' ' + label + ' [' + reference + '] - ' + type.status"
+												listValue="details"
 												listKey="id" headerKey="-1" headerValue="%{''}"
 												cssClass="chosen-select"
 												value="#{currentExpense.component.id}"
@@ -68,7 +69,7 @@
 											</s:iterator>
 											<s:select name="lubricantId" id="lubricantId"
 												list="allLubricants"
-												listValue="brand + ' ' + label + ' [' + reference + '] - ' + type.status"
+												listValue="details"
 												listKey="id" headerKey="-1" headerValue="%{''}"
 												cssClass="chosen-select"
 												value="#{currentExpense.lubricant.id}"
@@ -92,11 +93,9 @@
 									<label for="cost" class="control-label">Coût unitaire :</label>
 									<div class="controls">
 										<div class="input-append">
-											<input type="text" name="cost" id="cost"
-												placeholder="123.45"
+											<input type="text" name="cost" id="cost" placeholder="123.45"
 												class='input-medium' value="${currentExpense.cost}"
-												disabled="disabled" />
-											<span class="add-on">Dh</span>
+												disabled="disabled" /> <span class="add-on">Dh</span>
 										</div>
 									</div>
 								</div>
@@ -155,7 +154,7 @@
 								<s:iterator value="expenses" status="entry">
 									<tr>
 										<td><s:property value="type.status" /></td>
-										<td><s:property value="description" /></td>
+										<td><s:property value="details" /></td>
 										<td><s:property value="cost" /></td>
 										<td><s:property value="quantity" /></td>
 										<td><s:property value="cost * quantity" /></td>
@@ -167,6 +166,23 @@
 						</table>
 					</div>
 				</div>
+				<!-- generate reports -->
+				<div class="center">
+					<d:table name="expenses" id="e" export="true" requestURI=""
+						class="hide">
+						<d:column title="Type">${e.type.status}</d:column>
+						<d:column title="Description">${e.details}</d:column>
+						<d:column title="Coût">${e.cost}</d:column>
+						<d:column title="Quantité">${e.quantity}</d:column>
+						<d:column title="Coût total">${e.cost * e.quantity}</d:column>
+						<d:setProperty name="export.pdf" value="true" />
+						<d:setProperty name="export.pdf.filename" value="expenses.pdf" />
+						<d:setProperty name="export.xml.filename" value="expenses.xml" />
+						<d:setProperty name="export.excel.filename" value="expenses.xls" />
+						<d:setProperty name="export.csv.filename" value="expenses.csv" />
+					</d:table>
+				</div>
+				<!-- /generate reports -->
 			</div>
 		</div>
 	</div>

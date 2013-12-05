@@ -40,18 +40,18 @@
 	<!-- /Spring Security Filter -->
 	
 	<!-- DisplayTag Export Filter -->
-<!-- 	<filter> -->
-<!-- 		<filter-name>ResponseOverrideFilter</filter-name> -->
-<!-- 		<filter-class>org.displaytag.filter.ResponseOverrideFilter</filter-class> -->
-<!-- 	</filter> -->
-<!-- 	<filter-mapping> -->
-<!-- 		<filter-name>ResponseOverrideFilter</filter-name> -->
-<!-- 		<url-pattern>*.action</url-pattern> -->
-<!-- 	</filter-mapping> -->
-<!-- 	<filter-mapping> -->
-<!-- 		<filter-name>ResponseOverrideFilter</filter-name> -->
-<!-- 		<url-pattern>*.jsp</url-pattern> -->
-<!-- 	</filter-mapping> -->
+	<filter>
+		<filter-name>ResponseOverrideFilter</filter-name>
+		<filter-class>org.displaytag.filter.ResponseOverrideFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>ResponseOverrideFilter</filter-name>
+		<url-pattern>*.action</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>ResponseOverrideFilter</filter-name>
+		<url-pattern>*.jsp</url-pattern>
+	</filter-mapping>
 	<!-- /DisplayTag Export Filter -->
 
 	<filter>

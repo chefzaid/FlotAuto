@@ -1,5 +1,6 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
+<%@ taglib prefix="d" uri="http://displaytag.sf.net/el"%>
 <script type="text/javascript">
 	setActiveTab('maintenance');
 </script>
@@ -12,8 +13,9 @@
 	<div class="container-fluid">
 		<div class="row-fluid">
 			<jsp:include page="../../includes/success.jsp" />
-			<s:form id="componentForm" method="POST" enctype="multipart/form-data"
-				cssClass='form-horizontal form-column' action="save.action">
+			<s:form id="componentForm" method="POST"
+				enctype="multipart/form-data" cssClass='form-horizontal form-column'
+				action="save.action">
 				<div class="span12">
 					<div class="box">
 						<div class="box-title">
@@ -24,14 +26,12 @@
 						<div class="box-content nopadding">
 							<div class="span6">
 								<div class="control-group">
-									<label for="label" class="control-label">Description
-										:</label>
+									<label for="label" class="control-label">Description :</label>
 									<div class="controls">
 										<input type="hidden" name="id" id="id"
 											value="${currentComponent.id}" /> <input type="text"
-											name="label" id="label"
-											placeholder="Label du composant" class="input-large"
-											value="${currentComponent.label}" />
+											name="label" id="label" placeholder="Label du composant"
+											class="input-large" value="${currentComponent.label}" />
 									</div>
 								</div>
 								<div class="control-group">
@@ -187,6 +187,24 @@
 						</table>
 					</div>
 				</div>
+				<!-- generate reports -->
+				<div class="center">
+					<d:table name="components" id="c" export="true" requestURI=""
+						class="hide">
+						<d:column title="Type">${c.type.status}</d:column>
+						<d:column title="Label">${c.label}</d:column>
+						<d:column title="Marque">${c.brand}</d:column>
+						<d:column title="Prix">${c.price}</d:column>
+						<d:column title="Stock">${c.stockQuantity}</d:column>
+						<d:column title="Reference">${c.reference}</d:column>
+						<d:setProperty name="export.pdf" value="true" />
+						<d:setProperty name="export.pdf.filename" value="components.pdf" />
+						<d:setProperty name="export.xml.filename" value="components.xml" />
+						<d:setProperty name="export.excel.filename" value="components.xls" />
+						<d:setProperty name="export.csv.filename" value="components.csv" />
+					</d:table>
+				</div>
+				<!-- /generate reports -->
 			</div>
 		</div>
 	</div>

@@ -25,11 +25,8 @@ public class ExpenseLubricant extends Expense {
 	public Double getCost() {
 		return lubricant.getPrice();
 	}
-
-	public String getDescription() {
-		return lubricant.getBrand() + " " + lubricant.getLabel() + " ["
-				+ lubricant.getReference() + "] - "
-				+ lubricant.getType().getStatus();
+	public String getDetails() {
+		return lubricant.getDetails();
 	}
 
 	public ExpenseType getType() {

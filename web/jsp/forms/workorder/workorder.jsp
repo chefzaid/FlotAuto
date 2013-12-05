@@ -1,5 +1,6 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
+<%@ taglib prefix="d" uri="http://displaytag.sf.net/el"%>
 <script type="text/javascript">
 	setActiveTab('workorder');
 </script>
@@ -47,7 +48,7 @@
 									<label for="vehicleId" class="control-label">Véhicule :</label>
 									<div class="controls  input-xlarge">
 										<s:select name="vehicleId" id="vehicleId" list="allVehicles"
-											listValue="brand + ' ' + model + ' [' + registrationNumber + '] - ' + type.status"
+											listValue="details"
 											listKey="id" headerKey="-1" headerValue="%{''}"
 											cssClass="chosen-select"
 											value="%{currentWorkOrder.vehicle.id}" />
@@ -59,7 +60,7 @@
 									<div class="controls  input-xlarge">
 										<s:select name="employeeRequestingId"
 											id="employeeRequestingId" list="allEmployees"
-											listValue="lastName + ' ' + firstName + ' [' + number + '] - ' + occupation.status"
+											listValue="details"
 											listKey="id" headerKey="-1" headerValue="%{''}"
 											cssClass="chosen-select"
 											value="%{currentWorkOrder.employeeRequesting.id}" />
@@ -71,7 +72,7 @@
 									<div class="controls  input-xlarge">
 										<s:select name="employeesInChargeList"
 											id="employeesInChargeList" list="allEmployees"
-											listValue="lastName + ' ' + firstName" listKey="id"
+											listValue="details" listKey="id"
 											headerKey="-1" headerValue="%{''}" cssClass="chosen-select"
 											multiple="true"
 											value="%{currentWorkOrder.employeesInCharge.{id}}" />
@@ -101,12 +102,12 @@
 									</div>
 								</div>
 								<div class="control-group">
-									<label for="requireDate" class="control-label">Date dû
+									<label for="dueDate" class="control-label">Date dû
 										:</label>
 									<div class="controls">
-										<input type="text" name="requireDate" id="requireDate"
+										<input type="text" name="dueDate" id="dueDate"
 											class="input-large datepick"
-											value="<s:date name="currentWorkOrder.requireDate"
+											value="<s:date name="currentWorkOrder.dueDate"
 												format="dd/MM/yyyy" />" />
 									</div>
 								</div>
@@ -203,7 +204,6 @@
 								<tr>
 									<th>Description</th>
 									<th>Véhicule</th>
-									<!-- 									<th>Employés chargés</th> -->
 									<th>Maintenances</th>
 									<th>Date dû</th>
 									<th>Progrès</th>
@@ -215,18 +215,12 @@
 									<tr>
 										<td><s:property value="description" /></td>
 										<td><s:property
-												value="vehicle.brand + ' ' + vehicle.model + ' [' + vehicle.registrationNumber + '] - ' + vehicle.type.status" /></td>
+												value="vehicle.details" /></td>
 										<td><s:iterator value="maintenances" var="maintenance">
 												<s:property value="#maintenance.description" />
-												<!-- 												<b>. Dépenses :</b> -->
-												<!-- 												<br /> -->
-												<%-- 												<s:iterator value="#maintenance.expenses" var="expense"> --%>
-												<%-- 													<s:property --%>
-												<%-- 														value="#expense.type.status + ' [' + #expense.quantity + '] : ' + #expense.description" /> --%>
-												<!-- 													<br /> -->
-												<%-- 												</s:iterator> --%>
+												<br />
 											</s:iterator></td>
-										<td><s:date name="requireDate" format="dd/MM/yyyy" /></td>
+										<td><s:date name="dueDate" format="dd/MM/yyyy" /></td>
 										<td><s:property value="progress.status" /></td>
 										<td><jsp:include page="../../includes/table_options.jsp" /></td>
 									</tr>
@@ -235,6 +229,23 @@
 						</table>
 					</div>
 				</div>
+				<!-- generate reports -->
+				<div class="center">
+					<d:table name="workOrders" id="wo" export="true" requestURI=""
+						class="hide">
+						<d:column title="Description">${wo.description}</d:column>
+						<d:column title="Véhicule">${wo.vehicle.details}] -  ${wo.vehicle.type.status}</d:column>
+						<d:column title="Maintenances">${wo.maintenances}</d:column>
+						<d:column title="Date dû">${wo.dueDate}</d:column>
+						<d:column title="Progrès">${wo.progress.status}</d:column>
+						<d:setProperty name="export.pdf" value="true" />
+						<d:setProperty name="export.pdf.filename" value="workOrders.pdf" />
+						<d:setProperty name="export.xml.filename" value="workOrders.xml" />
+						<d:setProperty name="export.excel.filename" value="workOrders.xls" />
+						<d:setProperty name="export.csv.filename" value="workOrders.csv" />
+					</d:table>
+				</div>
+				<!-- /generate reports -->
 			</div>
 		</div>
 	</div>

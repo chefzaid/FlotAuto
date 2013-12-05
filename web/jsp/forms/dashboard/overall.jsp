@@ -14,9 +14,12 @@
 					<div class="box">
 						<div class="box-title">
 							<h3>
-								<i class="icon-edit"></i> En construction...
+								<i class="icon-edit"></i>Tableau de bord
 							</h3>
 						</div>
+					</div>
+					<div class="center">
+						<h1>EN CONSTRUCTION...</h1>
 					</div>
 				</div>
 		</div>

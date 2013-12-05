@@ -2,11 +2,11 @@
 <div id="navigation">
 	<div class="container-fluid">
 		<a href="#" id="brand">FlotAuto</a> <a href="#" class="toggle-nav"
-			rel="tooltip" data-placement="bottom" title="Toggle navigation"><i
+			rel="tooltip" data-placement="bottom" title="Basculer navigation"><i
 			class="icon-reorder"></i></a>
 		<ul class='main-nav'>
 			<li id="dashboard"><a href="/FlotAuto/dashboard/overall.action"><i
-					class="icon-home"></i> <span>Tableau</span> </a></li>
+					class="icon-home"></i> <span>Tableau de bord</span> </a></li>
 			<li id="vehicle"><a href="/FlotAuto/vehicle/list.action"> <i
 					class="icon-home"></i> <span>Véhicule</span>
 			</a></li>

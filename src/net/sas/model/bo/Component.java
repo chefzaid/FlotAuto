@@ -31,4 +31,8 @@ public class Component extends Stockable{
 	public void setWarranty(Warranty warranty) {
 		this.warranty = warranty;
 	}
+	
+	public String getDetails(){
+		return brand + ' ' + label + " [" + reference + "] - " + type.getStatus();
+	}
 }
