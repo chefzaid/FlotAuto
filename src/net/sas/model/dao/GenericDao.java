@@ -27,7 +27,7 @@ public class GenericDao<T> {
 	}
 
 	public void createOrUpdate(T obj) {
-		template.merge(obj);
+		template.saveOrUpdate(obj);
 	}
 
 	public List<T> read() {

@@ -95,7 +95,7 @@
 											data-provides="fileupload">
 											<div class="fileupload-new thumbnail"
 												style="width: 200px; height: 150px;">
-												<s:if test="#{currentVehicle.picture != null}">
+												<s:if test="#{currentVehicle.picture != null || currentVehicle.picture.length > 0}">
 													<img
 														src="/FlotAuto/ImageAction?entity=vehicle&id=${currentVehicle.id}" />
 												</s:if>
@@ -248,9 +248,7 @@
 									<label for="insurance.policyNumber" class="control-label">Clé
 										:</label>
 									<div class="controls">
-										<input type="hidden" name="insurance.policyNumber"
-											id="insurance.policyNumber" value="${currentVehicle.id}" />
-										<input type="text" name="insurance.key"
+										<input type="text" name="insurance.policyNumber"
 											id="insurance.policyNumber"
 											placeholder="N° de police d'assurance" class="input-large"
 											value="${currentVehicle.insurance.policyNumber}" />
@@ -294,8 +292,8 @@
 										visite :</label>
 									<div class="controls">
 										<input type="hidden" name="technicalCheck.id"
-											id="technicalCheck.id" value="${currentVehicle.warranty.id}" />
-										<input type="text" name="technicalCheck.beginDate"
+											id="technicalCheck.id" value="${currentVehicle.technicalCheck.id}" />
+										<input type="text" name="technicalCheck.visitDate"
 											id="technicalCheck.visitDate" class="input-large datepick"
 											value="<s:date name="currentVehicle.technicalCheck.visitDate"
 												format="dd/MM/yyyy" />" />
@@ -365,6 +363,7 @@
 							class="table table-nomargin table-striped dataTable dataTable-colvis">
 							<thead>
 								<tr>
+									<th class="hide">ID</th>
 									<th>Marque</th>
 									<th>Modèle</th>
 									<th>Année</th>
@@ -377,6 +376,7 @@
 							<tbody>
 								<s:iterator value="vehicles" status="entry">
 									<tr>
+										<td class="hide"><s:property value="id" /></td>
 										<td><s:property value="brand" /></td>
 										<td><s:property value="model" /></td>
 										<td><s:property value="year" /></td>

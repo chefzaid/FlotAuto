@@ -20,9 +20,12 @@ public class EmployeeService extends GenericService<Employee> {
 		if (image != null) {
 			employee.setPicture(ImageUtil.getImageBytes(image));
 		} else { // if updating employee, keep old image if it hasnt changed
-			Employee e = list.get(index);
+			Employee e = null;
+			if(index < list.size()){
+				e = list.get(index);
+			}
 			if (e != null) {
-				employee.setPicture(e.getPicture());
+				employee.setPicture(e.getPicture()); 
 			}
 		}
 

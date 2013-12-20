@@ -38,23 +38,22 @@ public class Vehicle {
 	private String chassisNumber;
 	@ManyToOne
 	@JoinColumn(name="supplier_id")
-	@Cascade (value={CascadeType.SAVE_UPDATE})
 	private Supplier supplier;
 	@OneToOne(orphanRemoval=true)
 	@JoinColumn(name="warranty_id", unique=true)
-	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
+	@Cascade (value={CascadeType.ALL})
 	private Warranty warranty;
 	@OneToOne(orphanRemoval=true)
 	@JoinColumn(name="tax_id", unique=true)
-	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
+	@Cascade (value={CascadeType.ALL})
 	private VehicleTax tax;
 	@OneToOne(orphanRemoval=true)
 	@JoinColumn(name="insurance_id", unique=true)
-	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
+	@Cascade (value={CascadeType.ALL})
 	private Insurance insurance;
 	@OneToOne(orphanRemoval=true)
 	@JoinColumn(name="technicalCheck_id", unique=true)
-	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
+	@Cascade (value={CascadeType.ALL})
 	private TechnicalCheck technicalCheck;
 	private String specs;
 	private String notes;

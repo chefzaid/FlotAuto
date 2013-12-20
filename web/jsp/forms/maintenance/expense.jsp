@@ -142,6 +142,7 @@
 							class="table table-nomargin table-striped dataTable dataTable-colvis">
 							<thead>
 								<tr>
+									<th class="hide">ID</th>
 									<th>Type</th>
 									<th>Description</th>
 									<th>Prix unitaire</th>
@@ -153,6 +154,7 @@
 							<tbody>
 								<s:iterator value="expenses" status="entry">
 									<tr>
+										<td class="hide"><s:property value="id" /></td>
 										<td><s:property value="type.status" /></td>
 										<td><s:property value="details" /></td>
 										<td><s:property value="cost" /></td>

@@ -57,8 +57,8 @@
 									<div class="controls">
 										<div class="input-append">
 											<input type="text" name="salary" id="salary"
-												placeholder="123.45" class='input-medium'
-												value="${currentEmployee.salary}" /> <span class="add-on">Dh/hr</span>
+												placeholder="1234.56" class='input-medium'
+												value="${currentEmployee.salary}" /> <span class="add-on">Dh/mo</span>
 										</div>
 									</div>
 								</div>
@@ -109,7 +109,7 @@
 											data-provides="fileupload">
 											<div class="fileupload-new thumbnail"
 												style="width: 200px; height: 150px;">
-												<s:if test="#{currentEmployee.picture != null}">
+												<s:if test="#{currentEmployee.picture != null  || currentEmployee.picture.length > 0}">
 													<img
 														src="/FlotAuto/ImageAction?entity=employee&id=${currentEmployee.id}" />
 												</s:if>
@@ -327,6 +327,7 @@
 							class="table table-nomargin table-striped dataTable dataTable-colvis">
 							<thead>
 								<tr>
+									<th class="hide">ID</th>
 									<th>Matricule</th>
 									<th>Prénom</th>
 									<th>Nom</th>
@@ -340,6 +341,7 @@
 							<tbody>
 								<s:iterator value="employees" status="entry">
 									<tr>
+										<td class="hide"><s:property value="id" /></td>
 										<td><s:property value="number" /></td>
 										<td><s:property value="firstName" /></td>
 										<td><s:property value="lastName" /></td>

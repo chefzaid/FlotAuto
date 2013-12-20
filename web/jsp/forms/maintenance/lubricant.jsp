@@ -114,6 +114,7 @@
 							class="table table-nomargin table-striped dataTable dataTable-colvis">
 							<thead>
 								<tr>
+									<th class="hide">ID</th>
 									<th>Type</th>
 									<th>Label</th>
 									<th>Marque</th>
@@ -126,6 +127,7 @@
 							<tbody>
 								<s:iterator value="lubricants" status="entry">
 									<tr>
+										<td class="hide"><s:property value="id" /></td>
 										<td><s:property value="type.status" /></td>
 										<td><s:property value="label" /></td>
 										<td><s:property value="brand" /></td>

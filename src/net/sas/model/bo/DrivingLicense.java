@@ -21,7 +21,7 @@ public class DrivingLicense {
 		parameters = @Parameter(name = "property", value = "employee"))
 	@GeneratedValue(generator = "generator")
 	private Integer id;
-	@OneToOne(mappedBy = "drivingLicense", cascade = javax.persistence.CascadeType.ALL)
+	@OneToOne(mappedBy = "drivingLicense")
 	private Employee employee;
 	@Column(unique = true, nullable = false)
 	private String number;

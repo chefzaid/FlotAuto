@@ -8,7 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -22,9 +21,7 @@ public class TechnicalCheck {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
-	@ManyToOne
-	@JoinColumn(name="vehicle_id")
-	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
+	@OneToOne(mappedBy="technicalCheck")
 	private Vehicle vehicle;
 	@Column(nullable=false)
 	@Temporal(TemporalType.DATE)

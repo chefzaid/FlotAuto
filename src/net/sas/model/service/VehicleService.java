@@ -22,7 +22,10 @@ public class VehicleService extends GenericService<Vehicle> {
 		if (image != null) {
 			vehicle.setPicture(ImageUtil.getImageBytes(image));
 		} else { // if updating vehicle, keep old image if it hasnt changed
-			Vehicle v = list.get(index);
+			Vehicle v = null;
+			if(index < list.size()){
+				v = list.get(index);
+			}
 			if (v != null) {
 				vehicle.setPicture(v.getPicture());
 			}
@@ -30,6 +33,7 @@ public class VehicleService extends GenericService<Vehicle> {
 		Supplier s = new SupplierService().findById(supplierId);
 		
 		vehicle.setSupplier(s);
+		System.out.println(vehicle.getInsurance().getId());
 		vehicle.getInsurance().setVehicle(vehicle);
 		vehicle.getTax().setVehicle(vehicle);
 		vehicle.getTechnicalCheck().setVehicle(vehicle);

@@ -7,13 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
 
 @Entity
 public class Insurance {
@@ -21,12 +17,10 @@ public class Insurance {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
-	@ManyToOne
-	@JoinColumn(name="vehicule_id")
-	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
+	@OneToOne(mappedBy="insurance")
 	private Vehicle vehicle;
 	private String insurer;
-	@Column(unique=true, nullable=false)
+	@Column(nullable=false)
 	private String policyNumber;
 	@Temporal(TemporalType.DATE)
 	private Date beginDate;

@@ -11,9 +11,6 @@ import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
-
 @Entity
 public class VehicleTax {
 	
@@ -21,7 +18,6 @@ public class VehicleTax {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
 	@OneToOne(mappedBy="tax")
-	@Cascade (value={CascadeType.SAVE_UPDATE,CascadeType.DELETE})
 	private Vehicle vehicle;
 	@Column(nullable=false)
 	private Double fees;

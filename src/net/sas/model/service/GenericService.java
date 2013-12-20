@@ -25,7 +25,6 @@ public abstract class GenericService<T> {
 
 	public void save(T entry) {
 		dao.createOrUpdate(entry);
-		refresh();
 	}
 
 	public void delete() {

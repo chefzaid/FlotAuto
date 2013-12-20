@@ -18,8 +18,6 @@ import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
-import org.hibernate.annotations.NotFound;
-import org.hibernate.annotations.NotFoundAction;
 
 @Entity
 public class Employee {
@@ -61,7 +59,7 @@ public class Employee {
 	private HealthCheck healthCheck;
 	@OneToOne(cascade = javax.persistence.CascadeType.ALL)
 	@PrimaryKeyJoinColumn
-	@NotFound(action = NotFoundAction.IGNORE)
+	//@NotFound(action = NotFoundAction.IGNORE)
 	private DrivingLicense drivingLicense;
 	private String trainings;
 	private String notes;

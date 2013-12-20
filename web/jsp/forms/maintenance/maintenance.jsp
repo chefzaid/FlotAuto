@@ -111,6 +111,7 @@
 							class="table table-nomargin table-striped dataTable dataTable-colvis">
 							<thead>
 								<tr>
+									<th class="hide">ID</th>
 									<th>Programme</th>
 									<th>Dépenses</th>
 									<th>Fréquence</th>
@@ -120,6 +121,7 @@
 							<tbody>
 								<s:iterator value="maintenances" status="entry">
 									<tr>
+										<td class="hide"><s:property value="id" /></td>
 										<td><s:property value="description" /></td>
 										<td><s:iterator value="expenses" var="expense">
 												<s:property

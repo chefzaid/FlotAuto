@@ -132,6 +132,7 @@
 							class="table table-nomargin table-striped dataTable dataTable-colvis">
 							<thead>
 								<tr>
+									<th class="hide">ID</th>
 									<th>Raison sociale</th>
 									<th>Type</th>
 									<th>Adresse</th>
@@ -144,6 +145,7 @@
 							<tbody>
 								<s:iterator value="suppliers" status="entry">
 									<tr>
+										<td class="hide"><s:property value="id" /></td>
 										<td><s:property value="companyName" /></td>
 										<td><s:property value="type.status" /></td>
 										<td><s:property value="address.address" /></td>
