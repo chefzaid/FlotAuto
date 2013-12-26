@@ -24,7 +24,7 @@ public class ComponentAction implements Action, ModelDriven<Component> {
 
 	@Override
 	public String execute() {
-		componentService = new ComponentService();
+		componentService.clear();
 		return Action.INPUT;
 	}
 	

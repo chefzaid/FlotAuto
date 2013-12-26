@@ -29,6 +29,7 @@ public class WorkOrderAction implements Action, ModelDriven<WorkOrder> {
 
 	@Override
 	public String execute() {
+		workOrderService.clear();
 		return Action.INPUT;
 	}
 

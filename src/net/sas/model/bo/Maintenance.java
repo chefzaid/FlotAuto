@@ -28,7 +28,6 @@ public class Maintenance {
 	@JoinTable(name = "Maintenance_Expense", 
 		joinColumns = { @JoinColumn(name = "maintenance_id") }, 
 		inverseJoinColumns = { @JoinColumn(name = "expense_id") })
-	@Cascade(value = { CascadeType.SAVE_UPDATE})
 	private List<Expense> expenses;
 	@OneToOne(orphanRemoval = true)
 	@JoinColumn(name = "frequency_id")

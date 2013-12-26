@@ -42,7 +42,7 @@
 									<div class="controls  input-xxlarge">
 										<s:select name="expenseList" id="expenseList"
 											list="allExpenses"
-											listValue="type.status + ' [' + quantity + '] : ' + description"
+											listValue="type.status + ' [' + quantity + '] : ' + details"
 											listKey="id" headerKey="-1" headerValue="%{''}"
 											cssClass="chosen-select" multiple="true"
 											value="%{currentMaintenance.expenses.{id}}" />

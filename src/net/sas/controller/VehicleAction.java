@@ -26,7 +26,7 @@ public class VehicleAction implements Action, ModelDriven<Vehicle> {
 	
 	@Override
 	public String execute() {
-		vehicleService  = new VehicleService();
+		vehicleService.clear();
 		return Action.INPUT;
 	}
 	

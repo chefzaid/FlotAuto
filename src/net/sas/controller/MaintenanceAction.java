@@ -24,6 +24,7 @@ public class MaintenanceAction implements Action, ModelDriven<Maintenance> {
 
 	@Override
 	public String execute() {
+		maintenanceService.clear();
 		return Action.INPUT;
 	}
 

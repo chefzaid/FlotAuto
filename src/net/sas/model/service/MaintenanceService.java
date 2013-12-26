@@ -20,7 +20,13 @@ public class MaintenanceService extends GenericService<Maintenance> {
 
 	public void save(Maintenance m, String expenseList) {
 		m.setExpenses(extractExpenses(expenseList));
-		dao.createOrUpdate(m);
+		if(m.getId() == null){
+			dao.create(m);
+			index++;
+		}else if (m.getId() != null){
+			dao.update(m);
+		}
+		
 		refresh();
 	}
 

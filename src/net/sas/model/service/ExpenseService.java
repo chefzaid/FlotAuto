@@ -21,42 +21,65 @@ public class ExpenseService extends GenericService<Expense> {
 
 	@Override
 	public void save(Expense e) {
-		saveExpenseOther("", 0.0, 0);
+		saveExpenseOther(0, "", 0.0, 0);
 	}
 
-	public void saveExpenseComponent(Integer componentId, Integer quantity) {
+	public void saveExpenseComponent(Integer expenseId, Integer componentId,
+			Integer quantity) {
 		Component c = new ComponentService().findById(componentId);
 
 		ExpenseComponent ec = new ExpenseComponent();
+		ec.setId(expenseId);
 		ec.setComponent(c);
 		ec.setQuantity(quantity);
 
 		new ExpenseService("expenseComponentDao");
-		dao.createOrUpdate(ec);
+		if(expenseId == null){
+			dao.create(ec);
+			index++;
+		}else if(expenseId != null){
+			dao.update(ec);
+		}
+
 		refresh();
 	}
 
-	public void saveExpenseLubricant(Integer lubricantId, Integer quantity) {
+	public void saveExpenseLubricant(Integer expenseId, Integer lubricantId,
+			Integer quantity) {
 		Lubricant lub = new LubricantService().findById(lubricantId);
 
 		ExpenseLubricant el = new ExpenseLubricant();
+		el.setId(expenseId);
 		el.setLubricant(lub);
 		el.setQuantity(quantity);
 
 		new ExpenseService("expenseLubricantDao");
-		dao.createOrUpdate(el);
+		if(expenseId == null){
+			dao.create(el);
+			index++;
+		}else if(expenseId != null){
+			dao.update(el);
+		}
+		
 		refresh();
 	}
 
-	public void saveExpenseOther(String description, Double cost,
-			Integer quantity) {
+	public void saveExpenseOther(Integer expenseId, String description,
+			Double cost, Integer quantity) {
 		ExpenseOther eo = new ExpenseOther();
+		eo.setId(expenseId);
 		eo.setDescription(description);
 		eo.setCost(cost);
 		eo.setQuantity(quantity);
 
 		new ExpenseService("expenseOtherDao");
-		dao.createOrUpdate(eo);
+		if(expenseId == null){
+			dao.create(eo);
+			index++;
+		}else if(expenseId != null){
+			dao.update(eo);
+		}
+		
 		refresh();
 	}
 

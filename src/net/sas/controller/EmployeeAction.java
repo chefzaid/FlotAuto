@@ -24,7 +24,7 @@ public class EmployeeAction implements Action, ModelDriven<Employee> {
 	
 	@Override
 	public String execute() {
-		employeeService = new EmployeeService();
+		employeeService.clear();
 		return Action.INPUT;
 	}
 	

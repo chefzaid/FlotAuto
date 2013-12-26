@@ -21,7 +21,13 @@ public class LubricantService extends GenericService<Lubricant> {
 	public void save(Lubricant l, String supplierList){
 		List<Supplier> suppliers = extractSuppliers(supplierList);
 		l.setSuppliers(suppliers);
-		dao.createOrUpdate(l);
+		if(l.getId() == null){
+			dao.create(l);
+			index++;
+		}else if(l.getId() != null){
+			dao.update(l);
+		}
+		
 		refresh();
 	}
 	

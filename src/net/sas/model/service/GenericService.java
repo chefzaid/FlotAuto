@@ -25,6 +25,7 @@ public abstract class GenericService<T> {
 
 	public void save(T entry) {
 		dao.createOrUpdate(entry);
+		refresh();
 	}
 
 	public void delete() {
@@ -34,6 +35,7 @@ public abstract class GenericService<T> {
 	}
 
 	public void clear() {
+		index = list.size() - 1;
 		currentEntry = null;
 	}
 

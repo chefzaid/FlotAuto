@@ -24,7 +24,7 @@ public class LubricantAction implements Action, ModelDriven<Lubricant> {
 
 	@Override
 	public String execute() {
-		lubricantService = new LubricantService();
+		lubricantService.clear();
 		return Action.INPUT;
 	}
 	

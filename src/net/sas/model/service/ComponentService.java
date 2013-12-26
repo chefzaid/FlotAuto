@@ -21,7 +21,14 @@ public class ComponentService extends GenericService<Component> {
 	public void save(Component c, String supplierList){
 		List<Supplier> suppliers = extractSuppliers(supplierList);
 		c.setSuppliers(suppliers);
-		dao.createOrUpdate(c);
+		
+		if(c.getId() == null){
+			dao.create(c);
+			index++;
+		}else if(c.getId() != null){
+			dao.update(c);	
+		}
+		
 		refresh();
 	}
 	

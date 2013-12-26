@@ -16,6 +16,7 @@ public class ExpenseAction implements Action {
 
 	private static ExpenseService expenseService = new ExpenseService();
 
+	private Integer id;
 	private String expenseType;
 	private Integer componentId;
 	private Integer lubricantId;
@@ -26,7 +27,7 @@ public class ExpenseAction implements Action {
 
 	@Override
 	public String execute() {
-		expenseService = new ExpenseService();
+		expenseService.clear();
 		return Action.INPUT;
 	}
 
@@ -43,11 +44,11 @@ public class ExpenseAction implements Action {
 
 	public String save() {
 		if (expenseType.equals(ExpenseType.COMPONENT.toString())) {
-			expenseService.saveExpenseComponent(componentId, quantity);
+			expenseService.saveExpenseComponent(id, componentId, quantity);
 		} else if (expenseType.equals(ExpenseType.LUBRICANT.toString())) {
-			expenseService.saveExpenseLubricant(lubricantId, quantity);
+			expenseService.saveExpenseLubricant(id, lubricantId, quantity);
 		} else {
-			expenseService.saveExpenseOther(description, cost, quantity);
+			expenseService.saveExpenseOther(id, description, cost, quantity);
 		}
 		return Action.INPUT;
 	}
@@ -99,7 +100,15 @@ public class ExpenseAction implements Action {
 	}
 
 	/* ------------------------------ GET/SET ------------------------------ */
+	
+	public Integer getId() {
+		return id;
+	}
 
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	
 	public String getExpenseType() {
 		return expenseType;
 	}

@@ -19,20 +19,23 @@ public class EmployeeService extends GenericService<Employee> {
 	public void save(Employee employee, File image) {
 		if (image != null) {
 			employee.setPicture(ImageUtil.getImageBytes(image));
-		} else { // if updating employee, keep old image if it hasnt changed
-			Employee e = null;
-			if(index < list.size()){
-				e = list.get(index);
-			}
-			if (e != null) {
-				employee.setPicture(e.getPicture()); 
-			}
 		}
-
 		employee.getDrivingLicense().setEmployee(employee);
 		employee.getHealthCheck().setEmployee(employee);
-		dao.createOrUpdate(employee);
-
+		
+		if(employee.getId() == null){ //if inserting
+			dao.create(employee);
+			index++;
+		}else if(employee.getId() != null){ // if updating
+			if (image == null)  { // keep old image if it hasnt changed
+				Employee e = list.get(index);
+				if (e != null) {
+					employee.setPicture(e.getPicture()); 
+				}
+			}
+			dao.update(employee);
+		}
+		
 		refresh();
 	}
 }

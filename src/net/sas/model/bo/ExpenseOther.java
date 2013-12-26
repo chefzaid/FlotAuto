@@ -26,4 +26,8 @@ public class ExpenseOther extends Expense {
 	public ExpenseType getType(){
 		return ExpenseType.OTHER;
 	}
+	
+	public String getDetails(){
+		return description;
+	}
 }

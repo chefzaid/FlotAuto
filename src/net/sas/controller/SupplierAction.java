@@ -22,7 +22,7 @@ public class SupplierAction implements Action, ModelDriven<Supplier> {
 
 	@Override
 	public String execute() {
-		supplierService = new SupplierService();
+		supplierService.clear();
 		return Action.INPUT;
 	}
 	
