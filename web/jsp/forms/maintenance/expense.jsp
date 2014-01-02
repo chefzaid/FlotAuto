@@ -41,7 +41,7 @@
 									<div id="component" class="hide">
 										<label for="componentId" class="control-label">Composant
 											:</label>
-										<div class="controls input-xxlarge">
+										<div class="controls input-xlarge">
 											<s:iterator value="allComponents" var="entry">
 												<input type="hidden"
 													name='cprice_<s:property value="#entry.id" />'
@@ -60,7 +60,7 @@
 									<div id="lubricant" class="hide">
 										<label for="lubricantId" class="control-label">Lubrifiant
 											:</label>
-										<div class="controls input-xxlarge">
+										<div class="controls input-xlarge">
 											<s:iterator value="allLubricants" var="entry">
 												<input type="hidden"
 													name='lprice_<s:property value="#entry.id" />'
@@ -126,7 +126,7 @@
 						</div>
 					</div>
 				</div>
-				<jsp:include page="../../includes/form_actions.jsp" />
+				<jsp:include page="../../includes/form_actions_expense.jsp" />
 			</s:form>
 		</div>
 		<div class="row-fluid">
